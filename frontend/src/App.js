@@ -22,7 +22,7 @@ class App extends Component {
   
   logOut = async () => {
     let res = await actions.logOut()
-    this.setUser({email:null, createdAt: null, updatedAt: null, _id: null }) //FIX 
+    this.setUser({username: null, email:null, createdAt: null, updatedAt: null, _id: null }) //FIX 
   }
 
   render(){
