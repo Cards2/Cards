@@ -13,6 +13,7 @@ class SignUp extends Component {
                 this.props.setUser({...username.data})  
             }).catch(({ response }) => console.error(response.data));
     }
+    
     render() {
         return (
             <div className ='signup-box'>
