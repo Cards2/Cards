@@ -17,14 +17,14 @@ class LogIn extends Component {
     }
     render() {
         return (
-            <Fragment>
+            <div className='login-box'>
                 <h2>LogIn</h2>
                 <form onSubmit={this.handleSubmit}>
                     <input name="email" type="email" onChange={this.handleChange} />
                     <input name="password" type="password" onChange={this.handleChange} />
                     <input type="submit" value="Log In"/>
                 </form>
-            </Fragment>
+            </div>
         );
     }
 }
