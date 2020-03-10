@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component,} from 'react'; // Fragment 
 import actions from '../../services/index'
 
 class LogIn extends Component {
@@ -20,8 +20,8 @@ class LogIn extends Component {
             <div className='login-box'>
                 <h2>LogIn</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <input name="email" type="email" onChange={this.handleChange} />
-                    <input name="password" type="password" onChange={this.handleChange} />
+                    <input name="email" type="email" onChange={this.handleChange} placeholder='email' />
+                    <input name="password" type="password" onChange={this.handleChange} placeholder='password' />
                     <input type="submit" value="Log In"/>
                 </form>
             </div>

@@ -1,27 +1,4 @@
-import React, { Component } from "react";
-
-class Profile extends Component {
-  state = {};
-
-  handleChange = e => {
-    //   console.log(e.target.name)
-    //   console.log(e.target.value)
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-    console.log(this.state);
-  };
-
-  handleSubmit = e => {
-    alert("The form submitted: " + this.state.value);
-    e.preventDefault();
-    console.log(this.state);
-  };
-
-  render() {
-    if (!this.props.user.email) {
-      this.props.history.push("/log-in");
-    }
+import React from 'react';
 
     return (
       <div>
