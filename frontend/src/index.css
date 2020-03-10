@@ -71,7 +71,7 @@ code {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-   
+    margin: 1rem 3rem;
   background-color: #eee;
   display: inline-block;
   font-size: 2rem;
@@ -85,4 +85,23 @@ code {
 /*Landing page*/
 /*Landing page*/
 
-
+/*Footer*/
+/*Footer*/
+/*Footer*/
+.footer{
+  position: relative;
+    
+    /* transform: translate(-50%, -50%); */
+    margin: 1rem 3rem;
+  background-color: #eee;
+  display: inline-block;
+  font-size: 2rem;
+  padding: 0.5rem 3rem;
+  border-radius: .8rem;
+  box-shadow: 0 .3rem .5rem rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+/*Footer*/
+/*Footer*/
+/*Footer*/

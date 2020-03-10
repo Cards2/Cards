@@ -8,6 +8,7 @@ import Profile from './components/profile/Profile'
 import actions from './services/index'
 import Search from './components/search/Search'
 import NavBar from './components/partials/NavBar'
+import Footer from './components/partials/Footer'
 class App extends Component {
   
   state = { }
@@ -40,6 +41,7 @@ class App extends Component {
         <Route exact path="/search" render={(props) => <Search {...props} user={this.state}/>} />
         <Route component={NotFound} />
       </Switch>
+      <Footer/>
     </BrowserRouter>
   );
   }
