@@ -24,7 +24,6 @@ const actions = {
   userInfo: async userdata => {
     return await service.post("/userdata", userdata)
   }
-
 };
 
 export default actions;
