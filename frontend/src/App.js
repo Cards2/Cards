@@ -9,11 +9,7 @@ import Profile from './components/profile/Profile'
 import actions from './services/index'
 import Search from './components/search/Search'
 import NavBar from './components/partials/NavBar'
-<<<<<<< HEAD
 import Footer from './components/partials/Footer'
-=======
-
->>>>>>> e7f83b2093f7e609eb94e31fabca2fa171c6289b
 class App extends Component {
   
   state = { }
