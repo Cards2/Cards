@@ -9,10 +9,14 @@ const minMax = {
 const userDataSchema = new Schema(
     {
 
-    // userId: {
-    //     type: String,
-    //     required: true,
-    //     },
+    userId: {
+        type: String,
+        required: true,
+        },
+    username: {
+        type: String,
+        required: true,
+        },
     title: {
         type: String,
         required: true,

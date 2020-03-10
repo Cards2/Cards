@@ -21,6 +21,7 @@ router.post('/signup', (req, res, next) => {
 
 // Posts userData from form
 router.post('/userdata', (req, res, next) => {
+  console.log(res.data)
   UserData.create(req.body)
     .then((userInfo) => { 
       console.log(userInfo)

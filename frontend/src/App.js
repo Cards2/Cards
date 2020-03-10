@@ -17,8 +17,7 @@ class App extends Component {
   async componentDidMount() {
     let user = await actions.isLoggedIn()
     this.setState({...user.data})
-    console.log('coolest ')
-    console.log(this.state, "app.js state")
+    // console.log('coolest ')
 
   }
 
@@ -30,6 +29,7 @@ class App extends Component {
   }
 
   render(){
+    // console.log(this.state)
 
     return (
 <BrowserRouter>

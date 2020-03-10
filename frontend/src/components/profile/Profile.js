@@ -3,7 +3,7 @@ import actions from "../../services";
 
 class Profile extends Component {
     state = {
-        
+        userId: this.props.user._id,
     };
 
     handleChange = e => {this.setState({[e.target.name]: e.target.value});
@@ -14,8 +14,7 @@ class Profile extends Component {
   handleSubmit = e => {
         alert("The form submitted: " + this.state.value);
         e.preventDefault();
-        console.log(this.state);
-        actions.userInfo(this.state).then(userdata =>{
+          actions.userInfo(this.state).then(userdata =>{
             this.props.user({...userdata.data})
         }).catch(({ response}) => console.error(response.data))
     };
