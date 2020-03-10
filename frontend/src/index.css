@@ -1,48 +1,54 @@
-html{
+html {
   font-size: 62.5%;
-
 }
 body {
   margin: 0;
   text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--main-Blue);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
-
+:root {
+  --main-Green: #31ad80;
+  --main-Blue: #344559;
+}
 
 /*NavBar Styling*/
 /*NavBar Styling*/
 /*NavBar Styling*/
 .navbar {
   display: flex;
-  background-color: pink;
+  background-color: var(--main-Green);
   justify-content: space-around;
   align-items: center;
   height: 7vh;
   box-shadow: -6px -4px 13px 0px black;
   z-index: 30;
   width: 100%;
+  background-image: url("/navBg.png");
+  background-position: top;
 }
 
- .navbar > a{
+.navbar > a {
   text-decoration: none;
-    color: white;
-    font-size: 2rem;
-    transition: all .5s;
-    width: 8.5rem;
+  color: white;
+  font-size: 2rem;
+  transition: all 0.5s;
+  width: 8.5rem;
 }
 
-.navbar > a:hover{
+.navbar > a:hover {
   font-size: 2.4rem;
-  color: #d27b7b;
-  
-} 
+  color: var(--main-Blue);
+}
 /*NavBar Styling*/
 /*NavBar Styling*/
 /*NavBar Styling*/
@@ -50,33 +56,33 @@ code {
 /*Landing page*/
 /*Landing page*/
 /*Landing page*/
-.signup-box{
+.signup-box {
   position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   background-color: #eee;
   display: inline-block;
   font-size: 2rem;
   padding: 0.5rem 3rem;
-  border-radius: .8rem;
-  box-shadow: 0 .3rem .5rem rgba(0, 0, 0, 0.5);
-    overflow: hidden;
+  border-radius: 0.8rem;
+  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
-.login-box{
+.login-box {
   position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   background-color: #eee;
   display: inline-block;
   font-size: 2rem;
   padding: 0.5rem 3rem;
-  border-radius: .8rem;
-  box-shadow: 0 .3rem .5rem rgba(0, 0, 0, 0.5);
-  
+  border-radius: 0.8rem;
+  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+
   overflow: hidden;
 }
 /*Landing page*/
@@ -86,19 +92,20 @@ code {
 /*Footer*/
 /*Footer*/
 /*Footer*/
-.footer{
+.footer {
+  display: flex;
+  background-color: var(--main-Green);
+  background-image: url("/navBg.png");
+  justify-content: space-around;
+  align-items: center;
+  height: 7vh;
+  box-shadow: 4px 5px 13px 0px black;
+  z-index: 30;
   width: 100%;
-    
-    /* transform: translate(-50%, -50%); */
-    margin: 1rem 3rem;
-  background-color: #eee;
-  display: inline-block;
-  font-size: 2rem;
-  padding: 0.5rem 3rem;
-  border-radius: .8rem;
-  box-shadow: 0 .3rem .5rem rgba(0, 0, 0, 0.5);
-  position: relative;
-  overflow: hidden;
+  position: absolute;
+  top: 100%;
+  transform: translate(0, -100%);
+  background-position: top;
 }
 /*Footer*/
 /*Footer*/
