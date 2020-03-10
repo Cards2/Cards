@@ -1,14 +1,29 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+const UserData = require('../models/userData')
 const passport = require('../config/passport');
 
+// Posts Signup info of user
 router.post('/signup', (req, res, next) => {
   User.register(req.body, req.body.password)
     .then((user) => { 
         req.login(user, function(err,result){
           res.status(201).json(user)
         })
+    })
+    .catch((err) => { 
+      console.log(err)
+      res.status(500).json({ err })
+    });
+});
+
+
+// Posts userData from form
+router.post('/userdata', (req, res, next) => {
+  UserData.create(req.body)
+    .then((userInfo) => { 
+      console.log(userInfo)
     })
     .catch((err) => { 
       console.log(err)

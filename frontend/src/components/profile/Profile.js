@@ -1,34 +1,37 @@
 import React, { Component } from "react";
+import actions from "../../services";
 
 class Profile extends Component {
-  state = {};
+    state = {
+        
+    };
 
-  handleChange = e => {
-    //   console.log(e.target.name)
-    //   console.log(e.target.value)
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-    console.log(this.state);
-  };
+    handleChange = e => {this.setState({[e.target.name]: e.target.value});
+        console.log(this.state);
+    };
+
   // wtfff
   handleSubmit = e => {
-    alert("The form submitted: " + this.state.value);
-    e.preventDefault();
-    console.log(this.state);
-  };
+        alert("The form submitted: " + this.state.value);
+        e.preventDefault();
+        console.log(this.state);
+        actions.userInfo(this.state).then(userdata =>{
+            this.props.user({...userdata.data})
+        }).catch(({ response}) => console.error(response.data))
+    };
 
   render() {
     if (!this.props.user.email) {
       this.props.history.push("/log-in");
     }
-
     return (
       <div>
         <div>Welcome {this.props.user.email}!!!</div>
         <div>
           <h1>Edit Profile</h1>
-          <form method='post'>
+
+
+          <form onSubmit={this.handleSubmit}> 
             <div>
               <label for='username'>
                 <h4>Username</h4>
@@ -47,6 +50,7 @@ class Profile extends Component {
               </label>
               <input
                 onChange={this.handleChange}
+                type='text'
                 name='title'
                 placeholder='eg. Programmer, Artist, etc.'
                 required
@@ -132,21 +136,13 @@ class Profile extends Component {
                 <option value='never'>Never</option>
               </select>
               <label for='wednesday'>Wednesday</label>
-              <select
-                onChange={this.handleChange}
-                id='wednesday'
-                name='wednesday'
-              >
+              <select onChange={this.handleChange} id='wednesday' name='wednesday' >
                 <option value='always'>Always</option>
                 <option value='sometimes'>Sometimes</option>
                 <option value='never'>Never</option>
               </select>
               <label for='thursday'>Thursday</label>
-              <select
-                onChange={this.handleChange}
-                id='thursday'
-                name='thursday'
-              >
+              <select onChange={this.handleChange} id='thursday' name='thursday' >
                 <option value='always'>Always</option>
                 <option value='sometimes'>Sometimes</option>
                 <option value='never'>Never</option>
