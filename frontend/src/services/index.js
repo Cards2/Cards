@@ -29,6 +29,9 @@ const actions = {
   },
   userQuery: async userquery =>{
   return await service.get("/userquery", userquery)
+  },
+  profileCall: async profileData =>{
+    return await service.get("/profileCall", profileData)
   }
 };
 

@@ -31,7 +31,11 @@ router.post('/userdata', (req, res, next) => {
         res.status(500).json({ err })
       });
   });
-
+router.get('/profileCall', (req, res, next) => {
+  UserData.findOne({'userId':'value'}).then(res => {
+    console.log(res.body);
+  })
+})
 
 router.get('/userquery', (req, res, next) => {
     User.find(req.body)
