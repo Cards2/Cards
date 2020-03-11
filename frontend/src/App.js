@@ -17,8 +17,7 @@ class App extends Component {
   async componentDidMount() {
     let user = await actions.isLoggedIn()
     this.setState({...user.data})
-    console.log('coolest ')
-    console.log(this.state, "app.js state")
+    // console.log('coolest ')
 
   }
 
@@ -30,16 +29,16 @@ class App extends Component {
   }
 
   render(){
+    // console.log(this.state)
 
     return (
 <BrowserRouter>
     <NavBar email={this.state.email} logOut={this.logOut}/>
       <Switch>
         <Route exact path="/" render={(props) => <Home {...props} />} />
-        <Route exact path="/sign-up" render={(props)=><SignUp {...props} setUser={this.setUser} />} />
+        <Route exact path="/sign-up" render={(props)=> <SignUp {...props} setUser={this.setUser} />} />
         <Route exact path="/log-in" render={(props) => <LogIn {...props} setUser={this.setUser}/>} />
         <Route exact path="/profile" render={(props) => <Profile {...props} user={this.state} />} />
-        <Route exact path="/search" render={(props) => <Search {...props} user={this.state} />} />
         <Route component={NotFound} />
       </Switch>
       <Footer/>

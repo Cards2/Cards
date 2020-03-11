@@ -2,23 +2,43 @@ import React, { Component } from "react";
 import actions from "../../services";
 
 class Profile extends Component {
-    state = {
-        
-    };
+  state = {
+    userID: this.props.user._id,
+    username: "",
+    title: "",
+    art: "",
+    programming: "",
+    design: "",
+    audio: "",
+    writing: "",
+    about: "",
+    monday: "",
+    tuesday: "",
+    wednesday: "",
+    thursday: "",
+    friday: "",
+    saturday: "",
+    sunday: "",
+    quote: ""
+  };
 
-    handleChange = e => {this.setState({[e.target.name]: e.target.value});
-        console.log(this.state);
-    };
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+    console.log(this.state);
+  };
 
-  // wtfff
+
   handleSubmit = e => {
-        alert("The form submitted: " + this.state.value);
-        e.preventDefault();
-        console.log(this.state);
-        actions.userInfo(this.state).then(userdata =>{
-            this.props.user({...userdata.data})
-        }).catch(({ response}) => console.error(response.data))
-    };
+
+    e.preventDefault();
+    console.log(this.state);
+    actions
+      .userInfo(this.state)
+      .then(userdata => {
+        this.props.user({ ...userdata.data });
+      })
+      .catch(({ response }) => console.error(response.data));
+  };
 
   render() {
     if (!this.props.user.email) {
@@ -30,8 +50,7 @@ class Profile extends Component {
         <div>
           <h1>Edit Profile</h1>
 
-
-          <form onSubmit={this.handleSubmit}> 
+          <form onSubmit={this.handleSubmit}>
             <div>
               <label for='username'>
                 <h4>Username</h4>
@@ -62,7 +81,6 @@ class Profile extends Component {
               <input
                 onChange={this.handleChange}
                 type='number'
-                id='quantity'
                 name='art'
                 min='1'
                 max='10'
@@ -72,7 +90,6 @@ class Profile extends Component {
               <input
                 onChange={this.handleChange}
                 type='number'
-                id='quantity'
                 name='programming'
                 min='1'
                 max='10'
@@ -82,7 +99,6 @@ class Profile extends Component {
               <input
                 onChange={this.handleChange}
                 type='number'
-                id='quantity'
                 name='design'
                 min='1'
                 max='10'
@@ -92,7 +108,6 @@ class Profile extends Component {
               <input
                 onChange={this.handleChange}
                 type='number'
-                id='quantity'
                 name='audio'
                 min='1'
                 max='10'
@@ -102,7 +117,6 @@ class Profile extends Component {
               <input
                 onChange={this.handleChange}
                 type='number'
-                id='quantity'
                 name='writing'
                 min='1'
                 max='10'
@@ -115,6 +129,7 @@ class Profile extends Component {
               </label>
               <textarea
                 onChange={this.handleChange}
+                type='text'
                 name='about'
                 maxLength='140'
                 placeholder='Max length 140 characters'
@@ -124,47 +139,64 @@ class Profile extends Component {
             <div>
               <h4>Avalibility</h4>
               <label for='monday'>Monday</label>
-              <select onChange={this.handleChange} id='monday' name='monday'>
+              <select onChange={this.handleChange} name='monday' required>
+                <option value='none' selected disabled hidden>
+                  Select an Option
+                </option>
                 <option value='always'>Always</option>
                 <option value='sometimes'>Sometimes</option>
                 <option value='never'>Never</option>
               </select>
               <label for='tuesday'>Tuesday</label>
-              <select onChange={this.handleChange} id='tuesday' name='tuesday'>
+              <select onChange={this.handleChange} name='tuesday' required>
+                <option value='none' selected disabled hidden>
+                  Select an Option
+                </option>
                 <option value='always'>Always</option>
                 <option value='sometimes'>Sometimes</option>
                 <option value='never'>Never</option>
               </select>
               <label for='wednesday'>Wednesday</label>
-              <select onChange={this.handleChange} id='wednesday' name='wednesday' >
+              <select onChange={this.handleChange} name='wednesday' required>
+                <option value='none' selected disabled hidden>
+                  Select an Option
+                </option>
                 <option value='always'>Always</option>
                 <option value='sometimes'>Sometimes</option>
                 <option value='never'>Never</option>
               </select>
               <label for='thursday'>Thursday</label>
-              <select onChange={this.handleChange} id='thursday' name='thursday' >
+              <select onChange={this.handleChange} name='thursday' required>
+                <option value='none' selected disabled hidden>
+                  Select an Option
+                </option>
                 <option value='always'>Always</option>
                 <option value='sometimes'>Sometimes</option>
                 <option value='never'>Never</option>
               </select>
               <label for='friday'>Friday</label>
-              <select onChange={this.handleChange} id='friday' name='friday'>
+              <select onChange={this.handleChange} name='friday' required>
+                <option value='none' selected disabled hidden>
+                  Select an Option
+                </option>
                 <option value='always'>Always</option>
                 <option value='sometimes'>Sometimes</option>
                 <option value='never'>Never</option>
               </select>
               <label for='saturday'>Saturday</label>
-              <select
-                onChange={this.handleChange}
-                id='saturday'
-                name='saturday'
-              >
+              <select onChange={this.handleChange} name='saturday' required>
+                <option value='none' selected disabled hidden>
+                  Select an Option
+                </option>
                 <option value='always'>Always</option>
                 <option value='sometimes'>Sometimes</option>
                 <option value='never'>Never</option>
               </select>
               <label for='sunday'>Sunday</label>
-              <select onChange={this.handleChange} id='sunday' name='sunday'>
+              <select onChange={this.handleChange} name='sunday' required>
+                <option value='none' selected disabled hidden>
+                  Select an Option
+                </option>
                 <option value='always'>Always</option>
                 <option value='sometimes'>Sometimes</option>
                 <option value='never'>Never</option>
