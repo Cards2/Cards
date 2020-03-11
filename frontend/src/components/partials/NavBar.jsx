@@ -8,15 +8,16 @@ class NavBar extends Component {
 
         {this.props.email ? ( // this is a terniaty to decide what to display in reference to the user choice
           <Fragment>
+            <NavLink to='/profile'>Profile</NavLink>
+            <NavLink to='/projects'>Projects</NavLink>
             <NavLink onClick={this.props.logOut} to='/'>
               Log Out
             </NavLink>
-            <NavLink to='/profile'>Profile</NavLink>
           </Fragment>
         ) : (
           <Fragment>
-            <NavLink to='/sign-up'>Sign Up </NavLink>
-            <NavLink to='/log-in'>Log In </NavLink>
+            <NavLink to='/sign-up'>Sign Up</NavLink>
+            <NavLink to='/log-in'>Log In</NavLink>
           </Fragment>
         )}
       </nav>

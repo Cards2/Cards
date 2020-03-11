@@ -22,7 +22,10 @@ const actions = {
     return await service.get("/logout");
   },
   userInfo: async userdata => {
-    return await service.post("/userdata", userdata)
+    return await service.post("/userdata", userdata);
+  },
+  projectInfo: async projectdata => {
+    return await service.post("/projectdata", projectdata);
   }
 };
 

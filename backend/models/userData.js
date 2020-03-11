@@ -11,7 +11,7 @@ const minMaxNum = {
   required: true,
   range: {
     min: { type: Number, min: 0 },
-    max: { type: Number, min: 0 }
+    max: { type: Number, max: 10 }
   }
 };
 
