@@ -29,11 +29,14 @@ class App extends Component {
   }
 
   render(){
-    // console.log(this.state)
+    console.log(window.location)
 
     return (
 <BrowserRouter>
-    <NavBar email={this.state.email} logOut={this.logOut}/>
+      {/* {window.location.pathname =='/'? (""): (<NavBar email={this.state.email} logOut={this.logOut}/>)} */}
+      <Switch>
+      <Route exact path="/:nav" render={(props) => <NavBar email={this.state.email} logOut={this.logOut} {...props} />} />
+      </Switch>
       <Switch>
         <Route exact path="/" render={(props) => <Home {...props} />} />
         <Route exact path="/sign-up" render={(props)=> <SignUp {...props} setUser={this.setUser} />} />
@@ -41,7 +44,6 @@ class App extends Component {
         <Route exact path="/profile" render={(props) => <Profile {...props} user={this.state} />} />
         <Route component={NotFound} />
       </Switch>
-      <Footer/>
     </BrowserRouter>
   );
   }

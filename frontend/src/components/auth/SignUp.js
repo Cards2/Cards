@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import actions from '../../services/index'
+import Footer from '../partials/Footer';
 
 class SignUp extends Component {
     state = {
@@ -16,6 +17,7 @@ class SignUp extends Component {
     
     render() {
         return (
+            <div>
             <div className ='signup-box'>
                 <h2>SignUP</h2>
                 <form onSubmit={this.handleSubmit}>
@@ -27,6 +29,8 @@ class SignUp extends Component {
                     <br></br>
                     <input type="submit" value="Sign Up"/>
                 </form>
+            </div>
+                <Footer/>
             </div>
         );
     }

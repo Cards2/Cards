@@ -1,5 +1,6 @@
 import React, { Component,} from 'react'; // Fragment 
 import actions from '../../services/index'
+import Footer from '../partials/Footer';
 
 class LogIn extends Component {
 
@@ -15,6 +16,7 @@ class LogIn extends Component {
     }
     render() {
         return (
+            <div>
             <div className='login-box'>
                 <h2>LogIn</h2>
                 <form onSubmit={this.handleSubmit}>
@@ -22,6 +24,8 @@ class LogIn extends Component {
                     <input name="password" type="password" onChange={this.handleChange} placeholder='password' />
                     <input type="submit" value="Log In"/>
                 </form>
+            </div>
+                <Footer/>
             </div>
         );
     }

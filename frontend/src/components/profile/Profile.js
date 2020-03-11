@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import actions from "../../services";
+import Footer from "../partials/Footer";
 
 class Profile extends Component {
   state = {
@@ -45,6 +46,7 @@ class Profile extends Component {
       this.props.history.push("/log-in");
     }
     return (
+      <div>
       <div>
         <div>Welcome {this.props.user.email}!!!</div>
         <div>
@@ -215,6 +217,8 @@ class Profile extends Component {
             <button type='submit'>Submit</button>
           </form>
         </div>
+      </div>
+        <Footer/>
       </div>
     );
   }
