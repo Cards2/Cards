@@ -10,42 +10,61 @@ import actions from './services/index'
 import Search from './components/search/Search'
 import NavBar from './components/partials/NavBar'
 import Footer from './components/partials/Footer'
+
+
+
 class App extends Component {
   
-  state = { }
+  state = {
+    
+   }
   
   async componentDidMount() {
     let user = await actions.isLoggedIn()
     this.setState({...user.data})
-    // console.log('coolest ')
 
-  }
+    let res2 = await actions.userQuery()
+    this.setState({ users: res2})
+    // console.log(this.state)
+    }
 
-  setUser = (user) => this.setState(user)
+  setUser = (user) => this.setState(user);
   
   logOut = async () => {
     let res = await actions.logOut()
+    this.setState({loginTrigger: false})
     this.setUser({username: null, email:null, createdAt: null, updatedAt: null, _id: null }) //FIX 
   }
 
   render(){
-    console.log(window.location)
-
     return (
-<BrowserRouter>
-      {/* {window.location.pathname =='/'? (""): (<NavBar email={this.state.email} logOut={this.logOut}/>)} */}
+      <>
+      <BrowserRouter>
       <Switch>
       <Route exact path="/:nav" render={(props) => <NavBar email={this.state.email} logOut={this.logOut} {...props} />} />
       </Switch>
-      <Switch>
-        <Route exact path="/" render={(props) => <Home {...props} />} />
-        <Route exact path="/sign-up" render={(props)=> <SignUp {...props} setUser={this.setUser} />} />
-        <Route exact path="/log-in" render={(props) => <LogIn {...props} setUser={this.setUser}/>} />
-        <Route exact path="/profile" render={(props) => <Profile {...props} user={this.state} />} />
-        <Route component={NotFound} />
-      </Switch>
-    </BrowserRouter>
-  );
-  }
-}
+        
+            <Switch>
+              <Route exact path="/" render={(props) => 
+                <Home {...props}  
+                  generalstate={this.state} 
+                  usersearch={this.usersearch}
+                  />} />
+              <Route exact path="/sign-up" render={(props)=> 
+                <SignUp {...props} setUser={this.setUser} />} />
+              <Route exact path="/log-in" render={(props) => 
+                <LogIn {...props} setUser={this.setUser}/>} />
+              <Route exact path="/profile" render={(props) => 
+                <Profile {...props} user={this.state} />} />
+              <Route exact path="/search" render={(props) => 
+                <Search {...props} user={this.state} />} />
+
+              <Route component={NotFound} />
+            </Switch>
+            {/* <Footer/> */}
+          </BrowserRouter>
+          </>
+        );
+      }
+    }
 export default App;

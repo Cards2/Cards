@@ -24,9 +24,9 @@ const actions = {
   userInfo: async userdata => {
     return await service.post("/userdata", userdata)
   },
-  cardInfo: async () => {
-    return await service.get("/userdata")
-  } 
+  userQuery: async userquery =>{
+  return await service.get("/userquery", userquery)
+  }
 };
 
 export default actions;

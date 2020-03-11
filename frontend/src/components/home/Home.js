@@ -1,10 +1,33 @@
-import React, { Component } from "react";
-import actions from "../../services/index";
+import React, { Component } from 'react';
+import actions from '../../services/index'
+// import Search from '../search/Search'
+
+
 
 class Home extends Component {
-  async componentDidMount() {
-    //actions.test()
+
+  state = {
+    allUsers: [],
+    users: [],
+    userdata: this.props.generalstate.users
   }
+
+
+  searchfunction =( )=> {
+   if(this.props.generalstate.users) {
+      return this.props.generalstate.users.data.allUsers.map((eachuser, i) => {
+      return (
+      <>
+        <br></br>
+        <h1> Search </h1>
+        <h3> User ID: {eachuser._id}  </h3>
+        <h3> email: {eachuser.email}  </h3>
+        </>
+        ) 
+      } )  
+      }
+    }
+
   render() {
     return (
       <div className="homeBox">
@@ -26,6 +49,9 @@ class Home extends Component {
           <a id='btnlog' className='btn-login' href="/log-in"><p>Log in</p></a>
           <a id='btnsignup'className='btn-signup' href="/sign-up">Sign up</a>
         </div>
+      
+      {this.searchfunction()}
+      {console.log(this.props.generalstate)}
       </div>
     );
   }

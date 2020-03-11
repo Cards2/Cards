@@ -3,6 +3,7 @@ import actions from "../../services";
 import Footer from "../partials/Footer";
 
 class Profile extends Component {
+  
   state = {
     userID: this.props.user._id,
     username: "",
@@ -24,28 +25,26 @@ class Profile extends Component {
   };
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-    console.log(this.state);
-  };
+        this.setState({ [e.target.name]: e.target.value });
+        console.log(this.state);
+    };
 
 
   handleSubmit = e => {
-
-    e.preventDefault();
-    console.log(this.state);
-    actions
-      .userInfo(this.state)
-      .then(userdata => {
-        this.props.user({ ...userdata.data });
-      })
-      .catch(({ response }) => console.error(response.data));
-  };
+        e.preventDefault();
+        console.log(this.state);
+        actions
+        .userInfo(this.state)
+        .then(userdata => {
+            this.props.user({ ...userdata.data });
+        })
+        .catch(({ response }) => console.error(response.data));
+    };
 
   render() {
     if (!this.props.user.email) {
       this.props.history.push("/log-in");
-    }
-    return (
+    } return (
       <div>
       <div>
         <div>Welcome {this.props.user.email}!!!</div>
