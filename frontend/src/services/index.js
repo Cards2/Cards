@@ -26,6 +26,9 @@ const actions = {
   },
   projectInfo: async projectdata => {
     return await service.post("/projectdata", projectdata);
+  },
+  userQuery: async userquery =>{
+  return await service.get("/userquery", userquery)
   }
 };
 

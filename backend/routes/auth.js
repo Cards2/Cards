@@ -20,17 +20,27 @@ router.post("/signup", (req, res, next) => {
 });
 
 // Posts userData from form
-router.post("/userdata", (req, res, next) => {
-  console.log(res.data);
-  UserData.create(req.body)
-    .then(userInfo => {
-      console.log(userInfo);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({ err });
+router.post('/userdata', (req, res, next) => {
+  // console.log(res.data)
+    UserData.create(req.body)
+      .then((userInfo) => { 
+        // console.log(userInfo)
+      })
+      .catch((err) => { 
+        // console.log(err)
+        res.status(500).json({ err })
+      });
+  });
+
+
+router.get('/userquery', (req, res, next) => {
+    User.find(req.body)
+    .then((allUsers) => {
+      // console.log( allUsers ) 
+      res.status(200).json({ allUsers })} )
+    .catch((err) => res.status(500).json({ err }));
     });
-});
+
 
 router.post("/projectdata", (req, res, next) => {
   console.log(res.data);
@@ -45,25 +55,25 @@ router.post("/projectdata", (req, res, next) => {
 });
 
 //return await service.get('/is-logged-in');
-router.get("/is-logged-in", (req, res, next) => {
-  res.json(req.user);
-});
+router.get('/is-logged-in', (req, res, next) => {  
+    res.json(req.user)
+    })
 
-router.post("/login", passport.authenticate("local"), (req, res, next) => {
-  const { user } = req;
-  res.status(200).json(user);
-});
+router.post('/login', passport.authenticate('local'), (req, res, next) => {
+    const { user } = req;
+    res.status(200).json(user);
+  });
 
-router.get("/logout", (req, res, next) => {
-  req.logout();
-  res.status(200).json({ msg: "Logged out" });
-});
+router.get('/logout', (req, res, next) => {
+    req.logout();
+    res.status(200).json({ msg: 'Logged out' });
+  });
 
 router.get("/profile", isAuth, (req, res, next) => {
   User.findById(req.user._id)
-    .then(user => res.status(200).json({ user }))
-    .catch(err => res.status(500).json({ err }));
-});
+    .then((user) => res.status(200).json({ user }))
+    .catch((err) => res.status(500).json({ err }));
+  });
 
 function isAuth(req, res, next) {
   req.isAuthenticated()
