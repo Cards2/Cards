@@ -21,22 +21,22 @@ router.post('/signup', (req, res, next) => {
 
 // Posts userData from form
 router.post('/userdata', (req, res, next) => {
-  console.log(res.data)
-  UserData.create(req.body)
-    .then((userInfo) => { 
-      console.log(userInfo)
-    })
-    .catch((err) => { 
-      console.log(err)
-      res.status(500).json({ err })
-    });
-});
+  // console.log(res.data)
+    UserData.create(req.body)
+      .then((userInfo) => { 
+        console.log(userInfo)
+      })
+      .catch((err) => { 
+        console.log(err)
+        res.status(500).json({ err })
+      });
+  });
 
 
 //return await service.get('/is-logged-in');
 router.get('/is-logged-in', (req, res, next) => {  
-  res.json(req.user)
-})
+    res.json(req.user)
+  })
 
 
 router.post('/login', passport.authenticate('local'), (req, res, next) => {
