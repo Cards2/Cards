@@ -70,6 +70,17 @@ code {
   box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
   overflow: hidden;
 }
+
+.note{
+  background-color: #eee;
+  display: inline-block;
+  font-size: 2rem;
+  padding: 0.5rem 3rem;
+  border-radius: .8rem;
+  box-shadow: 0 .3rem .5rem rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
 .login-box {
   position: absolute;
   top: 50%;

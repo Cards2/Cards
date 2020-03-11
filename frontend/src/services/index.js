@@ -23,6 +23,9 @@ const actions = {
   },
   userInfo: async userdata => {
     return await service.post("/userdata", userdata)
+  },
+  userQuery: async userquery =>{
+  return await service.get("/userquery", userquery)
   }
 };
 

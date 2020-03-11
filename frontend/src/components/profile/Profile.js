@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import actions from "../../services";
 
 class Profile extends Component {
+  
   state = {
     userID: this.props.user._id,
     username: "",
