@@ -23,7 +23,10 @@ const actions = {
   },
   userInfo: async userdata => {
     return await service.post("/userdata", userdata)
-  }
+  },
+  cardInfo: async () => {
+    return await service.get("/userdata")
+  } 
 };
 
 export default actions;
