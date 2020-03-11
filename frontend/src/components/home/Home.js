@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import actions from '../../services/index'
+import Search from '../search/Search'
+
 
 
 class Home extends Component {
@@ -9,7 +11,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        
+
       </div>
     );
   }
