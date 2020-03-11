@@ -27,9 +27,9 @@ class Profile extends Component {
     console.log(this.state);
   };
 
-  // wtfff
+
   handleSubmit = e => {
-    alert("The form submitted: " + this.state.value);
+
     e.preventDefault();
     console.log(this.state);
     actions
