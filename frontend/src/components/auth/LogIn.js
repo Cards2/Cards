@@ -5,7 +5,10 @@ import Footer from '../partials/Footer';
 class LogIn extends Component {
 
     state = {} 
+
     
+
+    }
     handleChange = e => this.setState({[e.target.name]: e.target.value})
 
     handleSubmit = e => {
@@ -16,17 +19,21 @@ class LogIn extends Component {
     }
     render() {
         return (
-            <div>
+            
             <div className='login-box'>
-                <h2>LogIn</h2>
-                <form onSubmit={this.handleSubmit}>
+                
+                <form className='form-box' onSubmit={this.handleSubmit}>
                     <input name="email" type="email" onChange={this.handleChange} placeholder='email' />
                     <input name="password" type="password" onChange={this.handleChange} placeholder='password' />
-                    <input type="submit" value="Log In"/>
+                    <div className='reg-btn'>
+                    <input id='btnlog' className='btn-login' type="submit" value="Log In" onClick={a => (this.redirect)}/>
+                    
+                    <a id='btnsignup'className='btn-signup' href="/sign-up">Sign up</a>
+                    </div>
                 </form>
             </div>
-                <Footer/>
-            </div>
+                
+            
         );
     }
 }

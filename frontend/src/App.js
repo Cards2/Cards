@@ -57,7 +57,7 @@ class App extends Component {
           </Switch>
 
           <Switch>
-            <Route exact path="/" render={props => <Home {...props} />} />
+            <Route exact path="/" render={props => <Home {...props} setUser={this.setUser}/>} />
             <Route
               exact
               path="/sign-up"
