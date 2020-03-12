@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Plaster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900");
+
+html {
+  font-size: 62.5%;
+}
+body {
+  margin: 0;
+  text-align: center;
+  font-family: "Montserrat", sans-serif, "Plaster", cursive, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--main-Blue);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+:root {
+  --main-Green: #51d4a4;
+  --main-Blue: #344559;
+  --main-Bk: #229068;
+}
+
+/*NavBar Styling*/
+/*NavBar Styling*/
+/*NavBar Styling*/
+.navbar {
+  display: flex;
+  background-color: var(--main-Green);
+  justify-content: space-around;
+  align-items: center;
+  height: 7vh;
+  box-shadow: -6px -4px 13px 0px black;
+  z-index: 30;
+  width: 100%;
+  background-image: url("/navBg.png");
+  background-position: top;
+}
+
+.navbar > a {
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+  transition: all 0.5s;
+  width: 8.5rem;
+}
+
+.navbar > a:hover {
+  font-size: 2.2rem;
+  color: var(--main-Blue);
+}
+/*NavBar Styling*/
+/*NavBar Styling*/
+/*NavBar Styling*/
+
+/*Landing page*/
+/*Landing page*/
+/*Landing page*/
+.signup-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: #eee;
+  display: inline-block;
+  font-size: 2rem;
+  padding: 0.5rem 3rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/*Landing page*/
+/*Landing page*/
+/*Landing page*/
+
+/*Footer*/
+/*Footer*/
+/*Footer*/
+.footer {
+  display: flex;
+  background-color: var(--main-Green);
+  background-image: url("/navBg.png");
+  justify-content: space-around;
+  align-items: center;
+  height: 7vh;
+  box-shadow: 4px 5px 13px 0px black;
+  z-index: 30;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  transform: translate(0, -100%);
+  background-position: top;
+}
+/*Footer*/
+/*Footer*/
+/*Footer*/
+
+/*Home*/
+/*Home*/
+/*Home*/
+.homeBox {
+  background-color: var(--main-Green);
+  /* background-image: url("/navBg.png"); */
+  height: 60vh;
+  width: 100vw;
+  /* transform: translateX(15vw); */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: -4px -4px 13px black;
+}
+.header_text-box {
+  height: fit-content;
+}
+.heading-primary {
+  color: var(--main-Blue);
+
+  backface-visibility: hidden;
+  margin-bottom: 0rem;
+}
+.heading-primary--main {
+  display: block;
+  font-size: 18rem;
+  /* letter-spacing: 3rem; */
+  font-family: "Plaster", cursive;
+  text-transform: uppercase;
+  height: 18rem;
+  position: relative;
+  filter: drop-shadow(2.2px 2.2px 0px #97eacc);
+  text-shadow: -2px -2px 2px #151415;
+}
+
+.heading-primary--sub {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 0.5rem;
+}
+.message {
+  color: white;
+  width: 31rem;
+  font-size: 2.3rem;
+  font-family: "Montserrat", sans-serif;
+  margin: 6rem auto;
+}
+
+@media only screen and (max-width: 540px) {
+  #depth.heading-primary--main {
+    font-size: 8rem;
+    height: 8rem;
+    filter: drop-shadow(1.2px 1.2px 0px #97eacc) !important;
+    text-shadow: -1px -1px 1px #151415 !important;
+  }
+  .heading-primary--sub {
+    font-size: 1.5rem;
+    letter-spacing: 0;
+  }
+  .organizer {
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+  }
+
+  .message {
+    font-size: 1.5rem;
+    width: 60%;
+    margin: 1rem auto;
+  }
+  .form-box > input {
+    margin: 1rem !important;
+  }
+  #btnlog {
+    width: 10rem;
+    font-size: 2rem;
+  }
+  #btnLog > p {
+    margin: auto;
+  }
+  #btnsignup {
+    font-size: 2rem;
+  }
+}
+.btn-login {
+  margin: 0 2rem;
+  color: white;
+  text-decoration: none;
+  font-size: 2.7rem;
+  width: 12rem;
+  font-weight: 700;
+  display: inline-block;
+  border-radius: 0.8rem;
+  background-color: var(--main-Blue);
+  height: fit-content;
+  border: none;
+}
+.btn-login > p {
+  margin: 0.5rem 0rem;
+}
+.btn-signup {
+  color: white;
+  text-decoration: none;
+  font-size: 2.5rem;
+  margin: 0 2rem;
+}
+.organizer {
+  display: flex;
+}
+.register-box {
+  display: flex;
+}
+.login-box {
+  display: inline-block;
+  font-size: 2rem;
+  padding: 0.5rem 3rem;
+  display: flex;
+  align-items: center;
+}
+.form-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.form-box > input {
+  margin: 2rem 0;
+  border: none;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+}
+/*Home*/
+/*Home*/
+/*Home*/
