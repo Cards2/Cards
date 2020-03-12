@@ -20,12 +20,12 @@ router.post("/signup", (req, res, next) => {
 });
 
 
-// Can be used to call contact info (email) from user in future
-          // router.get('/profileCall', (req, res, next) => {
-          //   UserData.findOne({'userId':'value'}).then(res => {
-          //     console.log(res.body);
-          //   })
-          // })
+// // Can be used to call contact info (email) from user in future
+//           router.get('/profileCall', (req, res, next) => {
+//             UserData.findOne({'userId':'value'}).then(res => {
+//               console.log(res.body);
+//             })
+//           })
 
 
 // Posts projectdata
@@ -89,7 +89,7 @@ router.get('/userquery', (req, res, next) => {
 function isAuth(req, res, next) {
     req.isAuthenticated()
       ? next()
-      : res.status(401).json({ msg: "Log in first" });
+      : res.status(401).json( { msg: "Log in first" } );
   }
 
 
