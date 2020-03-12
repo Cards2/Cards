@@ -50,20 +50,19 @@ class Profile extends Component {
         <div>Welcome {this.props.user.email}!!!</div>
         <div>
           <h1>Edit Profile</h1>
-
-          <form onSubmit={this.handleSubmit}>
-            <div>
-              <label for='username'>
-                <h4>Username</h4>
-              </label>
-              <input
-                onChange={this.handleChange}
-                type='text'
-                name='username'
-                placeholder='Name'
-                required
-              />
-            </div>
+            <form onSubmit={this.handleSubmit}>
+              <div>
+                <label for='username'>
+                  <h4>Username</h4>
+                </label>
+                <input
+                  onChange={this.handleChange}
+                  type='text'
+                  name='username'
+                  placeholder='Name'
+                  required
+                />
+              </div>
             <div>
               <label for='title'>
                 <h4>Title</h4>

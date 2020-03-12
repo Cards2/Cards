@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from "react";
-import { BrowserRouter, Switch, Route, NavLink } from "react-router-dom";
+import React, { Component, } from "react";
+import { BrowserRouter, Switch, Route,  } from "react-router-dom";
 
 import Home from "./components/home/Home";
 import NotFound from "./components/404/NotFound.js";
@@ -10,7 +10,7 @@ import actions from "./services/index";
 import Search from "./components/search/Search";
 import Projects from "./components/projects/Projects";
 import NavBar from "./components/partials/NavBar";
-import Footer from "./components/partials/Footer";
+// import Footer from "./components/partials/Footer";
 
 class App extends Component {
   state = {};

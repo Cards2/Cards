@@ -12,11 +12,11 @@ const minMaxNum = {
   range: {
     min: { type: Number, min: 0 },
     max: { type: Number, max: 5 }
-  }
+  },
 };
 
 const projectSchema = new Schema({
-  title: string,
+  title: { type: String, required: true, unique: true, },
   description: string,
   startdate: {
     type: Date,
