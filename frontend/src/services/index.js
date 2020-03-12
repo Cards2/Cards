@@ -21,17 +21,25 @@ const actions = {
   logOut: async () => {
     return await service.get("/logout");
   },
+  // initial user credential creation
   userInfo: async userdata => {
     return await service.post("/userdata", userdata);
   },
+  // initial project creation
   projectInfo: async projectdata => {
     return await service.post("/projectdata", projectdata);
   },
-  userQuery: async userquery =>{
-  return await service.get("/userquery", userquery)
+  // fetches all the user profile data
+  userQuery: async userquery => {
+    return await service.get("/userquery", userquery);
   },
-  profileCall: async profileData =>{
-    return await service.get("/profileCall", profileData)
+  // fetches one user's profile data
+  oneUserQuery: async oneuserquery => {
+    return await service.get("/one-user-query", oneuserquery);
+  },
+  // updates one user's profile data
+  profileUpdate: async profileData => {
+    return await service.get("/profileCall", profileData);
   }
 };
 
