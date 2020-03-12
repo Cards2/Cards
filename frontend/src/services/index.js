@@ -38,8 +38,8 @@ const actions = {
     return await service.get("/one-user-query", oneuserquery);
   },
   // updates one user's profile data
-  profileUpdate: async profileData => {
-    return await service.get("/profileCall", profileData);
+  profileUpdate: async profileUpdate => {
+    return await service.post("/profile-Update", profileUpdate);
   }
 };
 
