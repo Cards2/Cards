@@ -32,6 +32,10 @@ router.post('/userdata', (req, res, next) => {
       });
   });
 
+  router.get('/userdata', (req, res, next) => {
+    UserData.update({userID:req.body})
+  })
+
 
 router.get('/userquery', (req, res, next) => {
     User.find(req.body)
