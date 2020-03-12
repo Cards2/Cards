@@ -91,6 +91,15 @@ router.get("/one-user-query", isAuth, (req, res, next) => {
     .catch(err => res.status(500).json({ err }));
 });
 
+router.post("/profile-update", (req, res, next) => {
+  UserData.update(req.body)
+    .then(userInfo => {})
+    .catch(err => {
+      // console.log(err)
+      res.status(500).json({ err });
+    });
+});
+
 function isAuth(req, res, next) {
   req.isAuthenticated()
     ? next()
