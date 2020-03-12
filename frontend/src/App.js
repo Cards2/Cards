@@ -1,11 +1,12 @@
-import React, { Component, } from "react";
-import { BrowserRouter, Switch, Route,  } from "react-router-dom";
+import React, { Component } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Home from "./components/home/Home";
 import NotFound from "./components/404/NotFound.js";
 import SignUp from "./components/auth/SignUp";
 import LogIn from "./components/auth/LogIn";
 import Profile from "./components/profile/Profile";
+import ProfileUpdate from "./components/profile/ProfileUpdate";
 import actions from "./services/index";
 import Search from "./components/search/Search";
 import Projects from "./components/projects/Projects";
@@ -22,6 +23,8 @@ class App extends Component {
     let res2 = await actions.userQuery();
     this.setState({ users: res2 });
     // console.log(this.state)
+    let res3 = await actions.oneUserQuery(this.state._id);
+    this.setState({ currentUser: res3 });
   }
 
   setUser = user => this.setState(user);
@@ -39,13 +42,14 @@ class App extends Component {
   };
 
   render() {
+
     return (
       <>
         <BrowserRouter>
           <Switch>
             <Route
               exact
-              path="/:nav"
+              path='/:nav'
               render={props => (
                 <NavBar
                   email={this.state.email}
@@ -57,37 +61,45 @@ class App extends Component {
           </Switch>
 
           <Switch>
-            <Route exact path="/" render={props => <Home {...props} setUser={this.setUser}/>} />
             <Route
               exact
-              path="/sign-up"
+              path='/'
+              render={props => <Home {...props} setUser={this.setUser} />}
+            />
+            <Route
+              exact
+              path='/sign-up'
               render={props => <SignUp {...props} setUser={this.setUser} />}
             />
             <Route
               exact
-              path="/log-in"
+              path='/log-in'
               render={props => <LogIn {...props} setUser={this.setUser} />}
             />
             <Route
               exact
-              path="/profile"
+              path='/profile'
               render={props => <Profile {...props} user={this.state} />}
             />
             <Route
               exact
-              path="/search"
+              path='/profile-update'
+              render={props => <ProfileUpdate {...props} user={this.state} />}
+            />
+            <Route
+              exact
+              path='/search'
               render={props => (
                 <Search
                   {...props}
                   user={this.state}
                   generalstate={this.state}
-                  
                 />
               )}
             />
             <Route
               exact
-              path="/projects"
+              path='/projects'
               render={props => <Projects {...props} user={this.state} />}
             />
 
