@@ -24,10 +24,12 @@ class App extends Component {
     this.setState({ users: res2 });
     // console.log(this.state)
     let res3 = await actions.oneUserQuery(this.state._id);
-    this.setState({ currentUser: res3 });
+    console.log(res3);
+    this.setState(res3.data.currentUser);
   }
 
   setUser = user => this.setState(user);
+  setUserProperty = property => this.setState(property);
 
   logOut = async () => {
     let res = await actions.logOut();
@@ -42,7 +44,6 @@ class App extends Component {
   };
 
   render() {
-
     return (
       <>
         <BrowserRouter>
@@ -84,7 +85,7 @@ class App extends Component {
             <Route
               exact
               path='/profile-update'
-              render={props => <ProfileUpdate {...props} user={this.state} />}
+              render={props => <ProfileUpdate {...props} setUserProperty={this.setUserProperty} user={this.state} />}
             />
             <Route
               exact

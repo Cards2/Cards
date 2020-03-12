@@ -4,24 +4,13 @@ import Footer from "../partials/Footer";
 
 class ProfileUpdate extends Component {
   state = {
-    userID: this.props.currentUser,
-    username: "",
-    title: "",
-    art: "",
-    programming: "",
-    design: "",
-    audio: "",
-    writing: "",
-    about: "",
-    monday: "",
-    tuesday: "",
-    wednesday: "",
-    thursday: "",
-    friday: "",
-    saturday: "",
-    sunday: "",
-    quote: ""
+    userID: this.props.currentUser
   };
+
+componentDidMount(){
+    this.setState( this.props.user );
+    console.log(this.state);
+  }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -30,9 +19,10 @@ class ProfileUpdate extends Component {
   handleSubmit = e => {
     e.preventDefault();
     actions
-      .userInfo(this.state)
+      .profileUpdate(this.state)
       .then(userdata => {
-        this.props.user({ ...userdata.data });
+        console.log(userdata)
+        //this.props.user({ ...userdata.data });
       })
       .catch(({ response }) => console.error(response.data));
   };
@@ -41,8 +31,6 @@ class ProfileUpdate extends Component {
     if (!this.props.user) {
       this.props.history.push("/log-in");
     }
-    console.log(this.props.user.currentUser)
-    
     return (
       <div>
         <div>
@@ -52,13 +40,13 @@ class ProfileUpdate extends Component {
             <form onSubmit={this.handleSubmit}>
               <div>
                 <label for='username'>
-                  <h4>Username</h4>
+                  <h4>Username </h4>
                 </label>
                 <input
                   onChange={this.handleChange}
                   type='text'
                   name='username'
-                  // value={this.props.user.currentUser.data.currentUser.username}
+                  value={this.props.user.username}
                   placeholder='Name'
                   required
                 /> 
@@ -71,6 +59,7 @@ class ProfileUpdate extends Component {
                   onChange={this.handleChange}
                   type='text'
                   name='title'
+                  value={this.props.user.title}
                   placeholder='eg. Programmer, Artist, etc.'
                   required
                 />
@@ -82,6 +71,7 @@ class ProfileUpdate extends Component {
                   onChange={this.handleChange}
                   type='number'
                   name='art'
+                  value={this.props.user.art}
                   min='1'
                   max='10'
                   required
@@ -91,6 +81,7 @@ class ProfileUpdate extends Component {
                   onChange={this.handleChange}
                   type='number'
                   name='programming'
+                  value={this.props.user.programming}
                   min='1'
                   max='10'
                   required
@@ -100,6 +91,7 @@ class ProfileUpdate extends Component {
                   onChange={this.handleChange}
                   type='number'
                   name='design'
+                  value={this.props.user.design}
                   min='1'
                   max='10'
                   required
@@ -109,6 +101,7 @@ class ProfileUpdate extends Component {
                   onChange={this.handleChange}
                   type='number'
                   name='audio'
+                  value={this.props.user.audio}
                   min='1'
                   max='10'
                   required
@@ -118,6 +111,7 @@ class ProfileUpdate extends Component {
                   onChange={this.handleChange}
                   type='number'
                   name='writing'
+                  value={this.props.user.writing}
                   min='1'
                   max='10'
                   required
@@ -131,6 +125,7 @@ class ProfileUpdate extends Component {
                   onChange={this.handleChange}
                   type='text'
                   name='about'
+                  value={this.props.user.about}
                   maxLength='140'
                   placeholder='Max length 140 characters'
                   required
@@ -139,7 +134,7 @@ class ProfileUpdate extends Component {
               <div>
                 <h4>Avalibility</h4>
                 <label for='monday'>Monday</label>
-                <select onChange={this.handleChange} name='monday' required>
+                <select onChange={this.handleChange} name='monday' value={this.props.user.monday} required>
                   <option value='none' selected disabled hidden>
                     Select an Option
                   </option>
@@ -148,7 +143,7 @@ class ProfileUpdate extends Component {
                   <option value='never'>Never</option>
                 </select>
                 <label for='tuesday'>Tuesday</label>
-                <select onChange={this.handleChange} name='tuesday' required>
+                <select onChange={this.handleChange} name='tuesday' value={this.props.user.tuesday} required>
                   <option value='none' selected disabled hidden>
                     Select an Option
                   </option>
@@ -157,7 +152,7 @@ class ProfileUpdate extends Component {
                   <option value='never'>Never</option>
                 </select>
                 <label for='wednesday'>Wednesday</label>
-                <select onChange={this.handleChange} name='wednesday' required>
+                <select onChange={this.handleChange} name='wednesday' value={this.props.user.wednesday} required>
                   <option value='none' selected disabled hidden>
                     Select an Option
                   </option>
@@ -166,7 +161,7 @@ class ProfileUpdate extends Component {
                   <option value='never'>Never</option>
                 </select>
                 <label for='thursday'>Thursday</label>
-                <select onChange={this.handleChange} name='thursday' required>
+                <select onChange={this.handleChange} name='thursday' value={this.props.user.thursday} required>
                   <option value='none' selected disabled hidden>
                     Select an Option
                   </option>
@@ -175,7 +170,7 @@ class ProfileUpdate extends Component {
                   <option value='never'>Never</option>
                 </select>
                 <label for='friday'>Friday</label>
-                <select onChange={this.handleChange} name='friday' required>
+                <select onChange={this.handleChange} name='friday' value={this.props.user.friday} required>
                   <option value='none' selected disabled hidden>
                     Select an Option
                   </option>
@@ -184,7 +179,7 @@ class ProfileUpdate extends Component {
                   <option value='never'>Never</option>
                 </select>
                 <label for='saturday'>Saturday</label>
-                <select onChange={this.handleChange} name='saturday' required>
+                <select onChange={this.handleChange} name='saturday' value={this.props.user.saturday} required>
                   <option value='none' selected disabled hidden>
                     Select an Option
                   </option>
@@ -193,7 +188,7 @@ class ProfileUpdate extends Component {
                   <option value='never'>Never</option>
                 </select>
                 <label for='sunday'>Sunday</label>
-                <select onChange={this.handleChange} name='sunday' required>
+                <select onChange={this.handleChange} name='sunday' value={this.props.user.sunday} required>
                   <option value='none' selected disabled hidden>
                     Select an Option
                   </option>
@@ -209,6 +204,7 @@ class ProfileUpdate extends Component {
                 <textarea
                   onChange={this.handleChange}
                   name='quote'
+                  value={this.props.user.quote}
                   required
                 ></textarea>
               </div>

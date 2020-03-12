@@ -39,7 +39,7 @@ const actions = {
   },
   // updates one user's profile data
   profileUpdate: async profileUpdate => {
-    return await service.post("/profile-Update", profileUpdate);
+    return await service.post("/profile-update", profileUpdate);
   }
 };
 
