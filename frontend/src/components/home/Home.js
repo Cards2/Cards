@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import actions from "../../services/index";
 import LogIn from "../auth/LogIn";
+import Card from "../partials/Card";
 // import Search from '../search/Search'
-import Card from "react-tilt";
-
 // LANDING PAGE
 
 class Home extends Component {
   state = {
-    login: false
+    login: false,
+    xPos: 0,
+    yPos: 0
   };
 
   render() {
@@ -41,26 +42,8 @@ class Home extends Component {
           </div>
         </div>
         <div className='cardPreviewBox'>
-          <Card
-            className='card'
-            // onMouseMove={(e, x) => {
-            //   console.log(e, x, e.clientX);
-            // }}
-            options={{ max: 15 }}
-            style={{
-              height: 220,
-              width: 350,
-              backgroundImage: `url(${"https://images.pexels.com/photos/1083822/pexels-photo-1083822.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"})`,
-              backgroundSize: "cover",
-              borderRadius: "6px"
-            }}
-          >
-            <div className='innerCard'>
-              {" "}
-              <h1 className='cardName'>Isaac</h1>
-              <h3 className='cardTitle'>Graphic Designer</h3>{" "}
-            </div>
-          </Card>
+          {/* three cards go here */}
+          <Card />
         </div>
       </div>
     );
@@ -68,3 +51,4 @@ class Home extends Component {
 }
 
 export default Home;
+//style={{position: 'absolute', right: this.state.xPos, border:'3px solid #73AD21'}}
