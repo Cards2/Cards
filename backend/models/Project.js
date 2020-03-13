@@ -16,15 +16,16 @@ const minMaxNum = {
 };
 
 const projectSchema = new Schema({
-  title: { type: String, required: true, unique: true, },
+  userID: string,
+  projectTitle: { type: String, required: true, unique: true, },
   description: string,
-  startdate: {
+  startDate: {
     type: Date,
     min: "2000-01-01",
     max: Date.now()
   },
   //a projected end date (not required?)
-  enddate: {
+  endDate: {
     type: Date,
     min: Date.now(),
     max: 2030 - 01 - 01

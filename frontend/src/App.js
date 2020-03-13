@@ -11,25 +11,25 @@ import actions from "./services/index";
 import Search from "./components/search/Search";
 import Projects from "./components/projects/Projects";
 import NavBar from "./components/partials/NavBar";
+import ProjectUpdate from "./components/projects/ProjectUpdate";
 // import Footer from "./components/partials/Footer";
 
 class App extends Component {
-  state = {};
+  state = {
+    loading: true, 
+  };
 
   async componentDidMount() {
     let user = await actions.isLoggedIn();
-    this.setState({ ...user.data });
-
     let res2 = await actions.userQuery();
-    this.setState({ users: res2 });
-    // console.log(this.state)
     let res3 = await actions.oneUserQuery(this.state._id);
-    console.log(res3);
+    let res4 = await actions.oneProjectQuery(this.state._id);
+    this.setState({ ...user.data, loading:false, users: res2, });
     this.setState(res3.data.currentUser);
+    this.setState(res4.data.currentProject);
   }
 
   setUser = user => this.setState(user);
-  setUserProperty = property => this.setState(property);
 
   logOut = async () => {
     let res = await actions.logOut();
@@ -43,7 +43,13 @@ class App extends Component {
     }); //FIX
   };
 
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+    
+
   render() {
+    console.log(this.state);
     return (
       <>
         <BrowserRouter>
@@ -62,48 +68,42 @@ class App extends Component {
           </Switch>
 
           <Switch>
-            <Route
-              exact
-              path='/'
-              render={props => <Home {...props} setUser={this.setUser} />}
-            />
-            <Route
-              exact
-              path='/sign-up'
-              render={props => <SignUp {...props} setUser={this.setUser} />}
-            />
-            <Route
-              exact
-              path='/log-in'
-              render={props => <LogIn {...props} setUser={this.setUser} />}
-            />
-            <Route
-              exact
-              path='/profile'
-              render={props => <Profile {...props} user={this.state} />}
-            />
-            <Route
-              exact
-              path='/profile-update'
-              render={props => <ProfileUpdate {...props} setUserProperty={this.setUserProperty} user={this.state} />}
-            />
-            <Route
-              exact
-              path='/search'
-              render={props => (
-                <Search
-                  {...props}
-                  user={this.state}
-                  generalstate={this.state}
+            <Route exact path='/' render={props => 
+              <Home {...props} 
+                setUser={this.setUser} />}
                 />
-              )}
-            />
-            <Route
-              exact
-              path='/projects'
-              render={props => <Projects {...props} user={this.state} />}
-            />
-
+            <Route exact path='/sign-up' render={props => 
+              <SignUp {...props} 
+                setUser={this.setUser} />}
+                />
+            <Route exact path='/log-in' render={props => 
+              <LogIn {...props} 
+                setUser={this.setUser} />}
+                />
+            <Route exact path='/profile' render={props => 
+              <Profile {...props} 
+                user={this.state} />}
+                />
+            <Route exact path='/profile-update' render={props => 
+              <ProfileUpdate {...props} 
+                handleChange={this.handleChange}
+                setUserProperty={this.setUserProperty} 
+                user={this.state} />}
+                />
+            <Route exact path='/search' render={props => 
+              <Search {...props}
+                user={this.state}
+                generalstate={this.state} /> }
+                />
+            <Route exact path='/projects' render={props => 
+              <Projects {...props} 
+                user={this.state} />}
+                />
+            <Route exact path='/project-update' render={props => 
+              <ProjectUpdate {...props} 
+                handleChange={this.handleChange}
+                user={this.state} />}
+                />
             <Route component={NotFound} />
           </Switch>
           {/* <Footer/> */}

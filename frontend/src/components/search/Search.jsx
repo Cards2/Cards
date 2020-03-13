@@ -11,7 +11,6 @@ class Search extends Component {
   searchfunction = () => {
     if (this.props.generalstate.users) {
       return this.props.generalstate.users.data.allUsers.map((eachuser, i) => {
-        console.log(eachuser)
         return (
           <>
             <br></br>
@@ -58,7 +57,6 @@ render() {
       return (
         <div>
           {this.searchfunction()}
-          {console.log(this.props.generalstate)}
         </div>
       );
     }

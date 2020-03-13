@@ -4,50 +4,38 @@ import Footer from "../partials/Footer";
 
 class ProfileUpdate extends Component {
   state = {
-    userID: this.props.currentUser
-  };
-
-componentDidMount(){
-    this.setState( this.props.user );
-    console.log(this.state);
-  }
-
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
   };
 
   handleSubmit = e => {
     e.preventDefault();
     actions
-      .profileUpdate(this.state)
+      .profileUpdate(this.props.user)
       .then(userdata => {
-        console.log(userdata)
         this.props.user({ ...userdata.data });
       })
       .catch(({ response }) => console.error(response.data));
-  };
+      };
 
   render() {
-    if (!this.props.user) {
+    if (!this.props.user.loading && !this.props.user.email) {
       this.props.history.push("/log-in");
     }
+    console.log(this.props.user)
     return (
       <div>
         <div>
-          <div>Welcome Drrr!!!</div>
           <div>
-            <h1>Edit Profile</h1>
+            <h1>Profile UPDATE</h1>
             <form onSubmit={this.handleSubmit}>
               <div>
                 <label for='username'>
                   <h4>Username </h4>
                 </label>
                 <input
-                  onChange={this.handleChange}
+                  onChange={this.props.handleChange}
                   type='text'
                   name='username'
                   value={this.props.user.username}
-                  placeholder='Name'
                   required
                 /> 
               </div>
@@ -56,11 +44,10 @@ componentDidMount(){
                   <h4>Title</h4>
                 </label>
                 <input
-                  onChange={this.handleChange}
+                  onChange={this.props.handleChange}
                   type='text'
                   name='title'
                   value={this.props.user.title}
-                  placeholder='eg. Programmer, Artist, etc.'
                   required
                 />
               </div>
@@ -68,7 +55,7 @@ componentDidMount(){
               <div>
                 <label for='art'>Art/Animation</label>
                 <input
-                  onChange={this.handleChange}
+                  onChange={this.props.handleChange}
                   type='number'
                   name='art'
                   value={this.props.user.art}
@@ -78,7 +65,7 @@ componentDidMount(){
                 ></input>
                 <label for='programming'>Programming</label>
                 <input
-                  onChange={this.handleChange}
+                  onChange={this.props.handleChange}
                   type='number'
                   name='programming'
                   value={this.props.user.programming}
@@ -88,7 +75,7 @@ componentDidMount(){
                 ></input>
                 <label for='design'>Design</label>
                 <input
-                  onChange={this.handleChange}
+                  onChange={this.props.handleChange}
                   type='number'
                   name='design'
                   value={this.props.user.design}
@@ -98,7 +85,7 @@ componentDidMount(){
                 ></input>
                 <label for='audio'>Audio</label>
                 <input
-                  onChange={this.handleChange}
+                  onChange={this.props.handleChange}
                   type='number'
                   name='audio'
                   value={this.props.user.audio}
@@ -108,7 +95,7 @@ componentDidMount(){
                 ></input>
                 <label for='writing'>Writing</label>
                 <input
-                  onChange={this.handleChange}
+                  onChange={this.props.handleChange}
                   type='number'
                   name='writing'
                   value={this.props.user.writing}
@@ -122,19 +109,18 @@ componentDidMount(){
                   <h4>About</h4>
                 </label>
                 <textarea
-                  onChange={this.handleChange}
+                  onChange={this.props.handleChange}
                   type='text'
                   name='about'
                   value={this.props.user.about}
                   maxLength='140'
-                  placeholder='Max length 140 characters'
                   required
                 ></textarea>
               </div>
               <div>
                 <h4>Avalibility</h4>
                 <label for='monday'>Monday</label>
-                <select onChange={this.handleChange} name='monday' value={this.props.user.monday} required>
+                <select onChange={this.props.handleChange} name='monday' value={this.props.user.monday} required>
                   <option value='none' selected disabled hidden>
                     Select an Option
                   </option>
@@ -143,7 +129,7 @@ componentDidMount(){
                   <option value='never'>Never</option>
                 </select>
                 <label for='tuesday'>Tuesday</label>
-                <select onChange={this.handleChange} name='tuesday' value={this.props.user.tuesday} required>
+                <select onChange={this.props.handleChange} name='tuesday' value= {this.props.user.tuesday} required>
                   <option value='none' selected disabled hidden>
                     Select an Option
                   </option>
@@ -152,7 +138,7 @@ componentDidMount(){
                   <option value='never'>Never</option>
                 </select>
                 <label for='wednesday'>Wednesday</label>
-                <select onChange={this.handleChange} name='wednesday' value={this.props.user.wednesday} required>
+                <select onChange={this.props.handleChange} name='wednesday' value={this.props.user.wednesday} required>
                   <option value='none' selected disabled hidden>
                     Select an Option
                   </option>
@@ -161,7 +147,7 @@ componentDidMount(){
                   <option value='never'>Never</option>
                 </select>
                 <label for='thursday'>Thursday</label>
-                <select onChange={this.handleChange} name='thursday' value={this.props.user.thursday} required>
+                <select onChange={this.props.handleChange} name='thursday' value={this.props.user.thursday} required>
                   <option value='none' selected disabled hidden>
                     Select an Option
                   </option>
@@ -170,7 +156,7 @@ componentDidMount(){
                   <option value='never'>Never</option>
                 </select>
                 <label for='friday'>Friday</label>
-                <select onChange={this.handleChange} name='friday' value={this.props.user.friday} required>
+                <select onChange={this.props.handleChange} name='friday' value={this.props.user.friday} required>
                   <option value='none' selected disabled hidden>
                     Select an Option
                   </option>
@@ -179,7 +165,7 @@ componentDidMount(){
                   <option value='never'>Never</option>
                 </select>
                 <label for='saturday'>Saturday</label>
-                <select onChange={this.handleChange} name='saturday' value={this.props.user.saturday} required>
+                <select onChange={this.props.handleChange} name='saturday' value={this.props.user.saturday} required>
                   <option value='none' selected disabled hidden>
                     Select an Option
                   </option>
@@ -188,7 +174,7 @@ componentDidMount(){
                   <option value='never'>Never</option>
                 </select>
                 <label for='sunday'>Sunday</label>
-                <select onChange={this.handleChange} name='sunday' value={this.props.user.sunday} required>
+                <select onChange={this.props.handleChange} name='sunday' value={this.props.user.sunday} required>
                   <option value='none' selected disabled hidden>
                     Select an Option
                   </option>
@@ -202,7 +188,7 @@ componentDidMount(){
                   <h4>Quote</h4>
                 </label>
                 <textarea
-                  onChange={this.handleChange}
+                  onChange={this.props.handleChange}
                   name='quote'
                   value={this.props.user.quote}
                   required

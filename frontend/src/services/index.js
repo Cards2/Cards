@@ -40,7 +40,16 @@ const actions = {
   // updates one user's profile data
   profileUpdate: async profileUpdate => {
     return await service.post("/profile-update", profileUpdate);
+  },
+  // fetches one user's project data
+  oneProjectQuery: async oneprojectquery => {
+    return await service.get("/one-project-query", oneprojectquery);
+  },
+  // updates one user's project data
+  projectUpdate: async projectUpdate => {
+    return await service.post("/project-update", projectUpdate);
   }
+
 };
 
 export default actions;

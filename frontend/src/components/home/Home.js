@@ -4,6 +4,8 @@ import LogIn from "../auth/LogIn";
 // import Search from '../search/Search'
 import Card from "react-tilt";
 
+// LANDING PAGE
+
 class Home extends Component {
   state = {
     login: false
