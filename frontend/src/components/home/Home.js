@@ -3,7 +3,7 @@ import actions from '../../services/index'
 import LogIn from '../auth/LogIn';
 // import Search from '../search/Search'
 
-
+// LANDING PAGE
 
 class Home extends Component {
 

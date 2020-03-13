@@ -10,7 +10,7 @@ today = mm + "/" + dd + "/" + yyyy;
 class Projects extends Component {
   state = {
     userID: this.props.user._id,
-    title: "",
+    projectTitle: "",
     description: "",
     startdate: "",
     enddate: "",
@@ -24,12 +24,11 @@ class Projects extends Component {
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log(this.state);
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
     actions
       .projectInfo(this.state)
       .then(projectdata => {
@@ -42,11 +41,12 @@ class Projects extends Component {
     if (!this.props.user.email) {
       this.props.history.push("/log-in");
     }
+    // console.log(this.props.user._id);
     return (
       <div>
-        <div>Welcome {this.props.user.email}!!!</div>
+        <h3>Welcome {this.props.user.email}!!!</h3>
         <div>
-          <h1>Edit Profile</h1>
+          <h1>Add Project</h1>
 
           <form onSubmit={this.handleSubmit}>
             <div>

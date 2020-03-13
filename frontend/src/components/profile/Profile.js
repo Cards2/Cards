@@ -30,14 +30,13 @@ class Profile extends Component {
 
 
   handleSubmit = e => {
-        e.preventDefault();
-        console.log(this.state);
-        actions
+    e.preventDefault();
+      actions
         .userInfo(this.state)
-        .then(userdata => {
+          .then(userdata => {
             this.props.user({ ...userdata.data });
-        })
-        .catch(({ response }) => console.error(response.data));
+            })
+          .catch(({ response }) => console.error(response.data));
     };
 
   render() {
@@ -46,9 +45,8 @@ class Profile extends Component {
     } return (
       <div>
       <div>
-        <div>Welcome {this.props.user.email}!!!</div>
         <div>
-          <h1>Edit Profile</h1>
+          <h1>New Profile</h1>
             <form onSubmit={this.handleSubmit}>
               <div>
                 <label for='username'>

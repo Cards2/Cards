@@ -19,12 +19,6 @@ router.post("/signup", (req, res, next) => {
     });
 });
 
-// Can be used to call contact info (email) from user in future
-// router.get('/profileCall', (req, res, next) => {
-//   UserData.findOne({'userId':'value'}).then(res => {
-//     console.log(res.body);
-//   })
-// })
 
 // Posts projectdata
 router.post("/projectdata", (req, res, next) => {
@@ -35,6 +29,23 @@ router.post("/projectdata", (req, res, next) => {
     })
     .catch(err => {
       console.log(err);
+      res.status(500).json({ err });
+    });
+});
+
+// need to use isAuth for getting the data of the current PROJECT 
+router.get("/one-project-query", isAuth, (req, res, next) => {
+  ProjectData.findOne({ userID: req.user._id }) 
+    .then(currentProject => {
+      res.status(200).json({ currentProject });
+    })
+    .catch(err => res.status(500).json({ err }));
+});
+
+router.post("/project-update", (req, res, next) => {
+  ProjectData.update(req.body)
+    .then(projectInfo => {})
+    .catch(err => {
       res.status(500).json({ err });
     });
 });

@@ -10,6 +10,9 @@ class NavBar extends Component {
           <Fragment>
             <NavLink to='/profile'>Profile</NavLink>
             <NavLink to='/projects'>Projects</NavLink>
+            <NavLink to='/profile-update'>Profile Update</NavLink>
+            <NavLink to='/project-update'>Project Update</NavLink>
+
             <NavLink onClick={this.props.logOut} to='/'>
               Log Out
             </NavLink>

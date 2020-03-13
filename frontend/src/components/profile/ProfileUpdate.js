@@ -6,37 +6,26 @@ class ProfileUpdate extends Component {
   state = {
   };
 
-componentDidMount(){
-    this.setState( this.props.user );
-    console.log(this.state);
-  }
-
-  // handleChange = e => {
-  //   this.setState({ [e.target.name]: e.target.value });
-  // };
-
   handleSubmit = e => {
     e.preventDefault();
     actions
       .profileUpdate(this.props.user)
       .then(userdata => {
-        console.log(userdata)
         this.props.user({ ...userdata.data });
       })
       .catch(({ response }) => console.error(response.data));
       };
 
   render() {
-    if (!this.props.user) {
+    if (!this.props.user.loading && !this.props.user.email) {
       this.props.history.push("/log-in");
     }
-    console.log(this.props)
+    console.log(this.props.user)
     return (
       <div>
         <div>
-          {/* <div>Welcome Drrr!!!</div> */}
           <div>
-            <h1>Edit Profile</h1>
+            <h1>Profile UPDATE</h1>
             <form onSubmit={this.handleSubmit}>
               <div>
                 <label for='username'>
@@ -46,7 +35,6 @@ componentDidMount(){
                   onChange={this.props.handleChange}
                   type='text'
                   name='username'
-                  // value={this.props.user.username}
                   value={this.props.user.username}
                   required
                 /> 
@@ -59,7 +47,6 @@ componentDidMount(){
                   onChange={this.props.handleChange}
                   type='text'
                   name='title'
-                  // value={this.props.user.title}
                   value={this.props.user.title}
                   required
                 />
