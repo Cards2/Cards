@@ -14,6 +14,11 @@ class LogIn extends Component {
             this.props.setUser({...user.data})  
         }).catch(({ response }) => console.error(response.data));
     }
+
+    redirect = () => {
+
+    }
+
     render() {
         return (
             
@@ -23,7 +28,7 @@ class LogIn extends Component {
                     <input name="email" type="email" onChange={this.handleChange} placeholder='email' />
                     <input name="password" type="password" onChange={this.handleChange} placeholder='password' />
                     <div className='reg-btn'>
-                    <input id='btnlog' className='btn-login' type="submit" value="Log In" onClick={a => (this.redirect)}/>
+                    <input id='btnlog' className='btn-login' type="submit" value="Log In"  onClick={a => (this.redirect)}/>
                     
                     <a id='btnsignup'className='btn-signup' href="/sign-up">Sign up</a>
                     </div>
