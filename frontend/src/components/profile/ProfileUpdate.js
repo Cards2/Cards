@@ -22,7 +22,7 @@ componentDidMount(){
       .profileUpdate(this.state)
       .then(userdata => {
         console.log(userdata)
-        //this.props.user({ ...userdata.data });
+        this.props.user({ ...userdata.data });
       })
       .catch(({ response }) => console.error(response.data));
   };

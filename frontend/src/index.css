@@ -107,15 +107,24 @@ code {
 .homeBox {
   background-color: var(--main-Green);
   /* background-image: url("/navBg.png"); */
-  height: 60vh;
+  height: 64vh;
   width: 100vw;
   /* transform: translateX(15vw); */
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: -4px -4px 13px black;
 }
+
+.cardPreviewBox {
+  height: 36vh;
+  display: flex;
+  overflow: hidden;
+  justify-content: space-around;
+  align-items: center;
+  font-family: ;
+}
+
 .header_text-box {
   height: fit-content;
 }
@@ -237,3 +246,33 @@ code {
 /*Home*/
 /*Home*/
 /*Home*/
+
+/* Card */
+/* Card */
+/* Card */
+
+
+.innerCard {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  color: whitesmoke;
+  font-family: "Montserrat", sans-serif;
+  text-shadow: 2px 2px 3px black;
+}
+
+.innerCard > .cardName {
+  font-size: 6rem;
+  font-weight: 500;
+  margin: 0;
+}
+.innerCard > .cardTitle {
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Card */
+/* Card */
+/* Card */
+
