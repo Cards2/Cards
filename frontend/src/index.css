@@ -122,7 +122,6 @@ code {
   overflow: hidden;
   justify-content: space-around;
   align-items: center;
-  font-family: ;
 }
 
 .header_text-box {
@@ -251,14 +250,15 @@ code {
 /* Card */
 /* Card */
 
-
 .innerCard {
   margin: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   color: whitesmoke;
   font-family: "Montserrat", sans-serif;
-  text-shadow: 2px 2px 3px black;
+  text-shadow: 0px 0px 3px black;
+  transform: translateZ(50px);
 }
 
 .innerCard > .cardName {
@@ -275,4 +275,3 @@ code {
 /* Card */
 /* Card */
 /* Card */
-
