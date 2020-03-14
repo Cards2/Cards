@@ -13,15 +13,18 @@ class Search extends Component {
       return this.props.generalstate.users.data.allUsers.map((eachuser, i) => {
         console.log(eachuser)
         return (
-          <>
+          <div>
             <br></br>
             <h1> Search </h1>
 
           <h2> Card Profiles </h2>
 
             {/* <h3> User ID: {eachuser._id} </h3> */}
+            <div className='flip-card-front'>
             <h3> Username: {eachuser.username} </h3>
             <h3> Title: {eachuser.title} </h3>
+            </div>
+            <div className='flip-card-back'>
             <h3> About: </h3>
             <p> {eachuser.about} </p>
             <h3> Quote: </h3>
@@ -34,7 +37,7 @@ class Search extends Component {
 
             <h2> Availability:</h2>
             {/* How are we displaying this information?? */}
-            <h3> Monday:</h3>
+            {/* <h3> Monday:</h3>
             <h4> {eachuser.monday}</h4>
             <h3> Tuesday:</h3>
             <h4> {eachuser.tuesday}</h4>
@@ -47,8 +50,9 @@ class Search extends Component {
             <h3> Saturday:</h3>
             <h4> {eachuser.saturday}</h4>
             <h3> Sunday:</h3>
-            <h4> {eachuser.sunday}</h4>
-           </>
+            <h4> {eachuser.sunday}</h4> */}
+            </div>
+           </div>
         );
       });
     }
@@ -58,7 +62,11 @@ render() {
       return (
         <div>
           {this.searchfunction()}
+          <div className='flip-card'>
+          <div className='flip-card-inner'>
           {console.log(this.props.generalstate)}
+          </div>
+          </div>
         </div>
       );
     }
