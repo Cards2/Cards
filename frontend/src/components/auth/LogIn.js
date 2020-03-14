@@ -4,8 +4,8 @@ import Footer from '../partials/Footer';
 
 class LogIn extends Component {
 
-    state = {} 
-    
+    state = {}
+
     handleChange = e => this.setState({[e.target.name]: e.target.value})
 
     handleSubmit = e => {

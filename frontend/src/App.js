@@ -1,27 +1,32 @@
-import React, { Component, } from "react";
-import { BrowserRouter, Switch, Route,  } from "react-router-dom";
+import React, { Component } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Home from "./components/home/Home";
 import NotFound from "./components/404/NotFound.js";
 import SignUp from "./components/auth/SignUp";
 import LogIn from "./components/auth/LogIn";
 import Profile from "./components/profile/Profile";
+import ProfileUpdate from "./components/profile/ProfileUpdate";
 import actions from "./services/index";
 import Search from "./components/search/Search";
 import Projects from "./components/projects/Projects";
 import NavBar from "./components/partials/NavBar";
+import ProjectUpdate from "./components/projects/ProjectUpdate";
 // import Footer from "./components/partials/Footer";
 
 class App extends Component {
-  state = {};
+  state = {
+    loading: true, 
+  };
 
   async componentDidMount() {
     let user = await actions.isLoggedIn();
-    this.setState({ ...user.data });
-
     let res2 = await actions.userQuery();
-    this.setState({ users: res2 });
-    // console.log(this.state)
+    let res3 = await actions.oneUserQuery(this.state._id);
+    let res4 = await actions.oneProjectQuery(this.state._id);
+    this.setState({ ...user.data, loading:false, users: res2, });
+    this.setState(res3.data.currentUser);
+    this.setState(res4.data.currentProject);
   }
 
   setUser = user => this.setState(user);
@@ -38,14 +43,20 @@ class App extends Component {
     }); //FIX
   };
 
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+    
+
   render() {
+    console.log(this.state);
     return (
       <>
         <BrowserRouter>
           <Switch>
             <Route
               exact
-              path="/:nav"
+              path='/:nav'
               render={props => (
                 <NavBar
                   email={this.state.email}
@@ -57,40 +68,42 @@ class App extends Component {
           </Switch>
 
           <Switch>
-            <Route exact path="/" render={props => <Home {...props} setUser={this.setUser}/>} />
-            <Route
-              exact
-              path="/sign-up"
-              render={props => <SignUp {...props} setUser={this.setUser} />}
-            />
-            <Route
-              exact
-              path="/log-in"
-              render={props => <LogIn {...props} setUser={this.setUser} />}
-            />
-            <Route
-              exact
-              path="/profile"
-              render={props => <Profile {...props} user={this.state} />}
-            />
-            <Route
-              exact
-              path="/search"
-              render={props => (
-                <Search
-                  {...props}
-                  user={this.state}
-                  generalstate={this.state}
-                  
+            <Route exact path='/' render={props => 
+              <Home {...props} 
+                setUser={this.setUser} />}
                 />
-              )}
-            />
-            <Route
-              exact
-              path="/projects"
-              render={props => <Projects {...props} user={this.state} />}
-            />
-
+            <Route exact path='/sign-up' render={props => 
+              <SignUp {...props} 
+                setUser={this.setUser} />}
+                />
+            <Route exact path='/log-in' render={props => 
+              <LogIn {...props} 
+                setUser={this.setUser} />}
+                />
+            <Route exact path='/profile' render={props => 
+              <Profile {...props} 
+                user={this.state} />}
+                />
+            <Route exact path='/profile-update' render={props => 
+              <ProfileUpdate {...props} 
+                handleChange={this.handleChange}
+                setUserProperty={this.setUserProperty} 
+                user={this.state} />}
+                />
+            <Route exact path='/search' render={props => 
+              <Search {...props}
+                user={this.state}
+                generalstate={this.state} /> }
+                />
+            <Route exact path='/projects' render={props => 
+              <Projects {...props} 
+                user={this.state} />}
+                />
+            <Route exact path='/project-update' render={props => 
+              <ProjectUpdate {...props} 
+                handleChange={this.handleChange}
+                user={this.state} />}
+                />
             <Route component={NotFound} />
           </Switch>
           {/* <Footer/> */}

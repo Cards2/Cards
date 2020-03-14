@@ -107,15 +107,23 @@ code {
 .homeBox {
   background-color: var(--main-Green);
   /* background-image: url("/navBg.png"); */
-  height: 60vh;
+  height: 64vh;
   width: 100vw;
   /* transform: translateX(15vw); */
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: -4px -4px 13px black;
 }
+
+.cardPreviewBox {
+  height: 36vh;
+  display: flex;
+  overflow: hidden;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .header_text-box {
   height: fit-content;
 }
@@ -238,35 +246,32 @@ code {
 /*Home*/
 /*Home*/
 
-/*Card Flip*/
-.flip-card {
-  background-color: transparent;
-  width: 300px;
-  height: 300px;
-  perspective: 1000px;
+/* Card */
+/* Card */
+/* Card */
+
+.innerCard {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: whitesmoke;
+  font-family: "Montserrat", sans-serif;
+  text-shadow: 0px 0px 3px black;
+  transform: translateZ(50px);
 }
 
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+.innerCard > .cardName {
+  font-size: 6rem;
+  font-weight: 500;
+  margin: 0;
+}
+.innerCard > .cardTitle {
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin: 0;
 }
 
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-
-/*Card Flip*/
+/* Card */
+/* Card */
+/* Card */
