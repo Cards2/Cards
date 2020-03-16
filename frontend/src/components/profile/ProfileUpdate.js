@@ -2,11 +2,9 @@ import React, { Component } from "react";
 import actions from "../../services";
 import Footer from "../partials/Footer";
 
-
 class ProfileUpdate extends Component {
-  state = {
-  };
-  
+  state = {};
+
   handleSubmit = e => {
     e.preventDefault();
     actions
@@ -15,14 +13,13 @@ class ProfileUpdate extends Component {
         this.props.user({ ...userdata.data });
       })
       .catch(({ response }) => console.error(response.data));
-      };
+  };
 
-
-   render() {
+  render() {
     if (!this.props.user.loading && !this.props.user.email) {
       this.props.history.push("/log-in");
     }
-    console.log(this.props.user)
+    console.log(this.props.user);
     return (
       <div>
         <div>
@@ -39,7 +36,7 @@ class ProfileUpdate extends Component {
                   name='username'
                   value={this.props.user.username}
                   required
-                /> 
+                />
               </div>
               <div>
                 <label for='title'>
@@ -107,6 +104,89 @@ class ProfileUpdate extends Component {
                 ></input>
               </div>
               <div>
+                <h4>Avalibility</h4>
+                <label for='monday'>Monday</label>
+                <select
+                  onChange={this.props.handleChange}
+                  name='monday'
+                  value={this.props.user.monday}
+                  required
+                >
+                  <option value='always'>Always</option>
+                  <option value='sometimes'>Sometimes</option>
+                  <option value='never'>Never</option>
+                </select>
+                <label for='tuesday'>Tuesday</label>
+                <select
+                  onChange={this.props.handleChange}
+                  name='tuesday'
+                  value={this.props.user.tuesday}
+                  required
+                >
+                  <option value='always'>Always</option>
+                  <option value='sometimes'>Sometimes</option>
+                  <option value='never'>Never</option>
+                </select>
+                <label for='wednesday'>Wednesday</label>
+                <select
+                  onChange={this.props.handleChange}
+                  name='wednesday'
+                  value={this.props.user.wednesday}
+                  required
+                >
+                  <option value='always'>Always</option>
+                  <option value='sometimes'>Sometimes</option>
+                  <option value='never'>Never</option>
+                </select>
+                <label for='thursday'>Thursday</label>
+                <select
+                  onChange={this.props.handleChange}
+                  name='thursday'
+                  value={this.props.user.thursday}
+                  required
+                >
+                  <option value='always'>Always</option>
+                  <option value='sometimes'>Sometimes</option>
+                  <option value='never'>Never</option>
+                </select>
+                <label for='friday'>Friday</label>
+                <select
+                  onChange={this.props.handleChange}
+                  name='friday'
+                  value={this.props.user.friday}
+                  required
+                >
+                  <option value='always'>Always</option>
+                  <option value='sometimes'>Sometimes</option>
+                  <option value='never'>Never</option>
+                </select>
+                <label for='saturday'>Saturday</label>
+                <select
+                  onChange={this.props.handleChange}
+                  name='saturday'
+                  value={this.props.user.saturday}
+                  required
+                >
+                  <option value='always'>Always</option>
+                  <option value='sometimes'>Sometimes</option>
+                  <option value='never'>Never</option>
+                </select>
+                <label for='sunday'>Sunday</label>
+                <select
+                  onChange={this.props.handleChange}
+                  name='sunday'
+                  value={this.props.user.sunday}
+                  required
+                >
+                  <option value='none' selected disabled hidden>
+                    Select an Option
+                  </option>
+                  <option value='always'>Always</option>
+                  <option value='sometimes'>Sometimes</option>
+                  <option value='never'>Never</option>
+                </select>
+              </div>
+              <div>
                 <label for='about'>
                   <h4>About</h4>
                 </label>
@@ -114,85 +194,8 @@ class ProfileUpdate extends Component {
                   onChange={this.props.handleChange}
                   type='text'
                   name='about'
-                  value={this.props.user.about}
+                  value={this.props.user.aboutMe}
                   maxLength='140'
-                  required
-                ></textarea>
-              </div>
-              <div>
-                <h4>Avalibility</h4>
-                <label for='monday'>Monday</label>
-                <select onChange={this.props.handleChange} name='monday' value={this.props.user.monday} required>
-                  <option value='none' selected disabled hidden>
-                    Select an Option
-                  </option>
-                  <option value='always'>Always</option>
-                  <option value='sometimes'>Sometimes</option>
-                  <option value='never'>Never</option>
-                </select>
-                <label for='tuesday'>Tuesday</label>
-                <select onChange={this.props.handleChange} name='tuesday' value= {this.props.user.tuesday} required>
-                  <option value='none' selected disabled hidden>
-                    Select an Option
-                  </option>
-                  <option value='always'>Always</option>
-                  <option value='sometimes'>Sometimes</option>
-                  <option value='never'>Never</option>
-                </select>
-                <label for='wednesday'>Wednesday</label>
-                <select onChange={this.props.handleChange} name='wednesday' value={this.props.user.wednesday} required>
-                  <option value='none' selected disabled hidden>
-                    Select an Option
-                  </option>
-                  <option value='always'>Always</option>
-                  <option value='sometimes'>Sometimes</option>
-                  <option value='never'>Never</option>
-                </select>
-                <label for='thursday'>Thursday</label>
-                <select onChange={this.props.handleChange} name='thursday' value={this.props.user.thursday} required>
-                  <option value='none' selected disabled hidden>
-                    Select an Option
-                  </option>
-                  <option value='always'>Always</option>
-                  <option value='sometimes'>Sometimes</option>
-                  <option value='never'>Never</option>
-                </select>
-                <label for='friday'>Friday</label>
-                <select onChange={this.props.handleChange} name='friday' value={this.props.user.friday} required>
-                  <option value='none' selected disabled hidden>
-                    Select an Option
-                  </option>
-                  <option value='always'>Always</option>
-                  <option value='sometimes'>Sometimes</option>
-                  <option value='never'>Never</option>
-                </select>
-                <label for='saturday'>Saturday</label>
-                <select onChange={this.props.handleChange} name='saturday' value={this.props.user.saturday} required>
-                  <option value='none' selected disabled hidden>
-                    Select an Option
-                  </option>
-                  <option value='always'>Always</option>
-                  <option value='sometimes'>Sometimes</option>
-                  <option value='never'>Never</option>
-                </select>
-                <label for='sunday'>Sunday</label>
-                <select onChange={this.props.handleChange} name='sunday' value={this.props.user.sunday} required>
-                  <option value='none' selected disabled hidden>
-                    Select an Option
-                  </option>
-                  <option value='always'>Always</option>
-                  <option value='sometimes'>Sometimes</option>
-                  <option value='never'>Never</option>
-                </select>
-              </div>
-              <div>
-                <label for='quote'>
-                  <h4>Quote</h4>
-                </label>
-                <textarea
-                  onChange={this.props.handleChange}
-                  name='quote'
-                  value={this.props.user.quote}
                   required
                 ></textarea>
               </div>

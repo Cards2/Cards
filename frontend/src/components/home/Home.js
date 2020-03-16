@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import actions from "../../services/index";
+// import actions from "../../services/index";
 import LogIn from "../auth/LogIn";
 import Card from "../partials/Card";
 // import Search from '../search/Search'
-// LANDING PAGE
 
+// LANDING PAGE
 class Home extends Component {
   state = {
     login: false,

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import actions from "../../services";
-import Footer from "../partials/Footer";
+//import Footer from "../partials/Footer";
 import Tilt from "react-tilt";
 
 class Profile extends Component {
@@ -316,16 +316,20 @@ class Profile extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.props.user)
-      actions
-        .userInfo(this.props.user)
-          .then(userdata => {
-            this.props.history.push("/search")
-            })
-            .catch(({ response }) => console.error(response));
-
-        };
-
+    console.log(this.props.user);
+    actions
+      .userInfo(this.props.user)
+      .then(userdata => {
+        this.props.history.push("/search");
+      })
+      .catch(({ response }) => console.error(response));
+    actions
+      .userInteraction(this.props.user)
+      .then(userdata => {
+        this.props.history.push("/search");
+      })
+      .catch(({ response }) => console.error(response));
+  };
 
   render() {
     if (!this.props.user.loading && !this.props.user.email) {

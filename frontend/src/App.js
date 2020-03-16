@@ -12,6 +12,7 @@ import Search from "./components/search/Search";
 import Projects from "./components/projects/Projects";
 import NavBar from "./components/partials/NavBar";
 import ProjectUpdate from "./components/projects/ProjectUpdate";
+// eslint-disable-next-line
 import Card from "./components/partials/Card";
 import CardTest from "./components/partials/CardTest";
 import MyCard from "./components/profile/MyCard";
@@ -38,6 +39,7 @@ class App extends Component {
   setUser = user => this.setState(user);
 
   logOut = async () => {
+    // eslint-disable-next-line
     let res = await actions.logOut();
     this.setState({ loginTrigger: false });
     this.setUser({
@@ -117,12 +119,7 @@ class App extends Component {
             <Route
               exact
               path='/search'
-              render={props => (
-                <Search
-                  {...props}
-                  generalstate={this.state}
-                />
-              )}
+              render={props => <Search {...props} generalstate={this.state} />}
             />
             <Route
               exact
