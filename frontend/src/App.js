@@ -47,7 +47,7 @@ class App extends Component {
   };
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value, userID: this.state._id });
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
@@ -86,7 +86,11 @@ class App extends Component {
             <Route
               exact
               path="/profile"
-              render={props => <Profile {...props} user={this.state} />}
+              render={props => <Profile                   
+                  {...props}
+                  handleChange={this.handleChange}
+                  setUserProperty={this.setUserProperty}
+                  user={this.state} />}
             />
             <Route
               exact

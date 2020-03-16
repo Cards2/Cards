@@ -33,7 +33,7 @@ class Profile extends Component {
               </Tilt>
       <div>
       <h2 style={{color: 'white', padding: 5 }} > Hi There! </h2>
-      <h1 style={{color: 'white', padding: 5}} > Now that youre a part of the Card community, lets make your card!! </h1>
+      <h1 style={{color: 'white', padding: 5}} > Now that you're a part of the Card community, lets make your card!! </h1>
       <h2 style={{color: 'white', padding: 5}} > 
       Your card is like a tiny resume! 
       it'll help other users determine if you're a good fit for their team! 
@@ -45,7 +45,6 @@ class Profile extends Component {
                 onChange={this.props.handleChange}
                 type='text'
                 name='username'
-                placeholder='Name'
                 value={this.props.user.username}
                 required
               />

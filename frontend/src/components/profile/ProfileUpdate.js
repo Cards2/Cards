@@ -6,9 +6,6 @@ import Footer from "../partials/Footer";
 class ProfileUpdate extends Component {
   state = {
   };
-
-
-
   
   handleSubmit = e => {
     e.preventDefault();
@@ -20,7 +17,8 @@ class ProfileUpdate extends Component {
       .catch(({ response }) => console.error(response.data));
       };
 
-  render() {
+
+   render() {
     if (!this.props.user.loading && !this.props.user.email) {
       this.props.history.push("/log-in");
     }
