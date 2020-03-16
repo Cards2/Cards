@@ -27,7 +27,7 @@ class App extends Component {
     let res3 = await actions.oneUserQuery(this.state._id);
     let res4 = await actions.oneProjectQuery(this.state._id);
     // console.log('RES 3', res3)
-    this.setState({ ...user.data, loading:false, users: res2, });
+    this.setState({ ...user.data, loading: false, users: res2 });
     this.setState(res3.data.currentUser);
     this.setState(res4.data.currentProject);
   }
@@ -43,7 +43,7 @@ class App extends Component {
       createdAt: null,
       updatedAt: null,
       _id: null
-    }); //FIX
+    });
   };
 
   handleChange = e => {
@@ -58,43 +58,49 @@ class App extends Component {
           <Switch>
             <Route
               exact
-              path="/:nav"
+              path='/:nav'
               render={props => (
                 <NavBar
                   email={this.state.email}
                   logOut={this.logOut}
-                  {...props}  /> )}
-                  />
+                  {...props}
+                />
+              )}
+            />
           </Switch>
 
           <Switch>
             <Route
               exact
-              path="/"
+              path='/'
               render={props => <Home {...props} setUser={this.setUser} />}
             />
             <Route
               exact
-              path="/sign-up"
+              path='/sign-up'
               render={props => <SignUp {...props} setUser={this.setUser} />}
             />
             <Route
               exact
-              path="/log-in"
+              path='/log-in'
               render={props => <LogIn {...props} setUser={this.setUser} />}
             />
             <Route
               exact
-              path="/profile"
-              render={props => <Profile                   
+              path='/profile'
+              render={props => (
+                <Profile
                   {...props}
                   handleChange={this.handleChange}
                   setUserProperty={this.setUserProperty}
-                  user={this.state} />}
+                  user={this.state}
+                  setUser={this.setUser}
+                />
+              )}
             />
             <Route
               exact
-              path="/profile-update"
+              path='/profile-update'
               render={props => (
                 <ProfileUpdate
                   {...props}
@@ -106,7 +112,7 @@ class App extends Component {
             />
             <Route
               exact
-              path="/search"
+              path='/search'
               render={props => (
                 <Search
                   {...props}
@@ -116,12 +122,12 @@ class App extends Component {
             />
             <Route
               exact
-              path="/projects"
+              path='/projects'
               render={props => <Projects {...props} user={this.state} />}
             />
             <Route
               exact
-              path="/project-update"
+              path='/project-update'
               render={props => (
                 <ProjectUpdate
                   {...props}
@@ -130,7 +136,11 @@ class App extends Component {
                 />
               )}
             />
-            <Route exact path="/cards" render={props => <CardTest {...props} />} />
+            <Route
+              exact
+              path='/cards'
+              render={props => <CardTest {...props} />}
+            />
             <Route component={NotFound} />
           </Switch>
           {/* <Footer/> */}
