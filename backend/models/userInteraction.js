@@ -11,9 +11,6 @@ const UserMovement = new Schema({
     requestedCards: [],
     pendingCards: [],
     acceptedCards: [],
-
-
-
   });
   
   const UserInteractions = mongoose.model("UserInteractions", UserMovement);

@@ -92,7 +92,7 @@ class Profile extends Component {
             remember; humility (or not){" "}
           </h2>
           <div>
-            <label for='art'>Art/Animation</label>
+            <label htmlFor='art'>Art/Animation</label>
             <input
               onChange={this.props.handleChange}
               type='number'
@@ -101,7 +101,7 @@ class Profile extends Component {
               max='10'
               required
             ></input>
-            <label for='programming'>Programming</label>
+            <label htmlFor='programming'>Programming</label>
             <input
               onChange={this.props.handleChange}
               type='number'
@@ -110,7 +110,7 @@ class Profile extends Component {
               max='10'
               required
             ></input>
-            <label for='design'>Design</label>
+            <label htmlFor='design'>Design</label>
             <input
               onChange={this.props.handleChange}
               type='number'
@@ -119,7 +119,7 @@ class Profile extends Component {
               max='10'
               required
             ></input>
-            <label for='audio'>Audio</label>
+            <label htmlFor='audio'>Audio</label>
             <input
               onChange={this.props.handleChange}
               type='number'
@@ -128,7 +128,7 @@ class Profile extends Component {
               max='10'
               required
             ></input>
-            <label for='writing'>Writing</label>
+            <label htmlFor='writing'>Writing</label>
             <input
               onChange={this.props.handleChange}
               type='number'
@@ -168,7 +168,7 @@ class Profile extends Component {
           </h3>
           <div>
             <h4>Avalibility</h4>
-            <label for='monday'>Monday</label>
+            <label htmlFor='monday'>Monday</label>
             <select onChange={this.props.handleChange} name='monday' required>
               <option value='none' selected disabled hidden>
                 Select an Option
@@ -177,7 +177,7 @@ class Profile extends Component {
               <option value='sometimes'>Sometimes</option>
               <option value='never'>Never</option>
             </select>
-            <label for='tuesday'>Tuesday</label>
+            <label htmlFor='tuesday'>Tuesday</label>
             <select onChange={this.props.handleChange} name='tuesday' required>
               <option value='none' selected disabled hidden>
                 Select an Option
@@ -186,7 +186,7 @@ class Profile extends Component {
               <option value='sometimes'>Sometimes</option>
               <option value='never'>Never</option>
             </select>
-            <label for='wednesday'>Wednesday</label>
+            <label htmlFor='wednesday'>Wednesday</label>
             <select
               onChange={this.props.handleChange}
               name='wednesday'
@@ -199,7 +199,7 @@ class Profile extends Component {
               <option value='sometimes'>Sometimes</option>
               <option value='never'>Never</option>
             </select>
-            <label for='thursday'>Thursday</label>
+            <label htmlFor='thursday'>Thursday</label>
             <select onChange={this.props.handleChange} name='thursday' required>
               <option value='none' selected disabled hidden>
                 Select an Option
@@ -208,7 +208,7 @@ class Profile extends Component {
               <option value='sometimes'>Sometimes</option>
               <option value='never'>Never</option>
             </select>
-            <label for='friday'>Friday</label>
+            <label htmlFor='friday'>Friday</label>
             <select onChange={this.props.handleChange} name='friday' required>
               <option value='none' selected disabled hidden>
                 Select an Option
@@ -217,7 +217,7 @@ class Profile extends Component {
               <option value='sometimes'>Sometimes</option>
               <option value='never'>Never</option>
             </select>
-            <label for='saturday'>Saturday</label>
+            <label htmlFor='saturday'>Saturday</label>
             <select onChange={this.props.handleChange} name='saturday' required>
               <option value='none' selected disabled hidden>
                 Select an Option
@@ -226,7 +226,7 @@ class Profile extends Component {
               <option value='sometimes'>Sometimes</option>
               <option value='never'>Never</option>
             </select>
-            <label for='sunday'>Sunday</label>
+            <label htmlFor='sunday'>Sunday</label>
             <select onChange={this.props.handleChange} name='sunday' required>
               <option value='none' selected disabled hidden>
                 Select an Option
@@ -238,7 +238,7 @@ class Profile extends Component {
           </div>
           <br></br>
           <div>
-            <label for='timezone'>
+            <label htmlFor='timezone'>
               <h4>TimeZone</h4>
             </label>
             <textarea
