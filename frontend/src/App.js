@@ -47,7 +47,7 @@ class App extends Component {
   };
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value, userID: this.state._id });
   };
 
   render() {
@@ -110,7 +110,6 @@ class App extends Component {
               render={props => (
                 <Search
                   {...props}
-                  user={this.state}
                   generalstate={this.state}
                 />
               )}

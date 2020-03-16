@@ -9,8 +9,8 @@ const string = {
 const UserMovement = new Schema({
     userID: string,
     requestedCards: [],
-    requestedCards: [],
-    requestedCards: [],
+    pendingCards: [],
+    acceptedCards: [],
 
 
 

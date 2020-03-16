@@ -21,10 +21,16 @@ const actions = {
   logOut: async () => {
     return await service.get("/logout");
   },
+  
   // initial user credential creation
   userInfo: async userdata => {
     return await service.post("/userdata", userdata);
   },
+
+  userInteraction: async userInter => {
+    return await service.post("/userInteraction", userInter);
+  },
+
   // initial project creation
   projectInfo: async projectdata => {
     return await service.post("/projectdata", projectdata);

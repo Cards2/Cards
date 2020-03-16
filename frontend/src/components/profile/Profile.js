@@ -300,12 +300,16 @@ class Profile extends Component {
     e.preventDefault();
     console.log(this.props.user)
       actions
-        .userInfo(this.props.user, )
+        .userInfo(this.props.user)
           .then(userdata => {
-            this.props.user({ ...userdata.data })
             this.props.history.push("/search")
             })
-          .catch(({ response }) => console.error(response));
+            .catch(({ response }) => console.error(response));
+      actions.userInteraction(this.props.user)
+      .then(userdata => {
+            this.props.history.push("/search")
+            })
+            .catch(({ response }) => console.error(response));
         };
 
 

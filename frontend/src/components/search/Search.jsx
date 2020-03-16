@@ -6,7 +6,6 @@ class Search extends Component {
   state = {
     allUsers: [],
     users: [],
-    userdata: this.props.generalstate.users
   };
 
 
