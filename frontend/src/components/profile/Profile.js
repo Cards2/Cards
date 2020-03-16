@@ -316,15 +316,20 @@ class Profile extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    actions
-      .userInfo(this.props.user)
+    console.log(this.props.user)
+      actions
+        .userInfo(this.props.user)
+          .then(userdata => {
+            this.props.history.push("/search")
+            })
+            .catch(({ response }) => console.error(response));
+      actions.userInteraction(this.props.user)
       .then(userdata => {
-        console.log(userdata);
-        // this.props.setUser({ ...userdata.data });
-        this.props.history.push("/search");
-      })
-      .catch(response => console.error(response));
-  };
+            this.props.history.push("/search")
+            })
+            .catch(({ response }) => console.error(response));
+        };
+
 
   render() {
     if (!this.props.user.loading && !this.props.user.email) {

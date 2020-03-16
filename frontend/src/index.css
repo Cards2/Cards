@@ -252,7 +252,7 @@ code {
 /* Card */
 /* Card */
 
-.innerCard {
+/* .innerCard {
   margin: 20px;
   display: flex;
   flex-direction: column;
@@ -272,7 +272,7 @@ code {
   font-size: 1.7rem;
   font-weight: 500;
   margin: 0;
-}
+} */
 /* html, body {
   background: #FCEEB5;
   font-family: Abel, Arial, Verdana, sans-serif;
@@ -300,59 +300,59 @@ code {
 .card h1 {
   text-align: center;
 }
-
-.card .additional {
+.card .hide{
   position: absolute;
-  width: 0px;
+  width: 100%;
   height: 100%;
-  background: linear-gradient(#dE685E, #EE786E);
+  /* background: linear-gradient(#dE685E, #EE786E);
+   */
+   background-image: url("https://images.pexels.com/photos/1083822/pexels-photo-1083822.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+   background-size: cover;
+   background-position: right;
   transition: width 0.4s;
   overflow: hidden;
   z-index: 2;
+  transform: translateX(-100%);
+  animation-name: moveOnclick2;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+.card .additional {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(#dE685E, #EE786E); */
+  background-image: url("https://images.pexels.com/photos/1083822/pexels-photo-1083822.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: cover;
+  background-position: right;
+  transition: width 0.4s;
+  overflow: hidden;
+  z-index: 2;
+  animation-name: moveOnClick;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+@keyframes moveOnClick{
+0%{
+  transform: translateX(-100%);
+}
+100%{
+  transform: translateX(0);
+}
+}
+@keyframes moveOnclick2 {
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(-100%);
+  }
 }
 
- .card:active .additional {
+ /* .card:active .additional {
   width: 100%;
   border-radius: 0 5px 5px 0;
-}
-
-.card .additional .user-card {
-  width: 150px;
-  height: 100%;
-  position: relative;
-  float: left;
-}
-
-.card .additional .user-card::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 10%;
-  right: -2px;
-  height: 80%;
-  border-left: 2px solid rgba(0,0,0,0.025);
-}
-
-.card .additional .user-card .level,
-.card .additional .user-card .points {
-  top: 15%;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 0.75em;
-  font-weight: bold;
-  background: rgba(0,0,0,0.15);
-  padding: 0.125rem 0.75rem;
-  border-radius: 100px;
-  white-space: nowrap;
-}
-
-.card .additional .user-card .points {
-  top: 85%;
-}
-
-.card .additional .user-card svg {
-  top: 50%;
-}
+} */
 
 .card .additional .more-info {
   width: 300px;
@@ -360,63 +360,6 @@ code {
   position: absolute;
   left: 150px;
   height: 100%;
-}
-
-.card .additional .more-info h1 {
-  color: #fff;
-  margin-bottom: 0;
-}
-
-
-
-.card .additional .coords {
-  margin: 0 1rem;
-  color: #fff;
-  font-size: 1rem;
-}
-
-
-
-.card .additional .coords span + span {
-  float: right;
-}
-
-.card .additional .stats {
-  font-size: 2rem;
-  display: flex;
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
-  top: auto;
-  color: #fff;
-}
-
-
-
-.card .additional .stats > div {
-  flex: 1;
-  text-align: center;
-}
-
-.card .additional .stats i {
-  display: block;
-}
-
-.card .additional .stats div.title {
-  font-size: 0.75rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.card .additional .stats div.value {
-  font-size: 1.5rem;
-  font-weight: bold;
-  line-height: 1.5rem;
-}
-
-.card .additional .stats div.value.infinity {
-  font-size: 2.5rem;
 }
 
 .card .general {

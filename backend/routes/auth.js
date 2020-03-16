@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 const UserData = require("../models/userData");
+const UserInteractions = require("../models/userInteraction")
 const ProjectData = require("../models/Project");
 const passport = require("../config/passport");
 
@@ -82,6 +83,31 @@ router.post("/userdata", (req, res, next) => {
       res.status(500).json({ err });
     });
 });
+
+
+// posts userinteraction with current user ID upon login
+router.post("/userInteraction", (req, res, next) => {
+  UserInteractions.create(req.body)
+    .then(userInter => res.status(200).json({ userInter }))
+    .catch(err => {
+      res.status(500).json({ err });
+    });
+});
+
+// gets all user interaction data from 
+router.get("/user-interaction-query", isAuth, (req, res, next) => {
+  UserInteractions.findOne({ userID: req.user._id }) 
+    .then(currUserInt => {
+      res.status(200).json({ currUserInt });
+    })
+    .catch(err => res.status(500).json({ err }));
+});
+
+
+
+
+
+
 
 //  requests all users to search component
 router.get("/userquery", (req, res, next) => {
