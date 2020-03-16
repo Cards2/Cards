@@ -12,8 +12,8 @@ class Projects extends Component {
     userID: this.props.user._id,
     projectTitle: "",
     description: "",
-    startdate: "",
-    enddate: "",
+    startDate: "",
+    endDate: "",
     status: "",
     artPositions: "",
     designPositions: "",
@@ -56,7 +56,7 @@ class Projects extends Component {
               <input
                 onChange={this.handleChange}
                 type='text'
-                name='title'
+                name='projectTitle'
                 placeholder='Project Title'
                 required
               />

@@ -32,7 +32,7 @@ const projectSchema = new Schema({
   },
   status: {
     type: String,
-    enum: ["proposed", "inProduction", "onHold", "compleated"]
+    enum: ["proposed", "inProduction", "onHold", "completed"]
   },
   artPositions: minMaxNum,
   designPositions: minMaxNum,
