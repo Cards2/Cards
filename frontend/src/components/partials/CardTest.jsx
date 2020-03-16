@@ -30,7 +30,7 @@ class CardTest extends Component {
                     <img src="./Icons/card-toggle-inactive.svg" alt="" />
                   </div>
                   <div>
-                    <img src="./Icons/user-interaction-btn.svg"></img>
+                    <img alt='user interaction' src="./Icons/user-interaction-btn.svg"></img>
                   </div>
                 </div>
               </div>

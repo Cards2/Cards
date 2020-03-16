@@ -15,6 +15,10 @@ class Search extends Component {
     }
   };
 
+  projectCall = () => {
+
+  }
+
   cardCall = () => {
     if (this.props.generalstate.users) {
       return this.props.generalstate.users.data.allUsers.map((eachuser, i) => {
@@ -44,23 +48,16 @@ class Search extends Component {
 
   render() {
     return (
-      <div>
-        {/* {this.searchfunction()} */}
+      <div className = 'searchPage'>
+        <div className = 'searchBar'>
+          {/* {this.searchfunction()} */}
+        </div>
+        
         {this.cardCall()}
+        {this.projectCall()}
       </div>
     );
   }
 }
 
 export default Search;
-
-// profileCallFunc = () => {
-
-//   if (this.props.generalstate.users) {
-//     return this.props.generalstate.users.data.allUsers.map((eachuser, i) => {
-//       return action.profileCall(eachuser._id).then(res => {
-//         console.log(res);
-//       });
-//     });
-//   }
-// };
