@@ -12,12 +12,13 @@ import Search from "./components/search/Search";
 import Projects from "./components/projects/Projects";
 import NavBar from "./components/partials/NavBar";
 import ProjectUpdate from "./components/projects/ProjectUpdate";
+import Card from "./components/partials/Card";
+import CardTest from "./components/partials/CardTest";
 // import Footer from "./components/partials/Footer";
 
 class App extends Component {
   state = {
-    loading: true, 
-  
+    loading: true
   };
 
   async componentDidMount() {
@@ -48,7 +49,6 @@ class App extends Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value, userID: this.state._id });
   };
-    
 
   render() {
     console.log(this.state);
@@ -56,8 +56,11 @@ class App extends Component {
       <>
         <BrowserRouter>
           <Switch>
-            <Route  exact path='/:nav' render={props => (
-                <NavBar 
+            <Route
+              exact
+              path="/:nav"
+              render={props => (
+                <NavBar
                   email={this.state.email}
                   logOut={this.logOut}
                   {...props}  /> )}
@@ -65,43 +68,66 @@ class App extends Component {
           </Switch>
 
           <Switch>
-            <Route exact path='/' render={props => 
-              <Home {...props} 
-                setUser={this.setUser} />}
+            <Route
+              exact
+              path="/"
+              render={props => <Home {...props} setUser={this.setUser} />}
+            />
+            <Route
+              exact
+              path="/sign-up"
+              render={props => <SignUp {...props} setUser={this.setUser} />}
+            />
+            <Route
+              exact
+              path="/log-in"
+              render={props => <LogIn {...props} setUser={this.setUser} />}
+            />
+            <Route
+              exact
+              path="/profile"
+              render={props => <Profile {...props} user={this.state} />}
+            />
+            <Route
+              exact
+              path="/profile-update"
+              render={props => (
+                <ProfileUpdate
+                  {...props}
+                  handleChange={this.handleChange}
+                  setUserProperty={this.setUserProperty}
+                  user={this.state}
                 />
-            <Route exact path='/sign-up' render={props => 
-              <SignUp {...props} 
-                setUser={this.setUser} />}
+              )}
+            />
+            <Route
+              exact
+              path="/search"
+              render={props => (
+                <Search
+                  {...props}
+                  user={this.state}
+                  generalstate={this.state}
                 />
-            <Route exact path='/log-in' render={props => 
-              <LogIn {...props} 
-                setUser={this.setUser} />}
+              )}
+            />
+            <Route
+              exact
+              path="/projects"
+              render={props => <Projects {...props} user={this.state} />}
+            />
+            <Route
+              exact
+              path="/project-update"
+              render={props => (
+                <ProjectUpdate
+                  {...props}
+                  handleChange={this.handleChange}
+                  user={this.state}
                 />
-            <Route exact path='/profile' render={props => 
-              <Profile {...props} 
-                handleChange={this.handleChange}
-                user={this.state} />}
-                />
-            <Route exact path='/profile-update' render={props => 
-              <ProfileUpdate {...props} 
-                handleChange={this.handleChange}
-                setUserProperty={this.setUserProperty} 
-                user={this.state} />}
-                />
-            <Route exact path='/search' render={props => 
-              <Search {...props}
-                user={this.state}
-                generalstate={this.state} /> }
-                />
-            <Route exact path='/projects' render={props => 
-              <Projects {...props} 
-                user={this.state} />}
-                />
-            <Route exact path='/project-update' render={props => 
-              <ProjectUpdate {...props} 
-                handleChange={this.handleChange}
-                user={this.state} />}
-                />
+              )}
+            />
+            <Route exact path="/cards" render={props => <CardTest {...props} />} />
             <Route component={NotFound} />
           </Switch>
           {/* <Footer/> */}
