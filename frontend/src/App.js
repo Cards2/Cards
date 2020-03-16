@@ -14,6 +14,7 @@ import NavBar from "./components/partials/NavBar";
 import ProjectUpdate from "./components/projects/ProjectUpdate";
 import Card from "./components/partials/Card";
 import CardTest from "./components/partials/CardTest";
+import MyCard from "./components/profile/MyCard";
 // import Footer from "./components/partials/Footer";
 
 class App extends Component {
@@ -26,10 +27,12 @@ class App extends Component {
     let res2 = await actions.userQuery();
     let res3 = await actions.oneUserQuery(this.state._id);
     let res4 = await actions.oneProjectQuery(this.state._id);
-    // console.log('RES 3', res3)
+    let res5 = await actions.oneUserInteraction(this.state._id);
+    // console.log(res5)
     this.setState({ ...user.data, loading: false, users: res2 });
     this.setState(res3.data.currentUser);
     this.setState(res4.data.currentProject);
+    this.setState(res5.data.currUserInt);
   }
 
   setUser = user => this.setState(user);
@@ -46,6 +49,7 @@ class App extends Component {
     });
   };
 
+  // tryna fix this shiiiitttttt
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value, userID: this.state._id });
   };
@@ -140,6 +144,11 @@ class App extends Component {
               exact
               path='/cards'
               render={props => <CardTest {...props} />}
+            />
+            <Route
+              exact
+              path='/mycard'
+              render={props => <MyCard {...props} generalstate={this.state} />}
             />
             <Route component={NotFound} />
           </Switch>

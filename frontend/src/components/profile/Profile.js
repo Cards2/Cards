@@ -323,11 +323,7 @@ class Profile extends Component {
             this.props.history.push("/search")
             })
             .catch(({ response }) => console.error(response));
-      actions.userInteraction(this.props.user)
-      .then(userdata => {
-            this.props.history.push("/search")
-            })
-            .catch(({ response }) => console.error(response));
+
         };
 
 

@@ -8,7 +8,7 @@ const string = {
 
 const UserMovement = new Schema({
     userID: string,
-    requestedCards: [],
+    requestedCards: { type : Array , "default" : [] }, 
     pendingCards: [],
     acceptedCards: [],
 

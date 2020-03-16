@@ -14,9 +14,12 @@ class SignUp extends Component {
             actions.signUp(this.state).then(username=> {
                 this.props.setUser({...username.data})
                 this.props.history.push("/profile")
-            })
-
-            .catch(({ response }) => console.error(response.data));
+                })
+                .catch(({ response }) => console.error(response.data));
+            actions.userInteraction(this.props.user)
+            .then(userdata => {
+                  })
+                  .catch(({ response }) => console.error(response));
             
     }
     

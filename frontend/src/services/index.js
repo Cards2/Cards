@@ -27,31 +27,47 @@ const actions = {
     return await service.post("/userdata", userdata);
   },
 
+  // creates user interaction isntance in DB
   userInteraction: async userInter => {
     return await service.post("/userInteraction", userInter);
+  },
+
+  // fetch user interaction data
+  oneUserInteraction: async oneuserinterac => {
+    return await service.get("/user-interaction-query", oneuserinterac);
+  },
+
+  // post to friend request array
+  sendMyCard: async sendcard => {
+    return await service.post("/send-my-card", sendcard);
   },
 
   // initial project creation
   projectInfo: async projectdata => {
     return await service.post("/projectdata", projectdata);
   },
+
   // fetches all the user profile data
   userQuery: async userquery => {
     return await service.get("/userquery", userquery);
   },
+
   // fetches one user's profile data
   oneUserQuery: async oneuserquery => {
     return await service.get("/one-user-query", oneuserquery);
   },
+
   // updates one user's profile data
   profileUpdate: async profileUpdate => {
     return await service.post("/profile-update", profileUpdate);
   },
+  
   // fetches one user's project data
   oneProjectQuery: async oneprojectquery => {
     return await service.get("/one-project-query", oneprojectquery);
   },
-  // updates one user's project data
+  
+             // updates one user's project data
   projectUpdate: async projectUpdate => {
     return await service.post("/project-update", projectUpdate);
   }
