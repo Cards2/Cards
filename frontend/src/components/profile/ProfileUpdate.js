@@ -104,19 +104,6 @@ class ProfileUpdate extends Component {
                 ></input>
               </div>
               <div>
-                <label for='about'>
-                  <h4>About</h4>
-                </label>
-                <textarea
-                  onChange={this.props.handleChange}
-                  type='text'
-                  name='about'
-                  value={this.props.user.about}
-                  maxLength='140'
-                  required
-                ></textarea>
-              </div>
-              <div>
                 <h4>Avalibility</h4>
                 <label for='monday'>Monday</label>
                 <select
@@ -125,9 +112,6 @@ class ProfileUpdate extends Component {
                   value={this.props.user.monday}
                   required
                 >
-                  <option value='none' selected disabled hidden>
-                    Select an Option
-                  </option>
                   <option value='always'>Always</option>
                   <option value='sometimes'>Sometimes</option>
                   <option value='never'>Never</option>
@@ -139,9 +123,6 @@ class ProfileUpdate extends Component {
                   value={this.props.user.tuesday}
                   required
                 >
-                  <option value='none' selected disabled hidden>
-                    Select an Option
-                  </option>
                   <option value='always'>Always</option>
                   <option value='sometimes'>Sometimes</option>
                   <option value='never'>Never</option>
@@ -153,9 +134,6 @@ class ProfileUpdate extends Component {
                   value={this.props.user.wednesday}
                   required
                 >
-                  <option value='none' selected disabled hidden>
-                    Select an Option
-                  </option>
                   <option value='always'>Always</option>
                   <option value='sometimes'>Sometimes</option>
                   <option value='never'>Never</option>
@@ -167,9 +145,6 @@ class ProfileUpdate extends Component {
                   value={this.props.user.thursday}
                   required
                 >
-                  <option value='none' selected disabled hidden>
-                    Select an Option
-                  </option>
                   <option value='always'>Always</option>
                   <option value='sometimes'>Sometimes</option>
                   <option value='never'>Never</option>
@@ -181,9 +156,6 @@ class ProfileUpdate extends Component {
                   value={this.props.user.friday}
                   required
                 >
-                  <option value='none' selected disabled hidden>
-                    Select an Option
-                  </option>
                   <option value='always'>Always</option>
                   <option value='sometimes'>Sometimes</option>
                   <option value='never'>Never</option>
@@ -195,9 +167,6 @@ class ProfileUpdate extends Component {
                   value={this.props.user.saturday}
                   required
                 >
-                  <option value='none' selected disabled hidden>
-                    Select an Option
-                  </option>
                   <option value='always'>Always</option>
                   <option value='sometimes'>Sometimes</option>
                   <option value='never'>Never</option>
@@ -218,13 +187,15 @@ class ProfileUpdate extends Component {
                 </select>
               </div>
               <div>
-                <label for='quote'>
-                  <h4>Quote</h4>
+                <label for='about'>
+                  <h4>About</h4>
                 </label>
                 <textarea
                   onChange={this.props.handleChange}
-                  name='quote'
-                  value={this.props.user.quote}
+                  type='text'
+                  name='about'
+                  value={this.props.user.aboutMe}
+                  maxLength='140'
                   required
                 ></textarea>
               </div>

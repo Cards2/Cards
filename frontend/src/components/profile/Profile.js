@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import actions from "../../services";
-import Footer from "../partials/Footer";
+//import Footer from "../partials/Footer";
 import Tilt from "react-tilt";
 
 class Profile extends Component {

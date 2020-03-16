@@ -29,7 +29,6 @@ const userDataSchema = new Schema({
   design: minMaxNum,
   audio: minMaxNum,
   writing: minMaxNum,
-  about: string,
   monday: timeFrame,
   tuesday: timeFrame,
   wednesday: timeFrame,
