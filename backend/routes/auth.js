@@ -23,10 +23,11 @@ router.post("/signup", (req, res, next) => {
 
 // Posts projectdata
 router.post("/projectdata", (req, res, next) => {
-  console.log(res.data);
+  // console.log(res.data);
+  console.log(req.body);
   ProjectData.create(req.body)
     .then(projectInfo => {
-      console.log(projectInfo);
+      // console.log(projectInfo);
     })
     .catch(err => {
       console.log(err);
@@ -94,6 +95,7 @@ router.post("/userInteraction", (req, res, next) => {
     });
 });
 
+
 // gets all user interaction data from 
 router.get("/user-interaction-query", isAuth, (req, res, next) => {
   UserInteractions.findOne({ userID: req.user._id }) 
@@ -102,6 +104,22 @@ router.get("/user-interaction-query", isAuth, (req, res, next) => {
     })
     .catch(err => res.status(500).json({ err }));
 });
+
+
+
+
+// adds to userData sent requests. Must also add to user's received info
+router.post("/send-my-card", isAuth, (req,res,next) => {
+  console.log(req.user)
+  console.log(req.body)
+  UserInteractions.findOneAndUpdate({ userID: req.user }, )
+  .then(sendingcard =>{})    
+  .catch(err => {
+    // console.log(err)
+    res.status(500).json({ err });
+  });
+})
+  // tryna fix this shiiiitttttt
 
 
 
