@@ -32,7 +32,7 @@ app.use(
     credentials: true,
     origin: [
       "http://localhost:3000",
-      "https://peaceful-shirley-79c984.netlify.com"
+      "https://cardmatch.netlify.com"
     ] //Swap this with the client url
   })
 );
