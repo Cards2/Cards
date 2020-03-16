@@ -74,12 +74,11 @@ router.get("/profile", isAuth, (req, res, next) => {
     .catch(err => res.status(500).json({ err }));
 });
 
-// Posts 'profile information" using form "userData"
+  // Posts 'profile information" using form "userData"
 router.post("/userdata", (req, res, next) => {
   UserData.create(req.body)
-    .then(userInfo => {})
+    .then(userInfo => res.status(200).json({ userInfo }))
     .catch(err => {
-      // console.log(err)
       res.status(500).json({ err });
     });
 });

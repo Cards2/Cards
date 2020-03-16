@@ -2,10 +2,14 @@ import React, { Component } from "react";
 import actions from "../../services";
 import Footer from "../partials/Footer";
 
+
 class ProfileUpdate extends Component {
   state = {
   };
 
+
+
+  
   handleSubmit = e => {
     e.preventDefault();
     actions

@@ -29,7 +29,7 @@ const userDataSchema = new Schema({
   design: minMaxNum,
   audio: minMaxNum,
   writing: minMaxNum,
-  about: string,
+  // about: string,
   monday: timeFrame,
   tuesday: timeFrame,
   wednesday: timeFrame,
@@ -37,7 +37,10 @@ const userDataSchema = new Schema({
   friday: timeFrame,
   saturday: timeFrame,
   sunday: timeFrame,
-  quote: string
+  aboutMe: String,
+  timezone: String,
+  portfolio: String,
+  contact: String,
 });
 
 const UserData = mongoose.model("UserData", userDataSchema);

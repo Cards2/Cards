@@ -8,7 +8,7 @@ class NavBar extends Component {
 
         {this.props.email ? ( // this is a terniaty to decide what to display in reference to the user choice
           <Fragment>
-            <NavLink to='/profile'>Profile</NavLink>
+            {/* <NavLink to='/profile'>Profile</NavLink> */}
             <NavLink to='/projects'>Projects</NavLink>
             <NavLink to='/profile-update'>Profile Update</NavLink>
             <NavLink to='/project-update'>Project Update</NavLink>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Tilt from "react-tilt";
-import action from "../../services/index";
+
+
 class Search extends Component {
   state = {
     allUsers: [],

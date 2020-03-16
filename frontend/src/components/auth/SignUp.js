@@ -12,8 +12,12 @@ class SignUp extends Component {
     handleSubmit =  e => {
         e.preventDefault()
             actions.signUp(this.state).then(username=> {
-                this.props.setUser({...username.data})  
-            }).catch(({ response }) => console.error(response.data));
+                this.props.setUser({...username.data})
+                this.props.history.push("/profile")
+            })
+
+            .catch(({ response }) => console.error(response.data));
+            
     }
     
     render() {
@@ -28,7 +32,7 @@ class SignUp extends Component {
                     <br></br>
                     <input name="password" type="password" onChange={this.handleChange} placeholder='password'/>
                     <br></br>
-                    <input type="submit" value="Sign Up"/>
+                    <button type="submit" value="Sign Up" > Submit </button>
                 </form>
             </div>
                 <Footer/>

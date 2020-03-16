@@ -17,6 +17,7 @@ import ProjectUpdate from "./components/projects/ProjectUpdate";
 class App extends Component {
   state = {
     loading: true, 
+  
   };
 
   async componentDidMount() {
@@ -24,6 +25,7 @@ class App extends Component {
     let res2 = await actions.userQuery();
     let res3 = await actions.oneUserQuery(this.state._id);
     let res4 = await actions.oneProjectQuery(this.state._id);
+    // console.log('RES 3', res3)
     this.setState({ ...user.data, loading:false, users: res2, });
     this.setState(res3.data.currentUser);
     this.setState(res4.data.currentProject);
@@ -44,27 +46,22 @@ class App extends Component {
   };
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value, userID: this.state._id });
   };
     
 
   render() {
-    // console.log(this.state);
+    console.log(this.state);
     return (
       <>
         <BrowserRouter>
           <Switch>
-            <Route
-              exact
-              path='/:nav'
-              render={props => (
-                <NavBar
+            <Route  exact path='/:nav' render={props => (
+                <NavBar 
                   email={this.state.email}
                   logOut={this.logOut}
-                  {...props}
-                />
-              )}
-            />
+                  {...props}  /> )}
+                  />
           </Switch>
 
           <Switch>
@@ -82,6 +79,7 @@ class App extends Component {
                 />
             <Route exact path='/profile' render={props => 
               <Profile {...props} 
+                handleChange={this.handleChange}
                 user={this.state} />}
                 />
             <Route exact path='/profile-update' render={props => 
