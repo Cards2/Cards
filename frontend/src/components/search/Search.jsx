@@ -16,12 +16,19 @@ class Search extends Component {
   };
 
   projectCall = () => {
-
-  }
+    console.log(this.props.generalstate);
+    // if (this.props.generalstate.projects) {
+    //   return this.props.generalstate.projects.data.allProjects.map((eachproject) =>{
+    //     return (
+    //       <div></div>
+    //     )
+    //   })
+    // }
+  };
 
   cardCall = () => {
     if (this.props.generalstate.users) {
-      return this.props.generalstate.users.data.allUsers.map((eachuser, i) => {
+      return this.props.generalstate.users.data.allUsers.map(eachuser => {
         return (
           <Tilt
             className='card Tilt'
@@ -48,11 +55,9 @@ class Search extends Component {
 
   render() {
     return (
-      <div className = 'searchPage'>
-        <div className = 'searchBar'>
-          {/* {this.searchfunction()} */}
-        </div>
-        
+      <div className='searchPage'>
+        <div className='searchBar'>{/* {this.searchfunction()} */}</div>
+
         {this.cardCall()}
         {this.projectCall()}
       </div>

@@ -10,9 +10,6 @@ const UserMovement = new Schema({
     requestedCards: { type : Array , "default" : [] }, 
     pendingCards: [],
     acceptedCards: [],
-
-
-
   });
   
   const UserInteractions = mongoose.model("UserInteractions", UserMovement);

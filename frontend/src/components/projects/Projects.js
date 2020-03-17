@@ -50,7 +50,7 @@ class Projects extends Component {
 
           <form onSubmit={this.handleSubmit}>
             <div>
-              <label for='title'>
+              <label htmlFor='title'>
                 <h4>Project Title</h4>
               </label>
               <input
@@ -62,7 +62,7 @@ class Projects extends Component {
               />
             </div>
             <div>
-              <label for='description'>
+              <label htmlFor='description'>
                 <h4>Project Description</h4>
               </label>
               <input
@@ -74,7 +74,7 @@ class Projects extends Component {
               />
             </div>
             <div>
-              <label for='startDate'>
+              <label htmlFor='startDate'>
                 <h4>Start date:</h4>
               </label>
               <input
@@ -86,7 +86,7 @@ class Projects extends Component {
               />
             </div>
             <div>
-              <label for='endDate'>
+              <label htmlFor='endDate'>
                 <h4>Anticipated End date:</h4>
               </label>
               <input
@@ -97,11 +97,11 @@ class Projects extends Component {
                 max='2030-01-01'
               />
             </div>
-            <label for='status'>
+            <label htmlFor='status'>
               <h4>Project Status</h4>
             </label>
-            <select onChange={this.handleChange} name='status' required>
-              <option value='none' selected disabled hidden>
+            <select onChange={this.handleChange} value='none' name='status' required>
+              <option value='none' disabled hidden>
                 Select an Option
               </option>
               <option value='proposed'>Proposed</option>
@@ -111,7 +111,7 @@ class Projects extends Component {
             </select>
             <div>
               <h4>Needed Roles</h4>
-              <label for='artPositions'>Artists/Animators</label>
+              <label htmlFor='artPositions'>Artists/Animators</label>
               <input
                 onChange={this.handleChange}
                 type='number'
@@ -120,7 +120,7 @@ class Projects extends Component {
                 max='5'
                 required
               />
-              <label for='designPositions'>Designers</label>
+              <label htmlFor='designPositions'>Designers</label>
               <input
                 onChange={this.handleChange}
                 type='number'
@@ -129,7 +129,7 @@ class Projects extends Component {
                 max='5'
                 required
               />
-              <label for='programmingPositions'>Programmers</label>
+              <label htmlFor='programmingPositions'>Programmers</label>
               <input
                 onChange={this.handleChange}
                 type='number'
@@ -138,7 +138,7 @@ class Projects extends Component {
                 max='5'
                 required
               />
-              <label for='writingPositions'>Writers</label>
+              <label htmlFor='writingPositions'>Writers</label>
               <input
                 onChange={this.handleChange}
                 type='number'
@@ -147,7 +147,7 @@ class Projects extends Component {
                 max='5'
                 required
               />
-              <label for='soundPositions'>Sound Designers</label>
+              <label htmlFor='soundPositions'>Sound Designers</label>
               <input
                 onChange={this.handleChange}
                 type='number'

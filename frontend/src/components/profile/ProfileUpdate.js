@@ -24,10 +24,10 @@ class ProfileUpdate extends Component {
       <div>
         <div>
           <div>
-            <h1>Profile UPDATE</h1>
+            <h1>Profile Update</h1>
             <form onSubmit={this.handleSubmit}>
               <div>
-                <label for='username'>
+                <label htmlFor='username'>
                   <h4>Username </h4>
                 </label>
                 <input
@@ -39,7 +39,7 @@ class ProfileUpdate extends Component {
                 />
               </div>
               <div>
-                <label for='title'>
+                <label htmlFor='title'>
                   <h4>Title</h4>
                 </label>
                 <input
@@ -52,7 +52,7 @@ class ProfileUpdate extends Component {
               </div>
               <h4>Skills</h4>
               <div>
-                <label for='art'>Art/Animation</label>
+                <label htmlFor='art'>Art/Animation</label>
                 <input
                   onChange={this.props.handleChange}
                   type='number'
@@ -62,7 +62,7 @@ class ProfileUpdate extends Component {
                   max='10'
                   required
                 ></input>
-                <label for='programming'>Programming</label>
+                <label htmlFor='programming'>Programming</label>
                 <input
                   onChange={this.props.handleChange}
                   type='number'
@@ -72,7 +72,7 @@ class ProfileUpdate extends Component {
                   max='10'
                   required
                 ></input>
-                <label for='design'>Design</label>
+                <label htmlFor='design'>Design</label>
                 <input
                   onChange={this.props.handleChange}
                   type='number'
@@ -82,7 +82,7 @@ class ProfileUpdate extends Component {
                   max='10'
                   required
                 ></input>
-                <label for='audio'>Audio</label>
+                <label htmlFor='audio'>Audio</label>
                 <input
                   onChange={this.props.handleChange}
                   type='number'
@@ -92,7 +92,7 @@ class ProfileUpdate extends Component {
                   max='10'
                   required
                 ></input>
-                <label for='writing'>Writing</label>
+                <label htmlFor='writing'>Writing</label>
                 <input
                   onChange={this.props.handleChange}
                   type='number'
@@ -105,7 +105,7 @@ class ProfileUpdate extends Component {
               </div>
               <div>
                 <h4>Avalibility</h4>
-                <label for='monday'>Monday</label>
+                <label htmlFor='monday'>Monday</label>
                 <select
                   onChange={this.props.handleChange}
                   name='monday'
@@ -116,7 +116,7 @@ class ProfileUpdate extends Component {
                   <option value='sometimes'>Sometimes</option>
                   <option value='never'>Never</option>
                 </select>
-                <label for='tuesday'>Tuesday</label>
+                <label htmlFor='tuesday'>Tuesday</label>
                 <select
                   onChange={this.props.handleChange}
                   name='tuesday'
@@ -127,7 +127,7 @@ class ProfileUpdate extends Component {
                   <option value='sometimes'>Sometimes</option>
                   <option value='never'>Never</option>
                 </select>
-                <label for='wednesday'>Wednesday</label>
+                <label htmlFor='wednesday'>Wednesday</label>
                 <select
                   onChange={this.props.handleChange}
                   name='wednesday'
@@ -138,7 +138,7 @@ class ProfileUpdate extends Component {
                   <option value='sometimes'>Sometimes</option>
                   <option value='never'>Never</option>
                 </select>
-                <label for='thursday'>Thursday</label>
+                <label htmlFor='thursday'>Thursday</label>
                 <select
                   onChange={this.props.handleChange}
                   name='thursday'
@@ -149,7 +149,7 @@ class ProfileUpdate extends Component {
                   <option value='sometimes'>Sometimes</option>
                   <option value='never'>Never</option>
                 </select>
-                <label for='friday'>Friday</label>
+                <label htmlFor='friday'>Friday</label>
                 <select
                   onChange={this.props.handleChange}
                   name='friday'
@@ -160,7 +160,7 @@ class ProfileUpdate extends Component {
                   <option value='sometimes'>Sometimes</option>
                   <option value='never'>Never</option>
                 </select>
-                <label for='saturday'>Saturday</label>
+                <label htmlFor='saturday'>Saturday</label>
                 <select
                   onChange={this.props.handleChange}
                   name='saturday'
@@ -171,23 +171,20 @@ class ProfileUpdate extends Component {
                   <option value='sometimes'>Sometimes</option>
                   <option value='never'>Never</option>
                 </select>
-                <label for='sunday'>Sunday</label>
+                <label htmlFor='sunday'>Sunday</label>
                 <select
                   onChange={this.props.handleChange}
                   name='sunday'
                   value={this.props.user.sunday}
                   required
                 >
-                  <option value='none' selected disabled hidden>
-                    Select an Option
-                  </option>
                   <option value='always'>Always</option>
                   <option value='sometimes'>Sometimes</option>
                   <option value='never'>Never</option>
                 </select>
               </div>
               <div>
-                <label for='about'>
+                <label htmlFor='about'>
                   <h4>About</h4>
                 </label>
                 <textarea
