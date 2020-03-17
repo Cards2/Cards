@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Plaster&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900");
-@import url('https://fonts.googleapis.com/css?family=Abel');
+@import url("https://fonts.googleapis.com/css?family=Abel");
 
 html {
   font-size: 62.5%;
@@ -292,8 +292,8 @@ code {
   width: 350px;
   height: 220px;
   background-color: var(--card-default);
-  
-  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
   border-radius: 1rem;
   overflow: hidden;
   position: relative;
@@ -303,28 +303,28 @@ code {
 .card h1 {
   text-align: center;
 }
-.card .static{
+.card .static {
   position: absolute;
   width: 100%;
   height: 100%;
   /* background: linear-gradient(#dE685E, #EE786E);
    */
-   background-image: url("https://images.pexels.com/photos/1083822/pexels-photo-1083822.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-   background-size: cover;
-   background-position: right;
+  background-image: url("https://images.pexels.com/photos/1083822/pexels-photo-1083822.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: cover;
+  background-position: right;
   transition: width 0.4s;
   overflow: hidden;
   z-index: 2;
 }
-.card .hide{
+.card .hide {
   position: absolute;
   width: 100%;
   height: 100%;
   /* background: linear-gradient(#dE685E, #EE786E);
    */
-   background-image: url("https://images.pexels.com/photos/1083822/pexels-photo-1083822.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-   background-size: cover;
-   background-position: right;
+  background-image: url("https://images.pexels.com/photos/1083822/pexels-photo-1083822.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: cover;
+  background-position: right;
   transition: width 0.4s;
   overflow: hidden;
   z-index: 2;
@@ -348,39 +348,39 @@ code {
   animation-duration: 1s;
   animation-timing-function: ease-out;
 }
-@keyframes moveOnClick{
-0%{
-  transform: translateX(-100%);
-}
-100%{
-  transform: translateX(0);
-}
-}
-@keyframes moveOnclick2 {
-  0%{
+@keyframes moveOnClick {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
     transform: translateX(0);
   }
-  100%{
+}
+@keyframes moveOnclick2 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
     transform: translateX(-100%);
   }
 }
-.card .switch-container{
+.card .switch-container {
   margin: 1rem 0rem;
-    display: flex;
-    /* padding: 0rem; */
-    justify-content: flex-end;
-    width: 95%;
+  display: flex;
+  /* padding: 0rem; */
+  justify-content: flex-end;
+  width: 95%;
 }
-.card .switcher{
-  margin: 0 1rem
+.card .switcher {
+  margin: 0 1rem;
 }
-.card .user-conections{
+.card .user-conections {
   color: white;
   position: absolute;
-    bottom: 5%;
-    right: 5%;
+  bottom: 5%;
+  right: 5%;
 }
-.card .title-organizer{
+.card .title-organizer {
   color: white;
   position: absolute;
   top: 50%;
@@ -388,23 +388,23 @@ code {
   transform: translate(-50%, -60%);
 }
 
-  .heading-card--main {
-    display: block;
-    font-size: 5rem;
-    font-weight: 700;
-    /* letter-spacing: 3.5rem; */
-   }
-  .heading-card--sub {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 500;
-     }
+.heading-card--main {
+  display: block;
+  font-size: 5rem;
+  font-weight: 700;
+  /* letter-spacing: 3.5rem; */
+}
+.heading-card--sub {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
 
-.card .general{
+.card .general {
   border: none;
   border-radius: 1rem;
   background-color: var(--card-default);
-  border: .2rem solid;
+  border: 0.2rem solid;
   border-color: var(--card-text);
   height: 93%;
   width: 95%;
@@ -413,37 +413,124 @@ code {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-#under{
+#under {
   margin: 0.5rem 0rem;
 }
-.general .at{
+.general .at {
   margin: 0 24rem 0 0;
 }
-.bottom-container{
+.bottom-container {
   position: absolute;
-    bottom: 2%;
-    width: 100%;
+  bottom: 2%;
+  width: 100%;
 }
-.user-craft, .user-craft > a {
-text-decoration: none;
-color: white;
+.user-craft,
+.user-craft > a {
+  text-decoration: none;
+  color: white;
 }
-.user-craft{
+.user-craft {
   margin: auto 10rem auto 0;
 }
- .middle-container{
+.card .middle-container {
   display: flex;
+}
+.card .middle-left  {
+  width: 45%;
+  display: flex;
+  
+  align-items: center;
+  border-left: 1.5px solid var(--card-text);
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 62.9%;
+  text-align: left;
+  color: white;
 }
 .card .middle-left > p{
-  width: 15rem;
+  margin: 0 1rem 0;
 }
-.card .middle-center{
-  display: flex;
-  flex-direction: column;
-} 
-.card .middle-rigth{
+.card .middle-center {
+  width: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    border-left: 1.5px solid var(--card-text);
+    position: absolute;
+    left: 55%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 62.9%;
+    
+    align-items: flex-end;
+}
+.card .middle-center .box{
+  height: 90%;
+    margin: .5rem 0 .5rem .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
 
+.card .middle-rigth {
+  width: 32%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-left: 1.5px solid var(--card-text);
+    position: absolute;
+    left: 70%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 62.9%;
 }
+
+.card .middle-rigth .rating {
+  height: -moz-fit-content;
+    height: fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    position: relative;
+    margin: .5rem 0 .5rem 1rem;
+}
+.card .middle-rigth .rating .level {
+  margin: 0;
+  color: white;
+  font-weight: bolder;
+  position: absolute;
+  left: 50%;
+  top: 85%;
+  transform: translateX(-50%);
+}
+.card  .header{
+  transform: rotate(-90deg);
+  font-weight: 300;
+  color: var(--card-text);
+  position: absolute;
+  margin: 0 !important;
+  position: absolute;
+  left: -19%;
+  top: 78%;
+  font-weight: 500;
+}
+#about{
+  
+}
+#aval{
+  left: -94%;
+  top: 70%;
+}
+#Green{
+  color: limegreen;
+}
+#Orange{
+  color: orange;
+}
+#Red{
+  color: red;
+}
+
 /* Card */
 /* Card */
 /* Card */
