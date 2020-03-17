@@ -5,6 +5,7 @@ class CardTest extends Component {
     hide: "hide",
     onLoad: "static",
     choice: 1
+
   };
 
   showOrHide = () => {
@@ -21,6 +22,18 @@ class CardTest extends Component {
       choice: num
     });
   };
+  abiability=(choice)=>{
+    if(choice === 'always'){
+      return 'Green'
+    } else if(choice === 'sometimes'){
+      return 'Orange'
+    } else if(choice === 'never'){
+      return 'Red'
+    }else{
+      return 'Green'
+    }
+  }
+
   render() {
     return (
       <div>
@@ -66,48 +79,52 @@ class CardTest extends Component {
                 </div>
                 <div className="middle-container">
                   <div className="middle-left">
+                    <p className='header'id='about'>About</p>
                     <p>
                       Sit et voluptua erat sit lorem dolor invidunt magna.
                       Voluptua et sadipscing sadipscing erat dolor et sed, est
                       voluptua et sed dolore. Sadipscing lorem sed et eos
-                      consetetur amet. Amet ipsum sed labore dolore dolores eos,
-                      et dolor gubergren at.
+                      consetetur amet. Amet ipsum sed labore dolore dolores eos.
                     </p>
                   </div>
                   <div className="middle-center">
-                    <span>Mon</span>
-                    <span>Tue</span>
-                    <span>Wed</span>
-                    <span>Thu</span>
-                    <span>Fri</span>
-                    <span>Sat</span>
-                    <span>Sun</span>
+                  <p className='header'id='aval'>Avalbility</p>
+                   <div className='box'>
+                    <div id={this.abiability('never')}>Mon</div>
+                    <div id={this.abiability('always')}>Tue</div>
+                    <div id={this.abiability('never')}>Wed</div>
+                    <div id={this.abiability('sometimes')}>Thu</div>
+                    <div id={this.abiability('never')}>Fri</div>
+                    <div id={this.abiability('always')}>Sat</div>
+                    <div id={this.abiability('always')}>Sun</div>
+                    </div>
                   </div>
                   <div className="middle-rigth">
-                    <span>
+                    <p className='header'>Skills</p>
+                    <div className='rating'>
                       <img src="./Icons/Design.svg" alt="" />
-                      <p></p>
-                    </span>
-                    <span>
+                      <p className='level'>8</p>
+                    </div>
+                    <div className='rating'>
                       <img src="./Icons/Other-Misc.svg" alt="" />
-                      <p>8</p>
-                    </span>
-                    <span>
-                      <img src="./Icons/Programing.svg" alt="" />
-                      <p>8</p>
-                    </span>
-                    <span>
+                      <p className='level'>8</p>
+                    </div>
+                    <div className='rating'>
+                      <img src="./Icons/Programming.svg" alt="" />
+                      <p className='level'>8</p>
+                    </div>
+                    <div className='rating'>
                       <img src="./Icons/Art.svg" alt="" />
-                      <p>8</p>
-                    </span>
-                    <span>
+                      <p className='level'>8</p>
+                    </div>
+                    <div className='rating'>
                       <img src="./Icons/Audio.svg" alt="" />
-                      <p>8</p>
-                    </span>
-                    <span>
+                      <p className='level'>8</p>
+                    </div>
+                    <div className='rating'>
                       <img src="./Icons/Writing.svg" alt="" />
-                      <p>8</p>
-                    </span>
+                      <p className='level'>8</p>
+                    </div>
                   </div>
                 </div>
                 <div className="bottom-container">

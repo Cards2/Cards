@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 const UserData = require("../models/userData");
-const UserInteractions = require("../models/userInteraction")
+const UserInteractions = require("../models/userInteraction");
 const ProjectData = require("../models/Project");
 const passport = require("../config/passport");
 
@@ -35,7 +35,7 @@ router.post("/projectdata", (req, res, next) => {
     });
 });
 
-// need to use isAuth for getting the data of the current PROJECT 
+// need to use isAuth for getting the data of the current PROJECT
 router.get("/one-project-query", isAuth, (req, res, next) => {
   ProjectData.findOne({ _id: req.user._id }) 
     .then(currentProject => {
