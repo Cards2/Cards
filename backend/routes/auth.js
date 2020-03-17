@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 const UserData = require("../models/userData");
-const UserInteractions = require("../models/userInteraction")
+const UserInteractions = require("../models/userInteraction");
 const ProjectData = require("../models/Project");
 const passport = require("../config/passport");
 
@@ -20,7 +20,6 @@ router.post("/signup", (req, res, next) => {
     });
 });
 
-
 // Posts projectdata
 router.post("/projectdata", (req, res, next) => {
   // console.log(res.data);
@@ -35,9 +34,9 @@ router.post("/projectdata", (req, res, next) => {
     });
 });
 
-// need to use isAuth for getting the data of the current PROJECT 
+// need to use isAuth for getting the data of the current PROJECT
 router.get("/one-project-query", isAuth, (req, res, next) => {
-  ProjectData.findOne({ userID: req.user._id }) 
+  ProjectData.findOne({ userID: req.user._id })
     .then(currentProject => {
       res.status(200).json({ currentProject });
     })
@@ -76,7 +75,7 @@ router.get("/profile", isAuth, (req, res, next) => {
     .catch(err => res.status(500).json({ err }));
 });
 
-  // Posts 'profile information" using form "userData"
+// Posts 'profile information" using form "userData"
 router.post("/userdata", (req, res, next) => {
   UserData.create(req.body)
     .then(userInfo => res.status(200).json({ userInfo }))
@@ -84,7 +83,6 @@ router.post("/userdata", (req, res, next) => {
       res.status(500).json({ err });
     });
 });
-
 
 // posts userinteraction with current user ID upon login
 router.post("/userInteraction", (req, res, next) => {
@@ -95,37 +93,27 @@ router.post("/userInteraction", (req, res, next) => {
     });
 });
 
-
-// gets all user interaction data from 
+// gets all user interaction data from
 router.get("/user-interaction-query", isAuth, (req, res, next) => {
-  UserInteractions.findOne({ userID: req.user._id }) 
+  UserInteractions.findOne({ userID: req.user._id })
     .then(currUserInt => {
       res.status(200).json({ currUserInt });
     })
     .catch(err => res.status(500).json({ err }));
 });
 
-
-
-
 // adds to userData sent requests. Must also add to user's received info
-router.post("/send-my-card", isAuth, (req,res,next) => {
-  console.log(req.user)
-  console.log(req.body)
-  UserInteractions.findOneAndUpdate({ userID: req.user }, )
-  .then(sendingcard =>{})    
-  .catch(err => {
-    // console.log(err)
-    res.status(500).json({ err });
-  });
-})
-  // tryna fix this shiiiitttttt
-
-
-
-
-
-
+router.post("/send-my-card", isAuth, (req, res, next) => {
+  console.log(req.user);
+  console.log(req.body);
+  UserInteractions.findOneAndUpdate({ userID: req.user })
+    .then(sendingcard => {})
+    .catch(err => {
+      // console.log(err)
+      res.status(500).json({ err });
+    });
+});
+// tryna fix this shiiiitttttt
 
 //  requests all users to search component
 router.get("/userquery", (req, res, next) => {
@@ -147,7 +135,9 @@ router.get("/one-user-query", isAuth, (req, res, next) => {
 
 router.post("/profile-update", (req, res, next) => {
   UserData.update(req.body)
-    .then(userInfo => {})
+    .then(userInfo => {
+      console.log(req.body);
+    })
     .catch(err => {
       // console.log(err)
       res.status(500).json({ err });

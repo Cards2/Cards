@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import actions from "../../services";
 import Footer from "../partials/Footer";
+// import { TimeZone } from "../partials/TimeZone";
 
 class ProfileUpdate extends Component {
   state = {};
@@ -195,6 +196,7 @@ class ProfileUpdate extends Component {
                   maxLength='140'
                   required
                 ></textarea>
+                {/* <TimeZone /> */}
               </div>
               <button type='submit'>Submit</button>
             </form>

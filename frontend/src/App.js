@@ -53,7 +53,7 @@ class App extends Component {
 
   // tryna fix this shiiiitttttt
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value, userID: this.state._id });
+    this.setState({ [e.target.name]: e.target.value }); //, userID: this.state._id
   };
 
   render() {
