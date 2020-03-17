@@ -7,7 +7,6 @@ const string = {
   };
 
   const ProjectMovement = new Schema({
-    // userID: string,
     requestedCards: [],
     pendingCards: [],
     acceptedCards: [],

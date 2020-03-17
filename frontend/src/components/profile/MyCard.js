@@ -10,10 +10,12 @@ class MyCard extends Component {
         
     }
 
-    adduser= (e) =>{
+    adduser= async (e) =>{
         e.preventDefault()
-        this.setState({[e.target.name]: e.target.value, userID: this.props.generalstate.userID} );
-        // actions.sendMyCard(this.state )
+        await this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
+        console.log(this.state, "muku")
+
+        actions.sendMyCard(this.state)
     }
 
     cardCall = () => {
@@ -29,7 +31,8 @@ class MyCard extends Component {
                   transformStyle: "preserve-3d",
                   backgroundImage: `url(${"https://images.pexels.com/photos/1083822/pexels-photo-1083822.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"})`,
                   backgroundSize: "cover",
-                  borderRadius: "6px"
+                  borderRadius: "6px",
+                  color: "white",
                 }}
               >
                 <div className='Tilt-inner innerCard'>
@@ -49,7 +52,7 @@ class MyCard extends Component {
 
 
     render() {
-        console.log(this.state, "cucu")
+        // console.log(this.state, "cucu")
         return (
             <div>
                 <h1> cucu </h1>

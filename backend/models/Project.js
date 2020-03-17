@@ -16,7 +16,6 @@ const minMaxNum = {
 };
 
 const projectSchema = new Schema({
-  // userID: string,
   projectTitle: { type: String, required: true, unique: true, },
   description: string,
   startDate: {

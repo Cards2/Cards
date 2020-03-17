@@ -8,8 +8,8 @@ const string = {
 
 const UserMovement = new Schema({
     requestedCards: { type : Array , "default" : [] }, 
-    pendingCards: [],
-    acceptedCards: [],
+    pendingCards: { type : Array , "default" : [] },
+    acceptedCards: { type : Array , "default" : [] },
   });
   
   const UserInteractions = mongoose.model("UserInteractions", UserMovement);
