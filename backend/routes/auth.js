@@ -20,7 +20,7 @@ router.post("/signup", (req, res, next) => {
     });
 });
 
-
+// OP
 // Posts projectdata
 router.post("/projectdata", (req, res, next) => {
   // console.log(res.data);
@@ -37,13 +37,14 @@ router.post("/projectdata", (req, res, next) => {
 
 // need to use isAuth for getting the data of the current PROJECT 
 router.get("/one-project-query", isAuth, (req, res, next) => {
-  ProjectData.findOne({ userID: req.user._id }) 
+  ProjectData.findOne({ _id: req.user._id }) 
     .then(currentProject => {
       res.status(200).json({ currentProject });
     })
     .catch(err => res.status(500).json({ err }));
 });
 
+// MUST TEST
 router.post("/project-update", (req, res, next) => {
   ProjectData.update(req.body)
     .then(projectInfo => {})
@@ -69,6 +70,7 @@ router.get("/logout", (req, res, next) => {
   res.status(200).json({ msg: "Logged out" });
 });
 
+// OP
 // Gets email from currently signed in user
 router.get("/profile", isAuth, (req, res, next) => {
   User.findById(req.user._id)
@@ -76,6 +78,7 @@ router.get("/profile", isAuth, (req, res, next) => {
     .catch(err => res.status(500).json({ err }));
 });
 
+// OP
   // Posts 'profile information" using form "userData"
 router.post("/userdata", (req, res, next) => {
   UserData.create(req.body)
@@ -85,8 +88,8 @@ router.post("/userdata", (req, res, next) => {
     });
 });
 
-
-// posts userinteraction with current user ID upon login
+// OP
+// creates userinteraction with current user ID upon login
 router.post("/userInteraction", (req, res, next) => {
   UserInteractions.create(req.body)
     .then(userInter => res.status(200).json({ userInter }))
@@ -96,37 +99,33 @@ router.post("/userInteraction", (req, res, next) => {
 });
 
 
+
+
+
+
+// OP
 // gets all user interaction data from 
 router.get("/user-interaction-query", isAuth, (req, res, next) => {
-  UserInteractions.findOne({ userID: req.user._id }) 
+  UserInteractions.findOne({ _id: req.user._id }) 
     .then(currUserInt => {
       res.status(200).json({ currUserInt });
     })
     .catch(err => res.status(500).json({ err }));
 });
 
-
-
-
+// might work now, need to run tests.
 // adds to userData sent requests. Must also add to user's received info
 router.post("/send-my-card", isAuth, (req,res,next) => {
-  console.log(req.user)
-  console.log(req.body)
-  UserInteractions.findOneAndUpdate({ userID: req.user }, )
+  UserInteractions.findOneAndUpdate({ _id: req.user._id }, req.body )
   .then(sendingcard =>{})    
   .catch(err => {
     // console.log(err)
     res.status(500).json({ err });
   });
 })
-  // tryna fix this shiiiitttttt
+  
 
-
-
-
-
-
-
+// OP
 //  requests all users to search component
 router.get("/userquery", (req, res, next) => {
   UserData.find(req.body)
@@ -136,17 +135,20 @@ router.get("/userquery", (req, res, next) => {
     .catch(err => res.status(500).json({ err }));
 });
 
+// OP
 // need to use isAuth for getting the data of the current user because
 router.get("/one-user-query", isAuth, (req, res, next) => {
-  UserData.findOne({ userID: req.user._id }) //use req.user instead of req.body if using isAuth
+  UserData.findOne({ _id: req.user._id }) //use req.user instead of req.body if using isAuth
     .then(currentUser => {
       res.status(200).json({ currentUser });
     })
     .catch(err => res.status(500).json({ err }));
 });
 
+// OP
 router.post("/profile-update", (req, res, next) => {
-  UserData.update(req.body)
+  // console.log(req.body)
+  UserData.findOneAndUpdate({ _id: req.user._id }, req.body )
     .then(userInfo => {})
     .catch(err => {
       // console.log(err)

@@ -193,7 +193,7 @@ class ProfileUpdate extends Component {
                 <textarea
                   onChange={this.props.handleChange}
                   type='text'
-                  name='about'
+                  name='aboutMe'
                   value={this.props.user.aboutMe}
                   maxLength='140'
                   required
