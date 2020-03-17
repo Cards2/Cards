@@ -3,28 +3,12 @@ import Tilt from "react-tilt";
 
 class Search extends Component {
   state = {
-    allUsers: [],
-    users: []
+    show: "additional",
+    hide: "hide",
+    onLoad: "static",
+    choice: 1,
   };
 
-  searchfunction = () => {
-    if (this.props.generalstate.users) {
-      return this.props.generalstate.users.data.allUsers.map((eachuser, i) => {
-        return <div></div>;
-      });
-    }
-  };
-
-  projectCall = () => {
-    console.log(this.props.generalstate);
-    // if (this.props.generalstate.projects) {
-    //   return this.props.generalstate.projects.data.allProjects.map((eachproject) =>{
-    //     return (
-    //       <div></div>
-    //     )
-    //   })
-    // }
-  };
 
   cardCall = () => {
     if (this.props.generalstate.users) {
@@ -53,13 +37,177 @@ class Search extends Component {
     }
   };
 
+  showOrHide = () => {
+    if (this.state.choice === 1) {
+      return this.state.onLoad;
+    } else if (this.state.choice === 2) {
+      return this.state.show;
+    } else if (this.state.choice === 3) {
+      return this.state.hide;
+    }
+  };
+  toggler = num => {
+    this.setState({
+      choice: num
+    });
+  };
+  abiability=(choice)=>{
+    if(choice === 'always'){
+      return 'Green'
+    } else if(choice === 'sometimes'){
+      return 'Orange'
+    } else if(choice === 'never'){
+      return 'Red'
+    }else{
+      return 'Green'
+    }
+  }
+
+
+
+
+  allCardsTilt = () => {
+    if (this.props.generalstate.users) {
+      return this.props.generalstate.users.data.allUsers.map(eachuser => {
+        return (
+          <Tilt
+          className='card Tilt'
+          options={{ max: 15 }}
+          style={{
+            height: 220,
+            width: 350,
+            transformStyle: "preserve-3d",
+            backgroundSize: "cover",
+            borderRadius: "6px"
+            }}>
+          <div className='Tilt-inner innerCard'> 
+          <div>
+            <div>
+              <div className="center">
+                <div className="card">
+                  <div className={this.showOrHide()}>
+                    <div className="more-info">
+                      <div className="switch-container">
+                        <div className="switcher" onClick={a => this.toggler(3)}>
+                          <img src="./Icons/card-toggle-inactive.svg" alt="" />
+                        </div>
+                        <div>
+                          <img src="./Icons/user-interaction-btn.svg"></img>
+                        </div>
+                      </div>
+                      <div className="title-organizer">
+                        <h1>
+                          <span className="heading-card--main">
+                            {eachuser.username} </span>
+                          <span className="heading-card--sub">
+                            {eachuser.title} </span>
+                        </h1>
+                      </div>
+                      <div className="user-link">
+                        <span className="user-conections">
+                          <img src="./Icons/copy-user-link-btn.svg" /> 1564
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="general">
+                    <div id="under" className="switch-container">
+                      <div className="at">
+                        <img src="./Icons/user-contact-btn.svg" alt="" />
+                      </div>
+                      <div className="switcher" onClick={a => this.toggler(2)}>
+                        <img src="./Icons/card-toggle-active.svg" alt="" />
+                      </div>
+                      <div>
+                        <img src="./Icons/user-interaction-btn.svg"></img>
+                      </div>
+                    </div>
+                    <div className="middle-container">
+                      <div className="middle-left">
+                        <p className='header'id='about'>About</p>
+                        <p>
+                        {eachuser.title} 
+                        </p>
+                      </div>
+                      <div className="middle-center">
+                      <p className='header'id='aval'>Avalbility</p>
+                      <div className='box'>
+                        <div id={this.abiability( `${eachuser.monday}` )}>Mon</div>
+                        <div id={this.abiability( `${eachuser.tuesday}` )}>Tue</div>
+                        <div id={this.abiability( `${eachuser.wednesday}` )}>Wed</div>
+                        <div id={this.abiability( `${eachuser.thrusday}` )}>Thu</div>
+                        <div id={this.abiability( `${eachuser.friday}` )}>Fri</div>
+                        <div id={this.abiability( `${eachuser.saturday}` )}>Sat</div>
+                        <div id={this.abiability( `${eachuser.sunday}` )}>Sun</div>
+                        </div>
+                      </div>
+                      <div className="middle-rigth">
+                        <p className='header'>Skills</p>
+                        <div className='rating'>
+                          <img src="./Icons/Design.svg" alt="" />
+                          <p className='level'> {eachuser.design} </p>
+                        </div>
+                        <div className='rating'>
+                          <img src="./Icons/Other-Misc.svg" alt="" />
+                          <p className='level'> {eachuser.design}  </p>
+                        </div>
+                        <div className='rating'>
+                          <img src="./Icons/Programming.svg" alt="" />
+                          <p className='level'> {eachuser.programming} </p>
+                        </div>
+                        <div className='rating'>
+                          <img src="./Icons/Art.svg" alt="" />
+                          <p className='level'> {eachuser.art} </p>
+                        </div>
+                        <div className='rating'>
+                          <img src="./Icons/Audio.svg" alt="" />
+                          <p className='level'> {eachuser.audio} </p>
+                        </div>
+                        <div className='rating'>
+                          <img src="./Icons/Writing.svg" alt="" />
+                          <p className='level'> {eachuser.design} </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bottom-container">
+                      <div className="user-craft">
+                        Portfolio:<a href=""> {eachuser.portafolio} </a>
+                      </div>
+                      <div className="user-conections" id="conection-under">
+                        <img src="./Icons/copy-user-link-btn.svg" /> 1564
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </Tilt>
+      );
+      });
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
   render() {
     return (
       <div className='searchPage'>
-        <div className='searchBar'>{/* {this.searchfunction()} */}</div>
+        <div className='searchBar'> </div>
+        {this.allCardsTilt()}
 
-        {this.cardCall()}
-        {this.projectCall()}
+        {/* {this.cardCall()} */}
       </div>
     );
   }
