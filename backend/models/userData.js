@@ -21,7 +21,7 @@ const timeFrame = {
 };
 
 const userDataSchema = new Schema({
-  userID: String,
+  // userID: string,
   username: string,
   title: string,
   art: minMaxNum,

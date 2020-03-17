@@ -70,8 +70,12 @@ class Profile extends Component {
   };
 
   transition1 = () => {
-    this.setState({ screen1: true });
-  };
+    this.setState({ screen1: true })
+    actions.userInteraction(this.props.user)
+            .then(userdata => {
+                  })
+                  .catch(({ response }) => console.error(response.data));
+        };
 
   screen2 = () => {
     if (this.state.screen1 && !this.state.screen2)
@@ -319,12 +323,6 @@ class Profile extends Component {
     console.log(this.props.user);
     actions
       .userInfo(this.props.user)
-      .then(userdata => {
-        this.props.history.push("/search");
-      })
-      .catch(({ response }) => console.error(response));
-    actions
-      .userInteraction(this.props.user)
       .then(userdata => {
         this.props.history.push("/search");
       })

@@ -7,7 +7,6 @@ const string = {
   };
 
 const UserMovement = new Schema({
-    userID: string,
     requestedCards: { type : Array , "default" : [] }, 
     pendingCards: [],
     acceptedCards: [],
