@@ -37,10 +37,37 @@ const actions = {
     return await service.get("/user-interaction-query", oneuserinterac);
   },
 
-  // post to friend request array
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // Update friends array
   sendMyCard: async sendcard => {
     return await service.post("/send-my-card", sendcard);
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // initial project creation
   projectInfo: async projectdata => {

@@ -98,11 +98,6 @@ router.post("/userInteraction", (req, res, next) => {
     });
 });
 
-
-
-
-
-
 // OP
 // gets all user interaction data from 
 router.get("/user-interaction-query", isAuth, (req, res, next) => {
@@ -113,17 +108,41 @@ router.get("/user-interaction-query", isAuth, (req, res, next) => {
     .catch(err => res.status(500).json({ err }));
 });
 
+
+
+
+
+
+
+
+
+
+
 // might work now, need to run tests.
 // adds to userData sent requests. Must also add to user's received info
 router.post("/send-my-card", isAuth, (req,res,next) => {
-  UserInteractions.findOneAndUpdate({ _id: req.user._id }, req.body )
-  .then(sendingcard =>{})    
+  console.log(req.body)
+  UserInteractions.findOneAndUpdate({ _id: req.body._id }, { $addToSet: {requestedCards: req.body.requestedCards }} )
+  .then(sendingcard =>{
+    console.log(sendingcard, "some text")
+    res.json(sendingcard)
+  })    
   .catch(err => {
-    // console.log(err)
+    console.log(err)
     res.status(500).json({ err });
   });
 })
   
+
+
+
+
+
+
+
+
+
+
 
 // OP
 //  requests all users to search component

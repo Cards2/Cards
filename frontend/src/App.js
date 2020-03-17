@@ -52,10 +52,13 @@ class App extends Component {
     });
   };
 
-  // tryna fix this shiiiitttttt
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value});
   };
+
+  // addUser = (e)=> {
+  //   {this.state.requestedCards.unshift(e.target.value)}
+  // }
 
   render() {
     console.log(this.state);
@@ -146,7 +149,7 @@ class App extends Component {
             <Route
               exact
               path='/mycard'
-              render={props => <MyCard {...props} generalstate={this.state} />}
+              render={props => <MyCard {...props} generalstate={this.state}  />}
             />
             <Route component={NotFound} />
           </Switch>

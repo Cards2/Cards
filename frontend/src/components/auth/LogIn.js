@@ -1,5 +1,6 @@
 import React, { Component } from "react"; // Fragment
 import actions from "../../services/index";
+import { Redirect } from 'react-router-dom';
 // import Footer from '../partials/Footer';
 
 class LogIn extends Component {
@@ -12,12 +13,15 @@ class LogIn extends Component {
     actions
       .logIn(this.state)
       .then(user => {
-        this.props.setUser({ ...user.data });
+        this.props.setUser({ ...user.data })
+        // this.props.history.push("/log-in");
       })
       .catch(({ response }) => console.error(response.data));
   };
 
-  redirect = () => {};
+  redirect = () => {
+    
+  };
 
   render() {
     return (
