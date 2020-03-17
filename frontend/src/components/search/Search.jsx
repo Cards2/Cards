@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import actions from '../../services/index'
+
 import Tilt from "react-tilt";
 
 class Search extends Component {
@@ -7,34 +9,6 @@ class Search extends Component {
     hide: "hide",
     onLoad: "static",
     choice: 1,
-  };
-
-
-  cardCall = () => {
-    if (this.props.generalstate.users) {
-      return this.props.generalstate.users.data.allUsers.map(eachuser => {
-        return (
-          <Tilt
-            className='card Tilt'
-            options={{ max: 15 }}
-            style={{
-              height: 220,
-              width: 350,
-              transformStyle: "preserve-3d",
-              backgroundImage: `url(${"https://images.pexels.com/photos/1083822/pexels-photo-1083822.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"})`,
-              backgroundSize: "cover",
-              borderRadius: "6px"
-            }}
-          >
-            <div className='Tilt-inner innerCard'>
-              {" "}
-              <h1 className='cardName'>{eachuser.username}</h1>
-              <h3 className='cardTitle'>{eachuser.title} </h3>{" "}
-            </div>
-          </Tilt>
-        );
-      });
-    }
   };
 
   showOrHide = () => {
@@ -51,7 +25,8 @@ class Search extends Component {
       choice: num
     });
   };
-  abiability=(choice)=>{
+
+  availability=(choice)=>{
     if(choice === 'always'){
       return 'Green'
     } else if(choice === 'sometimes'){
@@ -63,8 +38,12 @@ class Search extends Component {
     }
   }
 
-
-
+  adduser= async (e) =>{
+    e.preventDefault()
+    await this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
+    console.log(this.state, "muku")
+    actions.sendMyCard(this.state)
+}
 
   allCardsTilt = () => {
     if (this.props.generalstate.users) {
@@ -92,7 +71,7 @@ class Search extends Component {
                           <img src="./Icons/card-toggle-inactive.svg" alt="" />
                         </div>
                         <div>
-                          <img src="./Icons/user-interaction-btn.svg"></img>
+                        <input type="image" src="./Icons/user-interaction-btn.svg" onClick={this.adduser} name="requestedCards" value={eachuser._id}></input>                                                
                         </div>
                       </div>
                       <div className="title-organizer">
@@ -119,7 +98,7 @@ class Search extends Component {
                         <img src="./Icons/card-toggle-active.svg" alt="" />
                       </div>
                       <div>
-                        <img src="./Icons/user-interaction-btn.svg"></img>
+                      <input type="image" src="./Icons/user-interaction-btn.svg" onClick={this.adduser} name="requestedCards" value={eachuser._id}></input>
                       </div>
                     </div>
                     <div className="middle-container">
@@ -132,13 +111,13 @@ class Search extends Component {
                       <div className="middle-center">
                       <p className='header'id='aval'>Avalbility</p>
                       <div className='box'>
-                        <div id={this.abiability( `${eachuser.monday}` )}>Mon</div>
-                        <div id={this.abiability( `${eachuser.tuesday}` )}>Tue</div>
-                        <div id={this.abiability( `${eachuser.wednesday}` )}>Wed</div>
-                        <div id={this.abiability( `${eachuser.thrusday}` )}>Thu</div>
-                        <div id={this.abiability( `${eachuser.friday}` )}>Fri</div>
-                        <div id={this.abiability( `${eachuser.saturday}` )}>Sat</div>
-                        <div id={this.abiability( `${eachuser.sunday}` )}>Sun</div>
+                        <div id={this.availability( `${eachuser.monday}` )}>Mon</div>
+                        <div id={this.availability( `${eachuser.tuesday}` )}>Tue</div>
+                        <div id={this.availability( `${eachuser.wednesday}` )}>Wed</div>
+                        <div id={this.availability( `${eachuser.thrusday}` )}>Thu</div>
+                        <div id={this.availability( `${eachuser.friday}` )}>Fri</div>
+                        <div id={this.availability( `${eachuser.saturday}` )}>Sat</div>
+                        <div id={this.availability( `${eachuser.sunday}` )}>Sun</div>
                         </div>
                       </div>
                       <div className="middle-rigth">
@@ -189,25 +168,12 @@ class Search extends Component {
     }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
   render() {
     return (
       <div className='searchPage'>
         <div className='searchBar'> </div>
         {this.allCardsTilt()}
 
-        {/* {this.cardCall()} */}
       </div>
     );
   }

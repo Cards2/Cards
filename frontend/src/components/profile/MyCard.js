@@ -10,18 +10,16 @@ class MyCard extends Component {
         
     }
 
-    adduser= async (e) =>{
+    adduser= (e) =>{
         e.preventDefault()
-        await this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
-        console.log(this.state, "muku")
+        this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
+        console.log(this.state, "cucu")
 
         actions.sendMyCard(this.state)
     }
 
     cardCall = () => {
-        if (this.props.generalstate.users) {
-          return this.props.generalstate.users.data.allUsers.map((eachuser, i) => {
-            return (
+        return (
               <Tilt
                 className='card Tilt'
                 options={{ max: 15 }}
@@ -37,26 +35,49 @@ class MyCard extends Component {
               >
                 <div className='Tilt-inner innerCard'>
                   {" "}
-                  <h1 className='cardName'>{eachuser.username}</h1>
-                  <h3 className='cardTitle'>{eachuser.title} </h3>
-                  <h3 className='cardTitle'>{eachuser.aboutMe} </h3>
+                  <h1 className='cardName'>Grampa</h1>
+                  <h3 className='cardTitle'> The Boss </h3>
+                  <h3 className='cardTitle'> Just the shake an bake</h3>
 
-                  <button onClick={this.adduser} name="requestedCards" value={eachuser._id} >  Add User to Stack </button>
+                  <button onClick={this.adduser} name="requestedCards"  >  Add User to Stack </button>
 
                 </div>
               </Tilt>
-            );
-          });
-        }
+         );      
       };
 
 
+
+
+
+
+
+
+
+    cardStack =() => {
+
+    };
+
+    incomingCards = () =>{
+
+    };
+
+
+
+
+
+
+
+
+
+
     render() {
-        // console.log(this.state, "cucu")
+        console.log(this.props.generalstate)
         return (
             <div>
                 <h1> cucu </h1>
                 {this.cardCall()}
+                {this.incomingCards()}
             </div>
         );
     }

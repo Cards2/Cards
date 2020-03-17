@@ -56,10 +56,6 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value});
   };
 
-  // addUser = (e)=> {
-  //   {this.state.requestedCards.unshift(e.target.value)}
-  // }
-
   render() {
     console.log(this.state);
     return (
@@ -123,12 +119,18 @@ class App extends Component {
             <Route
               exact
               path='/search'
-              render={props => <Search {...props} generalstate={this.state} />}
+              render={props => 
+                <Search 
+                {...props} 
+                generalstate={this.state} />}
             />
             <Route
               exact
               path='/projects'
-              render={props => <Projects {...props} user={this.state} />}
+              render={props => 
+                <Projects 
+                {...props} 
+                user={this.state} />}
             />
             <Route
               exact

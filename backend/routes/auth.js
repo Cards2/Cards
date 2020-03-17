@@ -109,41 +109,30 @@ router.get("/user-interaction-query", isAuth, (req, res, next) => {
 });
 
 
-
-
-
-
-
-
-
-
-
-// might work now, need to run tests.
-// adds to userData sent requests. Must also add to user's received info
+// OP
+// pushes user Id to 'requested' array.
 router.post("/send-my-card", isAuth, (req,res,next) => {
   console.log(req.body)
   UserInteractions.findOneAndUpdate({ _id: req.body._id }, { $addToSet: {requestedCards: req.body.requestedCards }} )
   .then(sendingcard =>{
-    console.log(sendingcard, "some text")
+    // console.log(sendingcard, "some text")
     res.json(sendingcard)
   })    
   .catch(err => {
-    console.log(err)
+    // console.log(err)
+    res.status(500).json({ err });
+  });
+  UserInteractions.findOneAndUpdate({ _id: req.body.requestedCards }, { $addToSet: {pendingCards: req.body._id }} )  
+  .then(sendingcard =>{
+    // console.log(sendingcard, "some text")
+    res.json(sendingcard)
+  })    
+  .catch(err => {
+    // console.log(err)
     res.status(500).json({ err });
   });
 })
   
-
-
-
-
-
-
-
-
-
-
-
 // OP
 //  requests all users to search component
 router.get("/userquery", (req, res, next) => {
@@ -164,6 +153,13 @@ router.get("/one-user-query", isAuth, (req, res, next) => {
     .catch(err => res.status(500).json({ err }));
 });
 
+
+
+
+
+
+
+
 // OP
 router.post("/profile-update", (req, res, next) => {
   // console.log(req.body)
@@ -173,7 +169,22 @@ router.post("/profile-update", (req, res, next) => {
       // console.log(err)
       res.status(500).json({ err });
     });
+  User.findOneAndUpdate({ _id: req.user._id }, req.body )
+    .then(userInfo => {})
+    .catch(err => {
+      // console.log(err)
+      res.status(500).json({ err });
+    });
 });
+
+
+
+
+
+
+
+
+
 
 function isAuth(req, res, next) {
   req.isAuthenticated()
