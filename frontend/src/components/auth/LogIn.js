@@ -1,23 +1,23 @@
 import React, { Component } from "react"; // Fragment
 import actions from "../../services/index";
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from "react-router-dom";
 // import Footer from '../partials/Footer';
-import SignUp from './SignUp'
+import SignUp from "./SignUp";
 class LogIn extends Component {
   state = {
-    joinUs: false,
+    joinUs: false
   };
-  popUpSignUp=()=>{
-    if(this.state.joinUs){
-      return <SignUp {...this.props} setUser={this.props.setUser}/>
+  popUpSignUp = () => {
+    if (this.state.joinUs) {
+      return <SignUp {...this.props} setUser={this.props.setUser} />;
     }
-  }
-  toggle=()=>{
-    this.props.caller()
+  };
+  toggle = () => {
+    this.props.caller();
     this.setState({
       joinUs: true
-    })
-  }
+    });
+  };
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
@@ -26,21 +26,17 @@ class LogIn extends Component {
     actions
       .logIn(this.state)
       .then(user => {
-        this.props.setUser({ ...user.data })
-        // this.props.history.push("/log-in");
+        this.props.setUser({ ...user.data });
+        this.props.history.push("/profile-update");
       })
       .catch(({ response }) => console.error(response.data));
   };
 
-  redirect = () => {
-    
-  };
+  redirect = () => {};
 
   render() {
-
     return (
       <div className='login-box'>
-
         {this.popUpSignUp()}
         <form className='form-box' onSubmit={this.handleSubmit}>
           <input
@@ -63,7 +59,6 @@ class LogIn extends Component {
               value='Log In'
               onClick={a => this.redirect}
             />
-
             <a id='btnsignup' className='btn-signup' onClick={this.toggle}>
               Sign up
             </a>

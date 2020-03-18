@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import actions from "../../services/index";
-import Footer from "../partials/Footer";
+//import Footer from "../partials/Footer";
 
 class SignUp extends Component {
   state = {};

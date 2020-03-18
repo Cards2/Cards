@@ -1,16 +1,30 @@
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
-import Home from "./components/home/Home";
+import actions from "./services/index";
 import NotFound from "./components/404/NotFound.js";
+//partials
+import NavBar from "./components/partials/NavBar";
+// import Footer from "./components/partials/Footer";
+// eslint-disable-next-line
+import Card from "./components/partials/Card";
+import CardTest from "./components/partials/CardTest";
+import MyCard from "./components/profile/MyCard";
+//home page
+import Home from "./components/home/Home";
+//authentication
 import SignUp from "./components/auth/SignUp";
 import LogIn from "./components/auth/LogIn";
+//user data creation
 import CreateProfile from "./components/profile/CreateProfile";
+//cards tab
 import ProfileUpdate from "./components/profile/ProfileUpdate";
-import actions from "./services/index";
-import Search from "./components/search/Search";
+import MyStack from "./components/profile/MyStack";
+//search tab
+import SearchUsers from "./components/search/SearchUsers";
+import SearchProjects from "./components/search/SearchProjects";
+//projects tab
 import Projects from "./components/projects/Projects";
-import NavBar from "./components/partials/NavBar";
+import MyTeams from "./components/projects/MyTeams";
 import ProjectUpdate from "./components/projects/ProjectUpdate";
 // eslint-disable-next-line
 import Card from "./components/partials/Card";
@@ -20,6 +34,8 @@ import MyCard from "./components/profile/MyCard";
 
 import UsercreationTest from "./components/partials/usercreationTest"
 
+//notifications tab
+import Notifications from "./components/notifications/Notifications";
 class App extends Component {
   state = {
     loading: true
@@ -54,7 +70,7 @@ class App extends Component {
   };
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value});
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
@@ -118,19 +134,27 @@ class App extends Component {
             />
             <Route
               exact
+              path='/my-stack'
+              render={props => <MyStack {...props} user={this.state} />}
+            />
+            <Route
+              exact
               path='/search'
-              render={props => 
-                <Search 
-                {...props} 
-                generalstate={this.state} />}
+              render={props => (
+                <SearchUsers {...props} generalstate={this.state} />
+              )}
+            />
+            <Route
+              exact
+              path='/search-projects'
+              render={props => (
+                <SearchProjects {...props} generalstate={this.state} />
+              )}
             />
             <Route
               exact
               path='/projects'
-              render={props => 
-                <Projects 
-                {...props} 
-                user={this.state} />}
+              render={props => <Projects {...props} user={this.state} />}
             />
             <Route
               exact
@@ -145,13 +169,25 @@ class App extends Component {
             />
             <Route
               exact
+              path='/my-teams'
+              render={props => <MyTeams {...props} user={this.state} />}
+            />
+            <Route
+              exact
               path='/cards'
               render={props => <CardTest {...props} />}
             />
             <Route
               exact
               path='/mycard'
-              render={props => <MyCard {...props} generalstate={this.state}  />}
+              render={props => <MyCard {...props} generalstate={this.state} />}
+            />
+            <Route
+              exact
+              path='/notifications'
+              render={props => (
+                <Notifications {...props} generalstate={this.state} />
+              )}
             />
             <Route
               exact

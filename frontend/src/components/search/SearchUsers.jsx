@@ -3,7 +3,7 @@ import actions from '../../services/index'
 
 import Tilt from "react-tilt";
 
-class Search extends Component {
+class SearchUsers extends Component {
   state = {
     show: "additional",
     hide: "hide",
@@ -72,7 +72,7 @@ class Search extends Component {
                           <img src="./Icons/card-toggle-inactive.svg" alt="" />
                         </div>
                         <div>
-                        <input type="image" src="./Icons/user-interaction-btn.svg" onClick={this.adduser} name="requestedCards" value={eachuser._id}></input>                                                
+                        <input type="image" alt='add user' src="./Icons/user-interaction-btn.svg" onClick={this.adduser} name="requestedCards" value={eachuser._id}></input>                                                
                         </div>
                       </div>
                       <div className="title-organizer">
@@ -85,7 +85,7 @@ class Search extends Component {
                       </div>
                       <div className="user-link">
                         <span className="user-conections">
-                          <img src="./Icons/copy-user-link-btn.svg" /> 1564
+                          <img alt='copy user link' src="./Icons/copy-user-link-btn.svg" /> 1564
                         </span>
                       </div>
                     </div>
@@ -99,7 +99,7 @@ class Search extends Component {
                         <img src="./Icons/card-toggle-active.svg" alt="" />
                       </div>
                       <div>
-                      <input type="image" src="./Icons/user-interaction-btn.svg" 
+                      <input type="image" alt='user interaction button' src="./Icons/user-interaction-btn.svg" 
                         onClick={this.adduser} name="requestedCards" value={eachuser._id}>
                         </input>
                       </div>
@@ -153,10 +153,10 @@ class Search extends Component {
                     </div>
                     <div className="bottom-container">
                       <div className="user-craft">
-                        Portfolio:<a href=""> {eachuser.portafolio} </a>
+                        Portfolio:<a href="{eachuser.portfolio}">{eachuser.portfolio}</a>
                       </div>
                       <div className="user-conections" id="conection-under">
-                        <img src="./Icons/copy-user-link-btn.svg" /> 1564
+                        <img alt='copy user link button' src="./Icons/copy-user-link-btn.svg" /> 1564
                       </div>
                     </div>
                   </div>
@@ -183,4 +183,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default SearchUsers;
