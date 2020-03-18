@@ -7,17 +7,14 @@ class SignUp extends Component {
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
-  handleSubmit = e => {
-    e.preventDefault();
-    console.log(`handle submit 11`)
-    actions
-      .signUp(this.state)
-      .then(username => {
-          this.props.setUser({ ...username.data });
-          this.props.history.push("/profile");
-        })
-        .catch(( response ) => console.error(response.data));
-    };
+    handleSubmit =  e => {
+        e.preventDefault()
+            actions.signUp(this.state).then(username=> {
+                this.props.setUser({...username.data})
+                this.props.history.push("/profile")
+                })
+                .catch(( response ) => console.error(response.data));           
+        }
     
     render() {
         console.log(this.props)

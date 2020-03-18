@@ -5,7 +5,7 @@ import Home from "./components/home/Home";
 import NotFound from "./components/404/NotFound.js";
 import SignUp from "./components/auth/SignUp";
 import LogIn from "./components/auth/LogIn";
-import Profile from "./components/profile/Profile";
+import CreateProfile from "./components/profile/CreateProfile";
 import ProfileUpdate from "./components/profile/ProfileUpdate";
 import actions from "./services/index";
 import Search from "./components/search/Search";
@@ -56,12 +56,7 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value});
   };
 
-  // addUser = (e)=> {
-  //   {this.state.requestedCards.unshift(e.target.value)}
-  // }
-
   render() {
-    console.log(this.state);
     return (
       <>
         <BrowserRouter>
@@ -99,7 +94,7 @@ class App extends Component {
               exact
               path='/profile'
               render={props => (
-                <Profile
+                <CreateProfile
                   {...props}
                   handleChange={this.handleChange}
                   setUserProperty={this.setUserProperty}
@@ -123,12 +118,18 @@ class App extends Component {
             <Route
               exact
               path='/search'
-              render={props => <Search {...props} generalstate={this.state} />}
+              render={props => 
+                <Search 
+                {...props} 
+                generalstate={this.state} />}
             />
             <Route
               exact
               path='/projects'
-              render={props => <Projects {...props} user={this.state} />}
+              render={props => 
+                <Projects 
+                {...props} 
+                user={this.state} />}
             />
             <Route
               exact

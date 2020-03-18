@@ -22,6 +22,9 @@ const actions = {
     return await service.get("/logout");
   },
   
+
+  // USER ACTIONS
+  // ------------------------------------------------------------------------------
   // initial user credential creation
   userInfo: async userdata => {
     return await service.post("/userdata", userdata);
@@ -37,41 +40,19 @@ const actions = {
     return await service.get("/user-interaction-query", oneuserinterac);
   },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // Update friends array
+  // Send card, updates both user requestedcards array and receiver's pending requests
   sendMyCard: async sendcard => {
     return await service.post("/send-my-card", sendcard);
   },
 
+  // deletes freind request. Should add option to block user in future.
+  deleteRequest: async deletecard => {
+    return await service.post("/delete-card-send", deletecard);
+  },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // initial project creation
-  projectInfo: async projectdata => {
-    return await service.post("/projectdata", projectdata);
+  // accepts invitation to add to stack
+  acceptRequest: async acceptcard => {
+    return await service.post("/accept-card-send", acceptcard);
   },
 
   // fetches all the user profile data
@@ -88,16 +69,36 @@ const actions = {
   profileUpdate: async profileUpdate => {
     return await service.post("/profile-update", profileUpdate);
   },
-  
+
+
+// PROJECT ACTIONS
+// ------------------------------------------------------------------------------
+// initial project creation
+  projectInfo: async projectdata => {
+    return await service.post("/projectdata", projectdata);
+  },
+
+  // updates one user's project data
+  projectUpdate: async projectUpdate => {
+     return await service.post("/project-update", projectUpdate);
+  },
+
   // fetches one user's project data
   oneProjectQuery: async oneprojectquery => {
     return await service.get("/one-project-query", oneprojectquery);
   },
+
+  // creates project interaction instance in Database
+  projectInteraction: async projectInter => {
+    return await service.post("/projectInteraction", projectInter);
+  },
+
+  // fetches all projects data
+  projectQuery: async userquery => {
+    return await service.get("/userquery", userquery);
+  },
   
-             // updates one user's project data
-  projectUpdate: async projectUpdate => {
-    return await service.post("/project-update", projectUpdate);
-  }
+
 
 };
 
