@@ -88,7 +88,7 @@ code {
   /* position: relative; */
   display: inline-block;
   overflow: hidden;
-  height: 5vh;
+  height: 4.4vh;
   transition: all 1s;
   margin: 1.7rem 0 0 0;
 }
@@ -115,6 +115,7 @@ code {
   height: auto;
   overflow: visible;
 }
+
 
 .dropdown-content a:hover {
   color: var(--main-Green);
