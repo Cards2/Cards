@@ -18,6 +18,8 @@ import CardTest from "./components/partials/CardTest";
 import MyCard from "./components/profile/MyCard";
 // import Footer from "./components/partials/Footer";
 
+import UsercreationTest from "./components/partials/usercreationTest"
+
 class App extends Component {
   state = {
     loading: true
@@ -34,7 +36,6 @@ class App extends Component {
     this.setState(res3.data.currentUser);
     this.setState(res4.data.currentProject);
     this.setState(res5.data.currUserInt);
-    
   }
 
   setUser = user => this.setState(user);
@@ -152,6 +153,12 @@ class App extends Component {
               path='/mycard'
               render={props => <MyCard {...props} generalstate={this.state}  />}
             />
+            <Route
+              exact
+              path='/userCreationTests'
+              render={props => <UsercreationTest {...props} generalstate={this.state}  />}
+            />
+            
             <Route component={NotFound} />
           </Switch>
           {/* <Footer/> */}

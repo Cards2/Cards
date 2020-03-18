@@ -37,6 +37,7 @@ class CreateProfile extends Component {
       .catch(({ response }) => console.error(response));
   };
 
+
   signUpForm = () => {
     if (!this.state.screen) {
       return (
@@ -93,12 +94,9 @@ class CreateProfile extends Component {
         <div>
           <div>
             <h1>New Profile</h1>
-            <form
-              onSubmit={e => {
-                this.handleSubmit(e, this.state);
-              }}
-            >
-              {this.signUpForm()}
+            <form onSubmit={e => {
+                this.handleSubmit(e, this.state); }}>
+                {this.signUpForm()}
             </form>
           </div>
         </div>

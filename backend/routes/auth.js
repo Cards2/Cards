@@ -47,6 +47,11 @@ router.get("/one-project-query", isAuth, (req, res, next) => {
 
 
 
+
+
+
+
+
 // MUST TEST
 router.post("/project-update", (req, res, next) => {
   ProjectData.update(req.body)
@@ -152,6 +157,15 @@ router.post("/accept-proj-invite", isAuth, (req,res,next) => {
     .catch(err => {
       res.status(500).json({ err });
       });
+  ProjectInteractions.findOneAndUpdate(
+        { _id: req.body._id }, 
+        { $pull: {requestedInvite: req.body.acceptedInvite }} )
+      .then(acceptingInvite =>{
+        res.json(acceptingInvite)
+        })    
+      .catch(err => {
+        res.status(500).json({ err });
+        });
 })
 
 
@@ -269,7 +283,7 @@ router.post("/delete-card-send", isAuth, (req,res,next) => {
 })
 
  // SHOULD an immediate acceptanme mean both people have card into avaialble?
-// Line 188 automatic friending
+// w/ Automatic 2 way friending
 router.post("/accept-card-send", isAuth, (req,res,next) => {
   console.log(req.body)
   UserInteractions.findOneAndUpdate(
@@ -282,8 +296,17 @@ router.post("/accept-card-send", isAuth, (req,res,next) => {
       res.status(500).json({ err });
       });
   UserInteractions.findOneAndUpdate(
+        { _id: req.body._id }, 
+        { $addToSet: {acceptedCards: req.body.acceptedCards }} )
+      .then(acceptingcard =>{
+        res.json(acceptingcard)
+        })    
+      .catch(err => {
+        res.status(500).json({ err });
+        });
+  UserInteractions.findOneAndUpdate(
       { _id: req.body.acceptedCards }, 
-      { $$addToSet: {acceptedCards: req.body._id }} )  
+      { $$pull: {requestedCards: req.body._id }} )  
     .then(acceptingcard =>{
       res.json(acceptingcard)
       })    
@@ -291,13 +314,13 @@ router.post("/accept-card-send", isAuth, (req,res,next) => {
       res.status(500).json({ err });
       });
   UserInteractions.findOneAndUpdate(
-      { _id: req.body._id }, 
-      { $addToSet: {acceptedCards: req.body.acceptedCards }} )
-    .then(acceptingcard =>{
-      res.json(acceptingcard)
-      })    
-    .catch(err => {
-      res.status(500).json({ err });
+        { _id: req.body.acceptedCards }, 
+        { $addToSet: {acceptedCards: req.body._id }} )
+      .then(acceptingcard =>{
+        res.json(acceptingcard)
+        })    
+      .catch(err => {
+        res.status(500).json({ err });
       });
 })
 
@@ -334,6 +357,7 @@ router.post("/profile-update", (req, res, next) => {
       res.status(500).json({ err });
     });
 });
+
 
 function isAuth(req, res, next) {
   req.isAuthenticated()
