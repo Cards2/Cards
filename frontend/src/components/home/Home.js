@@ -9,8 +9,14 @@ class Home extends Component {
   state = {
     login: false,
     xPos: 0,
-    yPos: 0
+    yPos: 0,
+    id: 'card'
   };
+  caller=()=>{
+this.setState({
+  id: window.location.pathname
+})
+  }
 
   render() {
     return (
@@ -35,7 +41,7 @@ class Home extends Component {
             </div>
             <div className='register-box'>
               {/* <a id='btnlog' className='btn-login' href="/log-in"><p>Log in</p></a> */}
-              <LogIn setUser={this.props.setUser} />
+              <LogIn setUser={this.props.setUser} caller={this.caller} {...this.props}/>
             </div>
 
             {/* card playground */}
@@ -43,7 +49,7 @@ class Home extends Component {
         </div>
         <div className='cardPreviewBox'>
           {/* three cards go here */}
-          <Card />
+          <Card  id={this.state.id}/>
         </div>
       </div>
     );

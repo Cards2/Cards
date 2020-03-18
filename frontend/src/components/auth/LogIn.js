@@ -2,9 +2,22 @@ import React, { Component } from "react"; // Fragment
 import actions from "../../services/index";
 import { Redirect } from 'react-router-dom';
 // import Footer from '../partials/Footer';
-
+import SignUp from './SignUp'
 class LogIn extends Component {
-  state = {};
+  state = {
+    joinUs: false,
+  };
+  popUpSignUp=()=>{
+    if(this.state.joinUs){
+      return <SignUp {...this.props} setUser={this.props.setUser}/>
+    }
+  }
+  toggle=()=>{
+    this.props.caller()
+    this.setState({
+      joinUs: true
+    })
+  }
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
@@ -24,8 +37,11 @@ class LogIn extends Component {
   };
 
   render() {
+
     return (
       <div className='login-box'>
+
+        {this.popUpSignUp()}
         <form className='form-box' onSubmit={this.handleSubmit}>
           <input
             name='email'
@@ -48,7 +64,7 @@ class LogIn extends Component {
               onClick={a => this.redirect}
             />
 
-            <a id='btnsignup' className='btn-signup' href='/sign-up'>
+            <a id='btnsignup' className='btn-signup' onClick={this.toggle}>
               Sign up
             </a>
           </div>

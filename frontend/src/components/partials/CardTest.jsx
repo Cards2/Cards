@@ -102,27 +102,27 @@ class CardTest extends Component {
                   <div className="middle-rigth">
                     <p className='header'>Skills</p>
                     <div className='rating'>
-                      <img src="./Icons/Design.svg" alt="" />
+                      <img src="./Icons/Design.svg" alt="design" />
                       <p className='level'>8</p>
                     </div>
                     <div className='rating'>
-                      <img src="./Icons/Other-Misc.svg" alt="" />
+                      <img src="./Icons/Other-Misc.svg" alt="other skill" />
                       <p className='level'>8</p>
                     </div>
                     <div className='rating'>
-                      <img src="./Icons/Programming.svg" alt="" />
+                      <img src="./Icons/Programming.svg" alt="programming" />
                       <p className='level'>8</p>
                     </div>
                     <div className='rating'>
-                      <img src="./Icons/Art.svg" alt="" />
+                      <img src="./Icons/Art.svg" alt="art" />
                       <p className='level'>8</p>
                     </div>
                     <div className='rating'>
-                      <img src="./Icons/Audio.svg" alt="" />
+                      <img src="./Icons/Audio.svg" alt="audio" />
                       <p className='level'>8</p>
                     </div>
                     <div className='rating'>
-                      <img src="./Icons/Writing.svg" alt="" />
+                      <img src="./Icons/Writing.svg" alt="writing" />
                       <p className='level'>8</p>
                     </div>
                   </div>

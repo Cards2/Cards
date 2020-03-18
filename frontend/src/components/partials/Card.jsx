@@ -9,6 +9,13 @@ export default class Card extends Component {
     choice: 1
 
   };
+  index=()=>{
+    if(this.props.id === '/'){
+      return 'cards'
+    }else {
+      return 'card'
+    }
+  }
 
   showOrHide = () => {
     if (this.state.choice === 1) {
@@ -36,6 +43,7 @@ export default class Card extends Component {
     }
   }
     render() {
+      console.log(window.location.pathname)
         return (
             <Tilt
             className='card Tilt'
@@ -54,7 +62,7 @@ export default class Card extends Component {
             <div>
         <div>
           <div className="center">
-            <div className="card">
+            <div className={this.index()}>
               <div className={this.showOrHide()}>
                 <div className="more-info">
                   <div className="switch-container">
