@@ -44,6 +44,9 @@ router.get("/one-project-query", isAuth, (req, res, next) => {
     .catch(err => res.status(500).json({ err }));
 });
 
+
+
+
 // MUST TEST
 router.post("/project-update", (req, res, next) => {
   ProjectData.update(req.body)
@@ -52,6 +55,114 @@ router.post("/project-update", (req, res, next) => {
       res.status(500).json({ err });
     });
 });
+
+// creates projectinteraction with current user ID upon login
+router.post("/projectInteraction", (req, res, next) => {
+  ProjectInteractions.create(req.body)
+    .then(projectInter => res.status(200).json({ projectInter }))
+    .catch(err => {
+      res.status(500).json({ err });
+      });
+});
+
+// gets user's project interaction data from BEND
+router.get("/project-interaction-query", isAuth, (req, res, next) => {
+  ProjectInteractions.findOne(
+    { _id: req.user._id }) 
+    .then(currProjInt => {
+      res.status(200).json({ currProjInt });
+      })
+    .catch(err => res.status(500).json({ err }));
+});
+
+// pushes user Id to 'requested' array.
+router.post("/invite-to-project", isAuth, (req,res,next) => {
+  console.log(req.body)
+  ProjectInteractions.findOneAndUpdate(
+    { _id: req.body._id }, 
+    { $addToSet: {requestedInvite: req.body.requestedInvite }} )
+  .then(sendingproj =>{
+    res.json(sendingproj)
+    })    
+  .catch(err => {
+    res.status(500).json({ err });
+    });
+  ProjectInteractions.findOneAndUpdate(
+    { _id: req.body.requestedInvite }, 
+    { $addToSet: {pendingInvite: req.body._id }} )  
+  .then(sendingproj =>{
+    res.json(sendingproj)
+    })    
+  .catch(err => {
+    res.status(500).json({ err });
+    });
+})
+
+// DELETE: Updates project pending cards and target's requested cards array
+router.post("/delete-proj-invite", isAuth, (req,res,next) => {
+  console.log(req.body)
+  ProjectInteractions.findOneAndUpdate(
+      { _id: req.body._id }, 
+      { $pull: {pendingInvite: req.body.pendingInvite }} )
+    .then(deletingInvite =>{
+      res.json(deletingInvite)
+      })    
+    .catch(err => {
+      res.status(500).json({ err });
+      });
+  ProjectInteractions.findOneAndUpdate(
+      { _id: req.body.pendingInvite }, 
+      { $pull: {requestedCards: req.body._id }} )  
+    .then(deletingcard =>{
+      res.json(deletingcard)
+      })    
+    .catch(err => {
+      res.status(500).json({ err });
+      });
+})
+
+ // SHOULD an immediate acceptanme mean both people have card into avaialble?
+// Line 188 automatic friending
+router.post("/accept-proj-invite", isAuth, (req,res,next) => {
+  console.log(req.body)
+  ProjectInteractions.findOneAndUpdate(
+      { _id: req.body._id }, 
+      { $pull: {pendingCards: req.body.acceptedInvite }} )
+    .then(acceptingInvite =>{
+      res.json(acceptingInvite)
+      })    
+    .catch(err => {
+      res.status(500).json({ err });
+      });
+  ProjectInteractions.findOneAndUpdate(
+      { _id: req.body.acceptedInvite }, 
+      { $$addToSet: {acceptedInvite: req.body._id }} )  
+    .then(acceptingInvite =>{
+      res.json(acceptingInvite)
+      })    
+    .catch(err => {
+      res.status(500).json({ err });
+      });
+  ProjectInteractions.findOneAndUpdate(
+      { _id: req.body._id }, 
+      { $addToSet: {acceptedInvite: req.body.acceptedInvite }} )
+    .then(acceptingInvite =>{
+      res.json(acceptingInvite)
+      })    
+    .catch(err => {
+      res.status(500).json({ err });
+      });
+})
+
+
+
+
+
+
+
+
+
+
 
 //return await service.get('/is-logged-in');
 router.get("/is-logged-in", (req, res, next) => {
@@ -85,7 +196,7 @@ router.post("/userdata", (req, res, next) => {
     .then(userInfo => res.status(200).json({ userInfo }))
     .catch(err => {
       res.status(500).json({ err });
-    });
+      });
 });
 
 // OP
@@ -95,54 +206,100 @@ router.post("/userInteraction", (req, res, next) => {
     .then(userInter => res.status(200).json({ userInter }))
     .catch(err => {
       res.status(500).json({ err });
-    });
+      });
 });
 
 // OP
-// gets all user interaction data from 
+// gets all user interaction data from BEND
 router.get("/user-interaction-query", isAuth, (req, res, next) => {
-  UserInteractions.findOne({ _id: req.user._id }) 
+  UserInteractions.findOne(
+    { _id: req.user._id }) 
     .then(currUserInt => {
       res.status(200).json({ currUserInt });
-    })
+      })
     .catch(err => res.status(500).json({ err }));
 });
 
-
-
-
-
-
-
-
-
-
-
-// might work now, need to run tests.
-// adds to userData sent requests. Must also add to user's received info
+// OP
+// pushes user Id to 'requested' array.
 router.post("/send-my-card", isAuth, (req,res,next) => {
   console.log(req.body)
-  UserInteractions.findOneAndUpdate({ _id: req.body._id }, { $addToSet: {requestedCards: req.body.requestedCards }} )
+  UserInteractions.findOneAndUpdate(
+    { _id: req.body._id }, 
+    { $addToSet: {requestedCards: req.body.requestedCards }} )
   .then(sendingcard =>{
-    console.log(sendingcard, "some text")
     res.json(sendingcard)
-  })    
+    })    
   .catch(err => {
-    console.log(err)
     res.status(500).json({ err });
-  });
+    });
+  UserInteractions.findOneAndUpdate(
+    { _id: req.body.requestedCards }, 
+    { $addToSet: {pendingCards: req.body._id }} )  
+  .then(sendingcard =>{
+    res.json(sendingcard)
+    })    
+  .catch(err => {
+    res.status(500).json({ err });
+    });
 })
-  
 
+// OP
+// DELETE: Updates user pending cards and target's requested cards array
+router.post("/delete-card-send", isAuth, (req,res,next) => {
+  console.log(req.body)
+  UserInteractions.findOneAndUpdate(
+      { _id: req.body._id }, 
+      { $pull: {pendingCards: req.body.pendingCards }} )
+  .then(deletingcard =>{
+    res.json(deletingcard)
+    })    
+  .catch(err => {
+    res.status(500).json({ err });
+    });
+  UserInteractions.findOneAndUpdate(
+      { _id: req.body.pendingCards }, 
+      { $pull: {requestedCards: req.body._id }} )  
+  .then(deletingcard =>{
+    res.json(deletingcard)
+    })    
+  .catch(err => {
+    res.status(500).json({ err });
+    });
+})
 
-
-
-
-
-
-
-
-
+ // SHOULD an immediate acceptanme mean both people have card into avaialble?
+// Line 188 automatic friending
+router.post("/accept-card-send", isAuth, (req,res,next) => {
+  console.log(req.body)
+  UserInteractions.findOneAndUpdate(
+      { _id: req.body._id }, 
+      { $pull: {pendingCards: req.body.acceptedCards }} )
+    .then(acceptingcard =>{
+      res.json(acceptingcard)
+      })    
+    .catch(err => {
+      res.status(500).json({ err });
+      });
+  UserInteractions.findOneAndUpdate(
+      { _id: req.body.acceptedCards }, 
+      { $$addToSet: {acceptedCards: req.body._id }} )  
+    .then(acceptingcard =>{
+      res.json(acceptingcard)
+      })    
+    .catch(err => {
+      res.status(500).json({ err });
+      });
+  UserInteractions.findOneAndUpdate(
+      { _id: req.body._id }, 
+      { $addToSet: {acceptedCards: req.body.acceptedCards }} )
+    .then(acceptingcard =>{
+      res.json(acceptingcard)
+      })    
+    .catch(err => {
+      res.status(500).json({ err });
+      });
+})
 
 // OP
 //  requests all users to search component
@@ -155,7 +312,7 @@ router.get("/userquery", (req, res, next) => {
 });
 
 // OP
-// need to use isAuth for getting the data of the current user because
+// need to use isAuth for getting the data of the current user 
 router.get("/one-user-query", isAuth, (req, res, next) => {
   UserData.findOne({ _id: req.user._id }) //use req.user instead of req.body if using isAuth
     .then(currentUser => {
@@ -166,11 +323,14 @@ router.get("/one-user-query", isAuth, (req, res, next) => {
 
 // OP
 router.post("/profile-update", (req, res, next) => {
-  // console.log(req.body)
   UserData.findOneAndUpdate({ _id: req.user._id }, req.body )
     .then(userInfo => {})
     .catch(err => {
-      // console.log(err)
+      res.status(500).json({ err });
+    });
+  User.findOneAndUpdate({ _id: req.user._id }, req.body )
+    .then(userInfo => {})
+    .catch(err => {
       res.status(500).json({ err });
     });
 });
