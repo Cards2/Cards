@@ -15,7 +15,7 @@ class SignUp extends Component {
                 this.props.setUser({...username.data})
                 this.props.history.push("/profile")
                 })
-                .catch(({ response }) => console.error(response.data));           
+                .catch(( response ) => console.error(response.data));           
         }
     
     render() {

@@ -5,7 +5,7 @@ import Home from "./components/home/Home";
 import NotFound from "./components/404/NotFound.js";
 import SignUp from "./components/auth/SignUp";
 import LogIn from "./components/auth/LogIn";
-import Profile from "./components/profile/Profile";
+import CreateProfile from "./components/profile/CreateProfile";
 import ProfileUpdate from "./components/profile/ProfileUpdate";
 import actions from "./services/index";
 import Search from "./components/search/Search";
@@ -99,7 +99,7 @@ class App extends Component {
               exact
               path='/profile'
               render={props => (
-                <Profile
+                <CreateProfile
                   {...props}
                   handleChange={this.handleChange}
                   setUserProperty={this.setUserProperty}
