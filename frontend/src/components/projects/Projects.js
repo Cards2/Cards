@@ -81,8 +81,8 @@ class Projects extends Component {
                 onChange={this.handleChange}
                 type='date'
                 name='startDate'
-                min='2000-01-01'
-                max={today}
+                //min='2000-01-01'
+                //max={today}
               />
             </div>
             <div>
@@ -93,14 +93,14 @@ class Projects extends Component {
                 onChange={this.handleChange}
                 type='date'
                 name='endDate'
-                min={today}
-                max='2030-01-01'
+                //min={today}
+                //max='2030-01-01'
               />
             </div>
             <label htmlFor='status'>
               <h4>Project Status</h4>
             </label>
-            <select onChange={this.handleChange} value='none' name='status' required>
+            <select onChange={this.handleChange} defaultValue='none' name='status' required>
               <option value='none' disabled hidden>
                 Select an Option
               </option>

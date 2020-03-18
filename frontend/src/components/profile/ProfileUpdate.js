@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import actions from "../../services";
 import Footer from "../partials/Footer";
-// import { TimeZone } from "../partials/TimeZone";
+import { TimeZone } from "../partials/TimeZone";
 
 class ProfileUpdate extends Component {
   state = {};
@@ -184,6 +184,13 @@ class ProfileUpdate extends Component {
                   <option value='never'>Never</option>
                 </select>
               </div>
+              <label htmlFor='timezone'>
+                <h4>Timezone</h4>
+              </label>
+              <TimeZone
+                handleChange={this.props.handleChange}
+                user={this.props.user}
+              />
               <div>
                 <label htmlFor='about'>
                   <h4>About</h4>
@@ -196,8 +203,28 @@ class ProfileUpdate extends Component {
                   maxLength='140'
                   required
                 ></textarea>
-                {/* <TimeZone /> */}
+                <label htmlFor='portfolio'>
+                  <h4>Portfolio</h4>
+                </label>
+                <input
+                  onChange={this.props.handleChange}
+                  type='text'
+                  name='portfolio'
+                  value={this.props.user.portfolio}
+                  required
+                />
               </div>
+              <div>
+          <label>
+            <h4>Contact</h4>
+          </label>
+          <input
+            onChange={this.props.handleChange}
+            type='text'
+            name='contact'
+            value={this.props.user.contact}
+          />
+        </div>
               <button type='submit'>Submit</button>
             </form>
           </div>
