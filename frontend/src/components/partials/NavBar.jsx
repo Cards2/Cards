@@ -13,6 +13,7 @@ class NavBar extends Component {
             <NavLink to='/profile-update'>Profile Update</NavLink>
             <NavLink to='/project-update'>Project Update</NavLink>
             <NavLink to='/search'>Search</NavLink>
+            <NavLink to='/mycard'>My Card</NavLink>
 
             <NavLink onClick={this.props.logOut} to='/'>
               Log Out

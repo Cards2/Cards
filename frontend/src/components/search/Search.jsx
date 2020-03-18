@@ -20,6 +20,7 @@ class Search extends Component {
       return this.state.hide;
     }
   };
+
   toggler = num => {
     this.setState({
       choice: num
@@ -43,7 +44,7 @@ class Search extends Component {
     await this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
     console.log(this.state, "muku")
     actions.sendMyCard(this.state)
-}
+  }
 
   allCardsTilt = () => {
     if (this.props.generalstate.users) {
@@ -98,7 +99,9 @@ class Search extends Component {
                         <img src="./Icons/card-toggle-active.svg" alt="" />
                       </div>
                       <div>
-                      <input type="image" src="./Icons/user-interaction-btn.svg" onClick={this.adduser} name="requestedCards" value={eachuser._id}></input>
+                      <input type="image" src="./Icons/user-interaction-btn.svg" 
+                        onClick={this.adduser} name="requestedCards" value={eachuser._id}>
+                        </input>
                       </div>
                     </div>
                     <div className="middle-container">
@@ -163,7 +166,7 @@ class Search extends Component {
           </div>
           </div>
         </Tilt>
-      );
+       );
       });
     }
   }

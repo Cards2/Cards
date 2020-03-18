@@ -35,11 +35,10 @@ class MyCard extends Component {
               >
                 <div className='Tilt-inner innerCard'>
                   {" "}
-                  <h1 className='cardName'>Grampa</h1>
-                  <h3 className='cardTitle'> The Boss </h3>
-                  <h3 className='cardTitle'> Just the shake an bake</h3>
+                  <h1 className='cardName'>{this.props.generalstate.title}</h1>
+                  <h3 className='cardTitle'> {this.props.generalstate.username} </h3>
 
-                  <button onClick={this.adduser} name="requestedCards"  >  Add User to Stack </button>
+                  {/* <button onClick={this.adduser} name="requestedCards"  >  Add User to Stack </button> */}
 
                 </div>
               </Tilt>
@@ -47,37 +46,97 @@ class MyCard extends Component {
       };
 
 
+    cardStack = () => {
+      if (this.props.generalstate.users) {
+        return this.props.generalstate.users.data.allUsers.map(eachuser => {
+          return ( 
+            <>
+                <h1> Cucu User</h1>
+                <button onClick={this.removeCard} > Remove Card </button>
 
-
-
-
-
-
-
-    cardStack =() => {
-
+              </>
+            )
+          }
+        )
+      }
     };
+
+
+// {this.props.generalstate.username}
+
+
+// if (this.props.generalstate.users) {
+//   return this.props.generalstate.requestedCards.map(eachrequest => {
+//     return ( 
+//          <>
+//            <div> 
+//            <h1> User ID: {eachrequest}</h1>
+//            <button onClick={this.deleteRequest} > Delete Request </button>
+//            <br></br>
+//            <button  onClick={this.acceptRequest} > Accept Request </button>
+//            </div> 
+  //        </>
+  //        )
+  //      }
+  //    )
+  //  }
+  //};
+
+  cardDeleteRequest= async (e)=>{
+    await this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
+    console.log(this.state, "muku")
+    actions.deleteRequest(this.state)
+  }
+
+  cardAcceptRequest= async (e)=>{
+    await this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
+    console.log(this.state, "Positivo")
+    actions.acceptRequest(this.state)
+  }
+
+
+  // acceptRequest
 
     incomingCards = () =>{
+      if (this.props.generalstate) {
+        return this.props.generalstate.pendingCards.map(eachrequest => {
+          return ( 
+              <>
+            <div> 
+            <h1> User ID: </h1>
+            <h2>{eachrequest}</h2>
+            <button onClick={this.cardDeleteRequest} name="pendingCards" value={eachrequest}> Delete Request </button>
+            <br></br>
+            <button  onClick={this.cardAcceptRequest} name="acceptedCards" value={eachrequest}> Accept Request </button>
+            </div> 
+          </>
+         )
+       }
+     )
+   }
+  };
 
-    };
+
+
+
+
+// {this.props.generalstate.username}
+// {this.props.generalstate.title}
 
 
 
 
 
-
-
-
-
-
-    render() {
+  render() {
         console.log(this.props.generalstate)
-        return (
-            <div>
-                <h1> cucu </h1>
-                {this.cardCall()}
-                {this.incomingCards()}
+    return (
+       <div>
+          <h1> My Card </h1>
+            {this.cardCall()}
+          <h1 style={{color: "white"}} > Incoming cards </h1>
+            {this.incomingCards()}
+          <h1 style={{color: "white"}} > My Card stack </h1>
+            {/* {this.cardStack()} */}
             </div>
         );
     }
