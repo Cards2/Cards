@@ -33,29 +33,102 @@ code {
 /*NavBar Styling*/
 .navbar {
   display: flex;
-  background-color: var(--main-Green);
+  background-color: var(--main-Blue);
   justify-content: space-around;
-  align-items: center;
-  height: 7vh;
+  align-items: flex-start;
+  min-height: 13vh;
   box-shadow: -6px -4px 13px 0px black;
-  z-index: 30;
+  /* z-index: 30; */
   width: 100%;
-  background-image: url("/navBg.png");
-  background-position: top;
+  
+  
 }
-
-.navbar > a {
+.dropbtn {
+  /* background-color: #4CAF50; */
+  color: var(--card-text);
+  margin: 1.5rem 0 0 0;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  width: fit-content;
   text-decoration: none;
-  color: white;
-  font-size: 1.2rem;
-  transition: all 0.5s;
-  width: 8.5rem;
+  transition: all .5s;
+}
+.arrow{
+  width: 1rem;
+}
+#navbar-logo{
+  text-decoration: none;
+    color: var(--main-Bk);
+    font-size: 5rem;
+    height: 10rem;
+    filter: drop-shadow(-.2px -0.4px 0.2px black);
+    text-shadow: 0.2px 0.2px 0.9px #97e0c5;
+    margin: 1rem 0 0 2rem;
+}
+.navbar-bar{
+  background-color: var(--main-Bk);
+    height: 0.15vh;
+    width: 50%;
+    margin: 4.3rem 0;
+}
+.navbar-icons-box{
+  margin: 0 1rem 0 0;
 }
 
-.navbar > a:hover {
-  font-size: 2.2rem;
-  color: var(--main-Blue);
+.navbar-icons{
+  width: 2rem;
+  margin: 3rem 2.5rem 0 0;
 }
+
+
+
+.dropdown {
+  /* position: relative; */
+  display: inline-block;
+  overflow: hidden;
+  height: 5vh;
+  transition: all 1s;
+  margin: 1.7rem 0 0 0;
+}
+.text{
+  text-align: left;
+
+}
+
+.dropdown-content {
+  display: block;
+  width: fit-content;
+  transition: all 1s;
+  
+}
+
+.dropdown-content a {
+  color: var(--card-text);
+  padding: 4px 0px;
+  text-decoration: none;
+  display: block;
+  transition: all 1s;
+}
+.dropdown:hover{
+  height: auto;
+  overflow: visible;
+}
+
+.dropdown-content a:hover {
+  color: var(--main-Green);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  color: var(--main-Bk);
+}
+
+
 /*NavBar Styling*/
 /*NavBar Styling*/
 /*NavBar Styling*/
