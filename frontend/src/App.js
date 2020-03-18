@@ -26,7 +26,8 @@ import SearchProjects from "./components/search/SearchProjects";
 import Projects from "./components/projects/Projects";
 import MyTeams from "./components/projects/MyTeams";
 import ProjectUpdate from "./components/projects/ProjectUpdate";
-
+//notifications tab
+import Notifications from "./components/notifications/Notifications";
 class App extends Component {
   state = {
     loading: true
@@ -172,6 +173,13 @@ class App extends Component {
               exact
               path='/mycard'
               render={props => <MyCard {...props} generalstate={this.state} />}
+            />
+            <Route
+              exact
+              path='/notifications'
+              render={props => (
+                <Notifications {...props} generalstate={this.state} />
+              )}
             />
             <Route component={NotFound} />
           </Switch>
