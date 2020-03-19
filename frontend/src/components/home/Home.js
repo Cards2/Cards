@@ -2,7 +2,6 @@ import React, { Component } from "react";
 // import actions from "../../services/index";
 import LogIn from "../auth/LogIn";
 import Card from "../partials/Card";
-// import Search from '../search/Search'
 
 // LANDING PAGE
 class Home extends Component {
@@ -40,7 +39,6 @@ this.setState({
               </p>
             </div>
             <div className='register-box'>
-              {/* <a id='btnlog' className='btn-login' href="/log-in"><p>Log in</p></a> */}
               <LogIn setUser={this.props.setUser} caller={this.caller} {...this.props}/>
             </div>
 

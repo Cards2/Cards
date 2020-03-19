@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import actions from "../../services/index";
-import { render } from "react-dom";
 import FlashMessage from "react-flash-message";
-//import Footer from "../partials/Footer";
 
 class SignUp extends Component {
   state = {
@@ -23,7 +21,7 @@ class SignUp extends Component {
       console.log("the password must be x char long");
       this.setState({ passwordLength: false });
       return;
-    } else if (this.state.password !== this.state.password2.length) {
+    } else if (this.state.password !== this.state.password2) {
       console.log("the passwords must match");
       this.setState({ passwordMatch: false });
       return;
@@ -57,8 +55,11 @@ class SignUp extends Component {
   passwordLengthError = () => {
     const styles = { color: "red", fontSize: "10px" };
     if (this.state.passwordLength === false) {
+      setTimeout(() => {
+        this.setState({ passwordLength: true });
+      }, 5000);
       return (
-        <FlashMessage duration={5000}>
+        <FlashMessage>
           <p style={styles}>
             Please enter a password that is at least 6 characters long!
           </p>
@@ -70,8 +71,11 @@ class SignUp extends Component {
   passwordMatchError = () => {
     const styles = { color: "red", fontSize: "10px" };
     if (this.state.passwordMatch === false) {
+      setTimeout(() => {
+        this.setState({ passwordMatch: true });
+      }, 5000);
       return (
-        <FlashMessage duration={5000}>
+        <FlashMessage>
           <p style={styles}>
             Your passwords must match. Reenter your password and try again.
           </p>

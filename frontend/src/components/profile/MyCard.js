@@ -10,15 +10,31 @@ class MyCard extends Component {
         
     }
 
-    // adduser= (e) =>{
-    //     e.preventDefault()
-    //     this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
-    //     console.log(this.state, "cucu")
-
-    //     actions.sendMyCard(this.state)
+    // async componentDidMount(){
+    //   let res = await actions.
     // }
 
-    // Accept Request
+// Send Request
+    adduser= (e) =>{
+        e.preventDefault()
+        this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
+        console.log(this.state, "cucu")
+        actions.sendMyCard(this.state)
+    }
+// Delete Request
+    cardDeleteRequest= async (e)=>{
+      let pendingcardarr = this.props.generalstate.pendingCards;
+      let userIndex = pendingcardarr.indexOf(e.target.value);
+      await this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
+      console.log(this.state, "request")
+      actions.deleteRequest(this.state)
+      if (userIndex>-1){
+        pendingcardarr.splice(userIndex,1)
+      }
+      console.log(this.props.generalstate, "generalstate")
+    }
+
+ // Accept Request
     cardAcceptRequest= async (e)=>{
       await this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
       console.log(this.state, "Positivo")
@@ -119,8 +135,7 @@ class MyCard extends Component {
             {this.incomingCards()}
 
 
-          <h1 style={{color: "white"}} > My Card stack </h1>
-            {/* {this.cardStack()} */}
+
             </div>
         );
     }
