@@ -10,9 +10,15 @@ class MyCard extends Component {
         
     }
 
-    // async componentDidMount(){
-    //   let res = await actions.
-    // }
+    // call user data for each user interaction:
+    async componentDidMount(){
+      console.log(this.props.generalstate)
+      // let res = await actions.
+    }
+
+
+
+
 
 // Send Request
     adduser= (e) =>{
@@ -21,8 +27,10 @@ class MyCard extends Component {
         console.log(this.state, "cucu")
         actions.sendMyCard(this.state)
     }
+
 // Delete Request
     cardDeleteRequest= async (e)=>{
+      this.props.affectRequests(e.target.value)
       let pendingcardarr = this.props.generalstate.pendingCards;
       let userIndex = pendingcardarr.indexOf(e.target.value);
       await this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
@@ -36,9 +44,11 @@ class MyCard extends Component {
 
  // Accept Request
     cardAcceptRequest= async (e)=>{
+      this.props.affectRequests(e.target.value)
       await this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
       console.log(this.state, "Positivo")
       actions.acceptRequest(this.state)
+
     }
 
     // My Card
@@ -61,79 +71,45 @@ class MyCard extends Component {
                   {" "}
                   <h1 className='cardName'>{this.props.generalstate.title}</h1>
                   <h3 className='cardTitle'> {this.props.generalstate.username} </h3>
-
-                  {/* <button onClick={this.adduser} name="requestedCards"  >  Add User to Stack </button> */}
-
                 </div>
               </Tilt>
          );      
       };
 
+  incomingCards =()=>{
+    if(this.props.generalstate.pendingCards.length >0){
+      return this.props.generalstate.pendingCards.map(eachrequest => {
+        return ( 
+            <>
+              <div> 
+              <h1 style={{color: "white"}} > Incoming cards </h1>
+              <h1> User ID: </h1>
+              <h2>{eachrequest}</h2>
+              <button onClick={this.cardDeleteRequest} name="pendingCards" value={eachrequest}> Delete Request </button>
+              <br></br>
+              <button  onClick={this.cardAcceptRequest} name="acceptedCards" value={eachrequest}> Accept Request </button>
+              </div> 
+            </>
+          )
+        }
+      )
+    } else {
+      return(
+        <> 
+        <h1 style={{color: "white"}} > No Pending Requests </h1>
+        </>
+      )
+    }
+  }
 
-    // cardStack = () => {
-    //   if (this.props.generalstate.users) {
-    //     return this.props.generalstate.users.data.allUsers.map(eachuser => {
-    //       return ( 
-    //         <>
-    //             <h1> Cucu User</h1>
-    //             <button onClick={this.removeCard} > Remove Card </button>
-
-    //           </>
-    //         )
-    //       }
-    //     )
-    //   }
-    // };
-
-
-// {this.props.generalstate.username}
-
-
-// if (this.props.generalstate.users) {
-//   return this.props.generalstate.requestedCards.map(eachrequest => {
-//     return ( 
-//          <>
-//            <div> 
-//            <h1> User ID: {eachrequest}</h1>
-//            <button onClick={this.deleteRequest} > Delete Request </button>
-//            <br></br>
-//            <button  onClick={this.acceptRequest} > Accept Request </button>
-//            </div> 
-  //        </>
-  //        )
-  //      }
-  //    )
-  //  }
-  //};
-
-    incomingCards = () =>{
-      if (this.props.generalstate) {
-        return this.props.generalstate.pendingCards.map(eachrequest => {
-          return ( 
-              <>
-            <div> 
-            <h1> User ID: </h1>
-            <h2>{eachrequest}</h2>
-            <button onClick={this.cardDeleteRequest} name="pendingCards" value={eachrequest}> Delete Request </button>
-            <br></br>
-            <button  onClick={this.cardAcceptRequest} name="acceptedCards" value={eachrequest}> Accept Request </button>
-            </div> 
-          </>
-         )
-       }
-     )
-   }
-  };
-
+  
   render() {
         console.log(this.props.generalstate)
     return (
        <div>
           <h1> My Card </h1>
             {this.cardCall()}
-          <h1 style={{color: "white"}} > Incoming cards </h1>
             {this.incomingCards()}
-
 
 
             </div>

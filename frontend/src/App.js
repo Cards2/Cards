@@ -45,7 +45,6 @@ class App extends Component {
     // console.log(res4, 'res4')
     let res5 = await actions.oneUserInteraction(user);
     // console.log(res5, 'res 5')
-
     this.setState({ ...user.data, 
       users: res2, 
       ...res3.data.currentUser, 
@@ -53,17 +52,23 @@ class App extends Component {
       ...res4.data.currentProject, 
       ...res5.data.currUserInt, 
       loading: false });
-
   }
 
-
-    // this.setState(res3.data.currentUser);
-    // this.setState(res4.data.currentProject);
-    // this.setState({...res5.data.currUserInt, loading: false});
+ 
+  affectRequests=(requestID)=>{
+    let pendingArr = this.state.pendingCards;
+    for(let request in pendingArr){
+      if (pendingArr[request] === requestID){
+         pendingArr.splice(request, 1); 
+      }
+    } 
+  }
   
 
 
 
+
+  
   setUser = user => this.setState(user);
 
   logOut = async () => {
@@ -108,6 +113,8 @@ class App extends Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
+
 
   render() {
     console.log(this.state)
@@ -202,7 +209,7 @@ class App extends Component {
             <Route
               exact
               path='/mycard'
-              render={props => <MyCard {...props} generalstate={this.state} />}
+              render={props => <MyCard {...props} generalstate={this.state} affectRequests={this.affectRequests}  />}
             />
             <Route
               exact
