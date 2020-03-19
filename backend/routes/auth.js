@@ -122,7 +122,7 @@ router.post("/delete-proj-invite", isAuth, (req, res, next) => {
 });
 
 // SHOULD an immediate acceptanme mean both people have card into avaialble?
-// Line 188 automatic friending
+// features automatic 2 way friending
 router.post("/accept-proj-invite", isAuth, (req, res, next) => {
   console.log(req.body);
   ProjectInteractions.findOneAndUpdate(
@@ -335,14 +335,32 @@ router.get("/userquery", (req, res, next) => {
 
 
 
-// router.get("/user-inter-query", (req, res, next) => {
-//   // console.log(req.user)
-//   UserData.find( { _id: { $in: req.user._id } } ) //$ne excludes a specific field from the search. here we are passing the current user ID to avoid search
-//     .then(allUsers => {
-//       res.status(200).json({ allUsers });
-//     })
-//     .catch(err => res.status(500).json({ err }));
-// });
+
+
+
+
+
+
+
+
+
+
+router.get("/user-inter-query", (req, res, next) => {
+  console.log(req.user)
+  UserData.find( { _id: { $in: req.user._id } } ) //$ne excludes a specific field from the search. here we are passing the current user ID to avoid search
+    .then(allUsers => {
+      res.status(200).json({ allUsers });
+    })
+    .catch(err => res.status(500).json({ err }));
+});
+
+
+
+
+
+
+
+
 
 
 
