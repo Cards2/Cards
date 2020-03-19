@@ -223,7 +223,7 @@ class App extends Component {
              exact
               path='/profile-update'
               render={props => (
-                <ProfileUpdate
+                <ProjectPage
                   {...props}
                   handleChange={this.handleChange}
                   setUserProperty={this.setUserProperty}

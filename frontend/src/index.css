@@ -152,7 +152,6 @@ code {
   border-radius: 0.8rem;
   box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  height: 60vh;
   width: 20vw;
 }
 .signUp-text {
@@ -184,7 +183,7 @@ code {
   position: relative;
   height: 60%;
   width: 20rem;
-  justify-content: space-around;
+  /* justify-content: space-around; */
 }
 .signUp-form h5 {
   text-align: left;
@@ -198,26 +197,28 @@ code {
   border-radius: 0.8rem;
   height: 30px;
   width: 20rem;
+  height: 2.2rem;
   /* margin: 0 0 20px; */
 }
 .create-acc {
-  margin-top: 2rem;
   color: white;
-  text-decoration: none;
-  font-size: 2rem;
-  font-weight: 500;
-  width: 100%;
-  display: inline-block;
-  border-radius: 0.8rem;
-  background-color: var(--main-Blue);
-  height: 40px;
-  border: none;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 500;
+    width: 100%;
+    display: inline-block;
+    border-radius: 0.8rem;
+    background-color: var(--main-Blue);
+    height: 40px;
+    border: none;
+    margin: 2rem;
+    height: 2.6rem;
 }
 .bar-line {
   position: absolute;
   width: 15rem;
   right: 20px;
-  top: 100px;
+  top: 13rem;
 }
 /*Sign Up*/
 /*Sign Up*/
@@ -388,7 +389,7 @@ code {
 }
 .form-box > h4 {
   text-align: left;
-  margin: 2rem 0 0;
+  margin: 0rem 0 0;
   color: white;
 }
 /*Home*/

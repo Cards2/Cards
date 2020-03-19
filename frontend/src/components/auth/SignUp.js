@@ -111,7 +111,7 @@ class SignUp extends Component {
               placeholder='  username'
             />
             {this.userNameLengthError()}
-            <br></br>
+           
             <label>
               <h5>Email</h5>
             </label>
@@ -121,7 +121,7 @@ class SignUp extends Component {
               onChange={this.handleChange}
               placeholder='  email'
             />
-            <br></br>
+           
             <label>
               <h5>Password</h5>
             </label>
@@ -132,7 +132,7 @@ class SignUp extends Component {
               placeholder='  password'
             />
             {this.passwordLengthError()}
-            <br></br>
+           
             <label>
               <h5>Confirm Password</h5>
             </label>
@@ -143,7 +143,7 @@ class SignUp extends Component {
               placeholder='  confirm password'
             />
             {this.passwordMatchError()}
-            <br></br>
+           
             <button className='create-acc' type='submit' value='Sign Up'>
               create account
             </button>
