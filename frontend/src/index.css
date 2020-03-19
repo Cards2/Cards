@@ -37,7 +37,7 @@ code {
   justify-content: space-around;
   align-items: flex-start;
   min-height: 13vh;
-  box-shadow: -6px -4px 13px 0px black;
+  /* box-shadow: -6px -4px 13px 0px black; */
   /* z-index: 30; */
   width: 100%;
 }
@@ -689,12 +689,11 @@ code {
 /* Card */
 /* Card */
 
-
 /* Sign up GRID */
 
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto ;
+  grid-template-columns: auto auto;
   padding-right: 12px;
   padding-left: 12px;
   /* border: 1px solid rgba(0, 0, 0, 0.8); */
@@ -712,7 +711,6 @@ code {
   /* margin: 0; */
 }
 
-
 .card-item {
   /* padding: 20px; */
   font-size: 30px;
@@ -722,36 +720,214 @@ code {
 
 .grid-item1 {
   grid-area: 1 / 2;
-  background-color: var(--main-Bk); 
-  text-align: left; 
+  background-color: var(--main-Bk);
+  text-align: left;
   padding-left: 20px;
-
 }
 
 .grid-item2 {
   grid-row-start: 1;
-
 }
 
 .grid-item3 {
   padding: 20px;
   grid-area: span 2 / 2;
   color: whitesmoke;
-
 }
 
 .grid-item4 {
   grid-area: 2 / auto;
 }
 .grid-item5 {
-  background-color: var(--main-Bk);  
+  background-color: var(--main-Bk);
 }
-
 
 @media only screen and (max-width: 500px) {
-  .grid-item1 { grid-area: 1 / span 2 ; }
-  .grid-item2 { grid-area: 2 / span 2; }
-  .grid-item3 { grid-area: 3 / span 2; }
-  .grid-item4 { grid-area: 4 / span 2; }
-
+  .grid-item1 {
+    grid-area: 1 / span 2;
+  }
+  .grid-item2 {
+    grid-area: 2 / span 2;
+  }
+  .grid-item3 {
+    grid-area: 3 / span 2;
+  }
+  .grid-item4 {
+    grid-area: 4 / span 2;
+  }
 }
+
+/* Profile Update */
+/* Profile Update */
+/* Profile Update */
+
+.profile-update-container {
+  width: 90vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
+
+.profile-update-left {
+  width: 50%;
+  display: flex;
+}
+
+.card-container {
+  margin: auto;
+}
+
+/* Form in this div */
+.profile-update-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  color: whitesmoke;
+  background-color: #229068;
+  border-radius: 5px;
+}
+
+.profile-update-title {
+  width: 100%;
+  height: 10%;
+  text-align: left;
+  margin: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.profile-update-title > h2 {
+  margin-left: 10%;
+  margin-top: 10px;
+  position: relative;
+  font-size: 2rem;
+}
+
+.profile-update-right * {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.form-container {
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+  display: space-around;
+}
+
+.form-container input {
+  width: 50%;
+}
+.form-container textarea {
+  width: 50%;
+}
+
+.form-container > form > div {
+  display: flex;
+}
+.form-container > form > h3 {
+  font-size: 1.5rem;
+  text-align: left;
+  margin-top: 5px;
+  margin-bottom: 3px;
+  color: rgba(225, 225, 225, 0.5);
+}
+
+.form-container > form > div > label {
+  text-align: left;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.form-container > form > div > textarea,
+input,
+select {
+  height: 2rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  border-style: none;
+}
+
+.profile-update-skills {
+  display: flex;
+}
+
+.profile-update-skills > div {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+}
+
+.profile-update-skills > div > input {
+  width: 50%;
+  height: 2rem;
+  font-size: 1rem;
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  border: none;
+  border-radius: 4px;
+  height: 2rem;
+  background-color: #f1f1f1;
+}
+
+.profile-update-skills > div > label {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 4px;
+}
+
+.profile-update-avalibility {
+  height: 15%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile-update-avalibility > div {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 5%;
+}
+
+.profile-update-avalibility > div > label {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+.profile-update-avalibility > div > select {
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  height: 2rem;
+  font-size: 1rem;
+}
+
+.profile-update-submit {
+  display: flex;
+  justify-content: end;
+  height: 40px;
+}
+
+.profile-update-submit > button {
+  position: relative;
+  left: -10%;
+  top: 40%;
+  height: 70%;
+  width: 20%;
+  border-style: none;
+  border-radius: 3px;
+  background-color: var(--main-Blue);
+  color: whitesmoke;
+}
+/* Profile Update */
+/* Profile Update */
+/* Profile Update */

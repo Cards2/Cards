@@ -26,12 +26,10 @@ import SearchProjects from "./components/search/SearchProjects";
 import Projects from "./components/projects/Projects";
 import MyTeams from "./components/projects/MyTeams";
 import ProjectUpdate from "./components/projects/ProjectUpdate";
-// eslint-disable-next-line
-
 import UsercreationTest from "./components/partials/usercreationTest"
-
 //notifications tab
 import Notifications from "./components/notifications/Notifications";
+
 class App extends Component {
   state = {
     loading: true

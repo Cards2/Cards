@@ -3,7 +3,7 @@ import React from "react";
 export const Screen1 = props => {
   console.log(props);
   return (
-    <> 
+    <>
       <div>
         <h2 style={{ color: "white", padding: 5 }}> Hi There! </h2>
         <h1 style={{ color: "white", padding: 5 }}>
@@ -40,8 +40,6 @@ export const Screen1 = props => {
       </div>
       <br></br>
       <button onClick={props.transition1}> NEXT </button>
-      {props.submissionError(props.errors.usernameLength, 'Your username must be longer than 6 characters')}
-      {props.submissionError(props.errors.usernameTitle, 'Your username must be longer than 6 characters')}
     </>
   );
 };
