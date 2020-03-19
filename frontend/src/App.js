@@ -6,7 +6,7 @@ import NotFound from "./components/404/NotFound.js";
 import NavBar from "./components/partials/NavBar";
 // import Footer from "./components/partials/Footer";
 // eslint-disable-next-line
-import Card from "./components/partials/Card";
+
 import CardTest from "./components/partials/CardTest";
 import MyCard from "./components/profile/MyCard";
 //home page
@@ -28,14 +28,15 @@ import MyTeams from "./components/projects/MyTeams";
 import ProjectUpdate from "./components/projects/ProjectUpdate";
 // eslint-disable-next-line
 import Card from "./components/partials/Card";
-import CardTest from "./components/partials/CardTest";
-import MyCard from "./components/profile/MyCard";
+
+
 // import Footer from "./components/partials/Footer";
 
 import UsercreationTest from "./components/partials/usercreationTest"
 
 //notifications tab
 import Notifications from "./components/notifications/Notifications";
+import ProjectPage from "./components/partials/ProjectPage";
 class App extends Component {
   state = {
     loading: true
@@ -193,6 +194,11 @@ class App extends Component {
               exact
               path='/userCreationTests'
               render={props => <UsercreationTest {...props} generalstate={this.state}  />}
+            />
+            <Route
+              exact
+              path='/projectpage'
+              render={props => <ProjectPage {...props} generalstate={this.state}  />}
             />
             
             <Route component={NotFound} />
