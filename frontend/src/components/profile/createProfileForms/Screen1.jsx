@@ -40,6 +40,7 @@ export const Screen1 = props => {
       </div>
       <br></br>
       <button onClick={props.transition1}> NEXT </button>
+      
     </>
   );
 };

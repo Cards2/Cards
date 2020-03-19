@@ -19,7 +19,7 @@ class ProfileUpdate extends Component {
     if (!this.props.user.loading && !this.props.user.email) {
       this.props.history.push("/log-in");
     }
-    console.log(this.props.user);
+    // console.log(this.props.user);
     return (
       <div className='profile-update-container'>
         <div className='profile-update-left'>

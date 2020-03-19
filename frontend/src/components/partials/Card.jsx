@@ -59,105 +59,171 @@ export default class Card extends Component {
         <div className='Tilt-inner innerCard'>
           <div>
             <div>
-              <div className='center'>
-                <div className={this.index()}>
-                  <div className={this.showOrHide()}>
-                    <div className='more-info'>
-                      <div className='switch-container'>
+              <div>
+                <div className='center'>
+                  <div className={this.index()}>
+                    <div className={this.showOrHide()}>
+                      <div className='more-info'>
+                        <div className='switch-container'>
+                          <div
+                            className='switcher'
+                            onClick={a => this.toggler(3)}
+                          >
+                            <img
+                              src='./Icons/card-toggle-inactive.svg'
+                              alt=''
+                            />
+                          </div>
+                          <div>
+                            <img alt="user interaction button" src='./Icons/user-interaction-btn.svg'></img>
+                          </div>
+                        </div>
+                        <div className='title-organizer'>
+                          <h1>
+                            <span className='heading-card--main'>Isaac</span>
+                            <span className='heading-card--sub'>
+                              Graphic Designer
+                            </span>
+                          </h1>
+                        </div>
+                        <div className='user-link'>
+                          <span className='user-conections'>
+                            <img alt="user interaction button" src='./Icons/copy-user-link-btn.svg' /> 1564
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class='general'>
+                      <div id='under' className='switch-container'>
+                        <div className='at'>
+                          <img src='./Icons/user-contact-btn.svg' alt='' />
+                        </div>
                         <div
                           className='switcher'
-                          onClick={a => this.toggler(3)}
+                          onClick={a => this.toggler(2)}
                         >
-                          <img src='./Icons/card-toggle-inactive.svg' alt='' />
+                          <img src='./Icons/card-toggle-active.svg' alt='' />
                         </div>
                         <div>
-                          <img alt='user interaction button' src='./Icons/user-interaction-btn.svg'></img>
+                          <img alt="user interaction button" src='./Icons/user-interaction-btn.svg'></img>
                         </div>
                       </div>
-                      <div className='title-organizer'>
-                        <h1>
-                          <span className='heading-card--main'>
-                            {this.props.username}
-                          </span>
-                          <span className='heading-card--sub'>
-                            {this.props.title}
-                          </span>
-                        </h1>
-                      </div>
-                      <div className='user-link'>
-                        <span className='user-conections'>
-                          <img alt='copy user link button' src='./Icons/copy-user-link-btn.svg' /> 1564
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class='general'>
-                    <div id='under' className='switch-container'>
-                      <div className='at'>
-                        <img src='./Icons/user-contact-btn.svg' alt='' />
-                      </div>
-                      <div className='switcher' onClick={a => this.toggler(2)}>
-                        <img src='./Icons/card-toggle-active.svg' alt='' />
-                      </div>
-                      <div>
-                        <img alt='user interaction button' src='./Icons/user-interaction-btn.svg'></img>
-                      </div>
-                    </div>
-                    <div className='middle-container'>
-                      <div className='middle-left'>
-                        <p className='header' id='about'>
-                          About
-                        </p>
-                        <p>{this.props.about}</p>
-                      </div>
-                      <div className='middle-center'>
-                        <p className='header' id='aval'>
-                          Avalbility
-                        </p>
-                        <div className='box'>
-                          <div id={this.abiability("always")}>Mon</div>
-                          <div id={this.abiability("always")}>Tue</div>
-                          <div id={this.abiability("always")}>Wed</div>
-                          <div id={this.abiability("always")}>Thu</div>
-                          <div id={this.abiability("always")}>Fri</div>
-                          <div id={this.abiability("always")}>Sat</div>
-                          <div id={this.abiability("always")}>Sun</div>
+                      <div className='middle-container'>
+                        <div className='middle-left'>
+                          <p className='header' id='about'>
+                            About
+                          </p>
+                          <p>
+                            Sit et voluptua erat sit lorem dolor invidunt magna.
+                            Voluptua et sadipscing sadipscing erat dolor et sed,
+                            est voluptua et sed dolore. Sadipscing lorem sed et
+                            eos consetetur amet. Amet ipsum sed labore dolore
+                            dolores eos.
+                          </p>
                         </div>
-                      </div>
-                      <div className='middle-rigth'>
-                        <p className='header'>Skills</p>
-                        <div className='rating'>
-                          <img src='./Icons/Design.svg' alt='' />
-                          <p className='level'>8</p>
+                        <div className='middle-center'>
+                          <p className='header' id='aval'>
+                            Avalbility
+                          </p>
+                          <div className='box'>
+                            <div id={this.abiability("never")}>Mon</div>
+                            <div id={this.abiability("always")}>Tue</div>
+                            <div id={this.abiability("never")}>Wed</div>
+                            <div id={this.abiability("sometimes")}>Thu</div>
+                            <div id={this.abiability("never")}>Fri</div>
+                            <div id={this.abiability("always")}>Sat</div>
+                            <div id={this.abiability("always")}>Sun</div>
+                          </div>
                         </div>
-                        <div className='rating'>
-                          <img src='./Icons/Other-Misc.svg' alt='' />
-                          <p className='level'>8</p>
+                        <div class='general'>
+                          <div id='under' className='switch-container'>
+                            <div className='at'>
+                              <img src='./Icons/user-contact-btn.svg' alt='' />
+                            </div>
+                            <div
+                              className='switcher'
+                              onClick={a => this.toggler(2)}
+                            >
+                              <img
+                                src='./Icons/card-toggle-active.svg'
+                                alt=''
+                              />
+                            </div>
+                            <div>
+                              <img
+                                alt='user interaction button'
+                                src='./Icons/user-interaction-btn.svg'
+                              ></img>
+                            </div>
+                          </div>
+                          <div className='middle-container'>
+                            <div className='middle-left'>
+                              <p className='header' id='about'>
+                                About
+                              </p>
+                              <p>{this.props.about}</p>
+                            </div>
+                            <div className='middle-center'>
+                              <p className='header' id='aval'>
+                                Avalbility
+                              </p>
+                              <div className='box'>
+                                <div id={this.abiability("always")}>Mon</div>
+                                <div id={this.abiability("always")}>Tue</div>
+                                <div id={this.abiability("always")}>Wed</div>
+                                <div id={this.abiability("always")}>Thu</div>
+                                <div id={this.abiability("always")}>Fri</div>
+                                <div id={this.abiability("always")}>Sat</div>
+                                <div id={this.abiability("always")}>Sun</div>
+                              </div>
+                            </div>
+                            <div className='middle-rigth'>
+                              <p className='header'>Skills</p>
+                              <div className='rating'>
+                                <img src='./Icons/Design.svg' alt='' />
+                                <p className='level'>8</p>
+                              </div>
+                              <div className='rating'>
+                                <img src='./Icons/Other-Misc.svg' alt='' />
+                                <p className='level'>8</p>
+                              </div>
+                              <div className='rating'>
+                                <img src='./Icons/Programming.svg' alt='' />
+                                <p className='level'>8</p>
+                              </div>
+                              <div className='rating'>
+                                <img src='./Icons/Art.svg' alt='' />
+                                <p className='level'>8</p>
+                              </div>
+                              <div className='rating'>
+                                <img src='./Icons/Audio.svg' alt='' />
+                                <p className='level'>8</p>
+                              </div>
+                              <div className='rating'>
+                                <img src='./Icons/Writing.svg' alt='' />
+                                <p className='level'>8</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div className='bottom-container'>
+                            <div className='user-craft'>
+                              Portfolio:
+                              <a href='www.google.com'>
+                                youaremy@favorite.link
+                              </a>
+                            </div>
+                            <div
+                              className='user-conections'
+                              id='conection-under'
+                            >
+                              <img
+                                alt='copy user link button'
+                                src='./Icons/copy-user-link-btn.svg'
+                              />{" "}
+                              1564
+                            </div>
+                          </div>
                         </div>
-                        <div className='rating'>
-                          <img src='./Icons/Programming.svg' alt='' />
-                          <p className='level'>8</p>
-                        </div>
-                        <div className='rating'>
-                          <img src='./Icons/Art.svg' alt='' />
-                          <p className='level'>8</p>
-                        </div>
-                        <div className='rating'>
-                          <img src='./Icons/Audio.svg' alt='' />
-                          <p className='level'>8</p>
-                        </div>
-                        <div className='rating'>
-                          <img src='./Icons/Writing.svg' alt='' />
-                          <p className='level'>8</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className='bottom-container'>
-                      <div className='user-craft'>
-                        Portfolio:<a href='www.google.com'>youaremy@favorite.link</a>
-                      </div>
-                      <div className='user-conections' id='conection-under'>
-                        <img alt='copy user link button' src='./Icons/copy-user-link-btn.svg' /> 1564
                       </div>
                     </div>
                   </div>
