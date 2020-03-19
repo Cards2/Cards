@@ -26,6 +26,14 @@ import SearchProjects from "./components/search/SearchProjects";
 import Projects from "./components/projects/Projects";
 import MyTeams from "./components/projects/MyTeams";
 import ProjectUpdate from "./components/projects/ProjectUpdate";
+// eslint-disable-next-line
+import Card from "./components/partials/Card";
+import CardTest from "./components/partials/CardTest";
+import MyCard from "./components/profile/MyCard";
+// import Footer from "./components/partials/Footer";
+
+import UsercreationTest from "./components/partials/usercreationTest"
+
 //notifications tab
 import Notifications from "./components/notifications/Notifications";
 class App extends Component {
@@ -40,10 +48,10 @@ class App extends Component {
     let res4 = await actions.oneProjectQuery(this.state);
     let res5 = await actions.oneUserInteraction(this.state._id);
     // console.log(res5)
-    this.setState({ ...user.data, loading: false, users: res2 });
+    this.setState({ ...user.data, users: res2 });
     this.setState(res3.data.currentUser);
     this.setState(res4.data.currentProject);
-    this.setState(res5.data.currUserInt);
+    this.setState({...res5.data.currUserInt, loading: false});
   }
 
   setUser = user => this.setState(user);
@@ -181,6 +189,12 @@ class App extends Component {
                 <Notifications {...props} generalstate={this.state} />
               )}
             />
+            <Route
+              exact
+              path='/userCreationTests'
+              render={props => <UsercreationTest {...props} generalstate={this.state}  />}
+            />
+            
             <Route component={NotFound} />
           </Switch>
           {/* <Footer/> */}

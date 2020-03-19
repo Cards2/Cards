@@ -3,19 +3,22 @@ import actions from "../../services/index";
 // import { Redirect } from "react-router-dom";
 // import Footer from '../partials/Footer';
 import SignUp from "./SignUp";
+
 class LogIn extends Component {
   state = {
-    joinUs: false
+    signUp: false
   };
+
   popUpSignUp = () => {
-    if (this.state.joinUs) {
+    if (this.state.signUp) {
       return <SignUp {...this.props} setUser={this.props.setUser} />;
     }
   };
+
   toggle = () => {
     this.props.caller();
     this.setState({
-      joinUs: true
+      signUp: true
     });
   };
 
@@ -23,6 +26,7 @@ class LogIn extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    console.log(this.state.user)
     actions
       .logIn(this.state)
       .then(user => {
@@ -39,12 +43,14 @@ class LogIn extends Component {
       <div className='login-box'>
         {this.popUpSignUp()}
         <form className='form-box' onSubmit={this.handleSubmit}>
+          <h4>Email</h4>
           <input
             name='email'
             type='email'
             onChange={this.handleChange}
             placeholder='email'
           />
+          <h4>Password</h4>
           <input
             name='password'
             type='password'

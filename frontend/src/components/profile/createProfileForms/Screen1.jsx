@@ -1,4 +1,6 @@
 import React from "react";
+import Tilt from "react-tilt";
+
 
 export const Screen1 = props => {
   console.log(props);

@@ -83,10 +83,6 @@ const actions = {
      return await service.post("/project-update", projectUpdate);
   },
 
-  // fetches one user's project data
-  oneProjectQuery: async oneprojectquery => {
-    return await service.get("/one-project-query", oneprojectquery);
-  },
 
   // creates project interaction instance in Database
   projectInteraction: async projectInter => {
@@ -96,6 +92,11 @@ const actions = {
   // fetches all projects data
   projectQuery: async userquery => {
     return await service.get("/userquery", userquery);
+  },
+  
+  // fetches one user's project data
+  oneProjectQuery: async oneprojectquery => {
+    return await service.get("/one-project-query", oneprojectquery);
   },
   
 

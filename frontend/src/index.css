@@ -40,8 +40,6 @@ code {
   box-shadow: -6px -4px 13px 0px black;
   /* z-index: 30; */
   width: 100%;
-  
-  
 }
 .dropbtn {
   /* background-color: #4CAF50; */
@@ -53,36 +51,34 @@ code {
   display: inline-block;
   width: fit-content;
   text-decoration: none;
-  transition: all .5s;
+  transition: all 0.5s;
 }
-.arrow{
+.arrow {
   width: 1rem;
 }
-#navbar-logo{
+#navbar-logo {
   text-decoration: none;
-    color: var(--main-Bk);
-    font-size: 5rem;
-    height: 10rem;
-    filter: drop-shadow(-.2px -0.4px 0.2px black);
-    text-shadow: 0.2px 0.2px 0.9px #97e0c5;
-    margin: 1rem 0 0 2rem;
+  color: var(--main-Bk);
+  font-size: 5rem;
+  height: 10rem;
+  filter: drop-shadow(-0.2px -0.4px 0.2px black);
+  text-shadow: 0.2px 0.2px 0.9px #97e0c5;
+  margin: 1rem 0 0 2rem;
 }
-.navbar-bar{
+.navbar-bar {
   background-color: var(--main-Bk);
-    height: 0.15vh;
-    width: 50%;
-    margin: 4.3rem 0;
+  height: 0.15vh;
+  width: 50%;
+  margin: 4.3rem 0;
 }
-.navbar-icons-box{
+.navbar-icons-box {
   margin: 0 1rem 0 0;
 }
 
-.navbar-icons{
+.navbar-icons {
   width: 2rem;
   margin: 3rem 2.5rem 0 0;
 }
-
-
 
 .dropdown {
   /* position: relative; */
@@ -92,16 +88,14 @@ code {
   transition: all 1s;
   margin: 1.7rem 0 0 0;
 }
-.text{
+.text {
   text-align: left;
-
 }
 
 .dropdown-content {
   display: block;
   width: fit-content;
   transition: all 1s;
-  
 }
 
 .dropdown-content a {
@@ -111,11 +105,10 @@ code {
   display: block;
   transition: all 1s;
 }
-.dropdown:hover{
+.dropdown:hover {
   height: auto;
   overflow: visible;
 }
-
 
 .dropdown-content a:hover {
   color: var(--main-Green);
@@ -129,7 +122,6 @@ code {
   color: var(--main-Bk);
 }
 
-
 /*NavBar Styling*/
 /*NavBar Styling*/
 /*NavBar Styling*/
@@ -137,7 +129,7 @@ code {
 /*Sign Up*/
 /*Sign Up*/
 /*Sign Up*/
-.backOfSign{
+.backOfSign {
   background-image: linear-gradient(#00000073, #00000073);
   position: absolute;
   height: 100vh;
@@ -147,94 +139,84 @@ code {
   z-index: 7;
 }
 
-
 .signup-box {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: var(--main-Green);
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   font-size: 2rem;
   padding: 0.5rem 3rem;
   border-radius: 0.8rem;
   box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  height: 60%;
-    width: 26rem;
+  height: 60vh;
+  width: 20vw;
 }
 .signUp-text {
   text-align: left;
   /* text-transform: uppercase; */
   backface-visibility: hidden;
-  margin-bottom: 6rem; }
-  .signUp-text-main {
-    display: block;
-    font-size: 2rem;
-    font-weight: 900;
-    color: #2c745a;
-     }
-  .signUp-text-sub {
-    color: #fff;
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 700;
-     }
-    .signUp-form{
-      display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    height: 25rem;
-    }
-    .signUp-form > input{
-      border: none;
-      border-radius: .8rem;
-      height: 2rem;
-      width: 22rem;
-      margin: 0 0 1.5rem;
-    }
-    .create-acc{
-      margin: 0 2rem;
-    color: white;
-    text-decoration: none;
-    font-size: 2rem;
-    width: fit-content;
-    font-weight: 700;
-    display: inline-block;
-    border-radius: 0.8rem;
-    background-color: var(--main-Blue);
-    height: -moz-fit-content;
-    height: fit-content;
-    border: none;
-    }
-    .over-text{
-      color: #fff;
-      position: absolute;
-      text-align: left;
-      bottom: 32%;
-      margin: rem 0rem;
-      left: 10%;
-      z-index: -1;
-    }
-    .over-text > p{
-      margin: 0rem 0 4rem;
-    }
-    #username{
-      margin: 0 0 3.8rem
-    }
-    #password{
-      margin: 0 0 4.5rem
-    }
-    #email{
-      margin: 0 0 3.7rem
-    }
-    .bar-line{
-      position: absolute;
-      width: 15rem;
-      left: 42%;
-      top: 21%;
-    }
+  margin-bottom: 6rem;
+}
+.signUp-text-main {
+  display: block;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #2c745a;
+}
+.signUp-text-sub {
+  color: #fff;
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.signUp-form * {
+  margin: 0;
+}
+.signUp-form {
+  display: flex;
+  margin: 0 auto 0 auto;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 60%;
+  width: 20rem;
+}
+.signUp-form h5 {
+  text-align: left;
+  width: 20rem;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.signUp-form > input {
+  border: none;
+  border-radius: 0.8rem;
+  height: 30px;
+  width: 20rem;
+  margin: 0 0 20px;
+}
+.create-acc {
+  margin-top: 2rem;
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 500;
+  width: 100%;
+  display: inline-block;
+  border-radius: 0.8rem;
+  background-color: var(--main-Blue);
+  height: 40px;
+  border: none;
+}
+.bar-line {
+  position: absolute;
+  width: 15rem;
+  right: 20px;
+  top: 100px;
+}
 /*Sign Up*/
 /*Sign Up*/
 /*Sign Up*/
@@ -455,9 +437,8 @@ code {
   overflow: hidden;
   position: relative;
   margin: 1.5rem;
-  ;
 }
-.cards{
+.cards {
   position: relative;
   width: 350px;
   height: 220px;
@@ -606,10 +587,10 @@ code {
 .card .middle-container {
   display: flex;
 }
-.card .middle-left  {
+.card .middle-left {
   width: 45%;
   display: flex;
-  
+
   align-items: center;
   border-left: 1.5px solid var(--card-text);
   position: absolute;
@@ -620,50 +601,50 @@ code {
   text-align: left;
   color: white;
 }
-.card .middle-left > p{
+.card .middle-left > p {
   margin: 0 1rem 0;
 }
 .card .middle-center {
   width: 10%;
-    display: flex;
-    flex-wrap: wrap;
-    border-left: 1.5px solid var(--card-text);
-    position: absolute;
-    left: 55%;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 62.9%;
-    
-    align-items: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  border-left: 1.5px solid var(--card-text);
+  position: absolute;
+  left: 55%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 62.9%;
+
+  align-items: flex-end;
 }
-.card .middle-center .box{
+.card .middle-center .box {
   height: 90%;
-    margin: .5rem 0 .5rem .5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  margin: 0.5rem 0 0.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .card .middle-rigth {
   width: 32%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    border-left: 1.5px solid var(--card-text);
-    position: absolute;
-    left: 70%;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 62.9%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border-left: 1.5px solid var(--card-text);
+  position: absolute;
+  left: 70%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 62.9%;
 }
 
 .card .middle-rigth .rating {
   height: -moz-fit-content;
-    height: fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    position: relative;
-    margin: .5rem 0 .5rem 1rem;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  margin: 0.5rem 0 0.5rem 1rem;
 }
 .card .middle-rigth .rating .level {
   margin: 0;
@@ -674,7 +655,7 @@ code {
   top: 85%;
   transform: translateX(-50%);
 }
-.card  .header{
+.card .header {
   transform: rotate(-90deg);
   font-weight: 300;
   color: var(--card-text);
@@ -685,26 +666,92 @@ code {
   top: 78%;
   font-weight: 500;
 }
-#about{
-  
-    left: -16%;
-    top: 76%;
+#about {
+  left: -16%;
+  top: 76%;
 }
 
-#aval{
+#aval {
   left: -94%;
   top: 70%;
 }
-#Green{
+#Green {
   color: limegreen;
 }
-#Orange{
+#Orange {
   color: orange;
 }
-#Red{
+#Red {
   color: red;
 }
 
 /* Card */
 /* Card */
 /* Card */
+
+
+/* Sign up GRID */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto ;
+  padding-right: 12px;
+  padding-left: 12px;
+  /* border: 1px solid rgba(0, 0, 0, 0.8); */
+
+  grid-gap: 50px;
+  margin-top: 12px;
+}
+
+.grid-container h4 {
+  padding-right: 10px;
+  margin: 0;
+}
+.grid-container h6 {
+  padding-left: 10px;
+  /* margin: 0; */
+}
+
+
+.card-item {
+  /* padding: 20px; */
+  font-size: 30px;
+  text-align: center;
+  /* border: 1px solid rgba(0, 0, 0, 0.8); */
+}
+
+.grid-item1 {
+  grid-area: 1 / 2;
+  background-color: var(--main-Bk); 
+  text-align: left; 
+  padding-left: 20px;
+
+}
+
+.grid-item2 {
+  grid-row-start: 1;
+
+}
+
+.grid-item3 {
+  padding: 20px;
+  grid-area: span 2 / 2;
+  color: whitesmoke;
+
+}
+
+.grid-item4 {
+  grid-area: 2 / auto;
+}
+.grid-item5 {
+  background-color: var(--main-Bk);  
+}
+
+
+@media only screen and (max-width: 500px) {
+  .grid-item1 { grid-area: 1 / span 2 ; }
+  .grid-item2 { grid-area: 2 / span 2; }
+  .grid-item3 { grid-area: 3 / span 2; }
+  .grid-item4 { grid-area: 4 / span 2; }
+
+}
