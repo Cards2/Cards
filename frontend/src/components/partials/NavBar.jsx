@@ -59,7 +59,7 @@ class NavBar extends Component {
               </div>
             </div>
             <div className='navbar-icons-box'>
-              <NavLink to='/notifications'>
+              <NavLink to='/projectpage'>
                 <img
                   className='navbar-icons'
                   src='./Icons/notificationBell.svg'

@@ -40,8 +40,7 @@ export const Screen1 = props => {
       </div>
       <br></br>
       <button onClick={props.transition1}> NEXT </button>
-      {props.submissionError(props.errors.usernameLength, 'Your username must be longer than 6 characters')}
-      {props.submissionError(props.errors.usernameTitle, 'Your username must be longer than 6 characters')}
+      
     </>
   );
 };

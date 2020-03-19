@@ -11,11 +11,11 @@ class LogIn extends Component {
 
   popUpSignUp = () => {
     if (this.state.signUp) {
-      return <SignUp {...this.props} setUser={this.props.setUser} />;
+      return <SignUp {...this.props} setUser={this.props.setUser} togglefalse={this.togglefalse} toggletrue={this.toggletrue}/>;
     }
   };
 
-  toggle = () => {
+  toggletrue = () => {
     this.props.caller();
     this.setState({
       signUp: true
@@ -63,7 +63,7 @@ class LogIn extends Component {
         this.props.setUser({ ...user.data });
         this.props.history.push("/profile-update")
       })
-      .catch(({ response }) => console.error(response.data));
+      .catch(( response ) => console.error(response.data));
   };
 
   
@@ -96,7 +96,7 @@ class LogIn extends Component {
               value='Log In'
               onClick={a => this.redirect}
             />
-            <a id='btnsignup' className='btn-signup' onClick={this.toggle}>
+            <a id='btnsignup' className='btn-signup' onClick={this.toggletrue}>
               Sign up
             </a>
           </div>

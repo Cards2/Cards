@@ -6,7 +6,7 @@ import NotFound from "./components/404/NotFound.js";
 import NavBar from "./components/partials/NavBar";
 // import Footer from "./components/partials/Footer";
 // eslint-disable-next-line
-import Card from "./components/partials/Card";
+
 import CardTest from "./components/partials/CardTest";
 import MyCard from "./components/profile/MyCard";
 //home page
@@ -30,6 +30,9 @@ import UsercreationTest from "./components/partials/usercreationTest";
 import Notifications from "./components/notifications/Notifications";
 
 
+//notifications tab
+
+import ProjectPage from "./components/partials/ProjectPage";
 class App extends Component {
   state = {
     loading: true
@@ -227,7 +230,7 @@ class App extends Component {
              exact
               path='/profile-update'
               render={props => (
-                <ProfileUpdate
+                <ProjectPage
                   {...props}
                   handleChange={this.handleChange}
                   setUserProperty={this.setUserProperty}

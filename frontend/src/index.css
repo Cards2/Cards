@@ -152,7 +152,6 @@ code {
   border-radius: 0.8rem;
   box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  height: 60vh;
   width: 20vw;
 }
 .signUp-text {
@@ -184,38 +183,42 @@ code {
   position: relative;
   height: 60%;
   width: 20rem;
+  /* justify-content: space-around; */
 }
 .signUp-form h5 {
   text-align: left;
   width: 20rem;
   margin-bottom: 5px;
   margin-top: 5px;
+  color: white;
 }
 .signUp-form > input {
   border: none;
   border-radius: 0.8rem;
   height: 30px;
   width: 20rem;
-  margin: 0 0 20px;
+  height: 2.2rem;
+  /* margin: 0 0 20px; */
 }
 .create-acc {
-  margin-top: 2rem;
   color: white;
-  text-decoration: none;
-  font-size: 2rem;
-  font-weight: 500;
-  width: 100%;
-  display: inline-block;
-  border-radius: 0.8rem;
-  background-color: var(--main-Blue);
-  height: 40px;
-  border: none;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 500;
+    width: 100%;
+    display: inline-block;
+    border-radius: 0.8rem;
+    background-color: var(--main-Blue);
+    height: 40px;
+    border: none;
+    margin: 2rem;
+    height: 2.6rem;
 }
 .bar-line {
   position: absolute;
   width: 15rem;
   right: 20px;
-  top: 100px;
+  top: 13rem;
 }
 /*Sign Up*/
 /*Sign Up*/
@@ -323,10 +326,9 @@ code {
     font-size: 1.5rem;
     width: 60%;
     margin: 1rem auto;
+    text-align: left;
   }
-  .form-box > input {
-    margin: 1rem !important;
-  }
+  
   #btnlog {
     width: 10rem;
     font-size: 2rem;
@@ -380,10 +382,15 @@ code {
 }
 
 .form-box > input {
-  margin: 2rem 0;
+  margin: 0rem 0 2rem;
   border: none;
   height: 2.5rem;
   border-radius: 0.5rem;
+}
+.form-box > h4 {
+  text-align: left;
+  margin: 0rem 0 0;
+  color: white;
 }
 /*Home*/
 /*Home*/
@@ -755,3 +762,22 @@ code {
   .grid-item4 { grid-area: 4 / span 2; }
 
 }
+/*projectpage*/
+/*projectpage*/
+/*projectpage*/
+.p-page{
+  background-color: var(--main-Bk);
+  height: 86.3vh;
+  width: 100vw;
+  position: relative;
+}
+.project-img{
+  background-color: var(--main-Blue);
+  border-top-left-radius: .8rem;
+  border-top-right-radius: .8rem;
+  height: 10rem;
+  width: 40rem;
+}
+/*projectpage*/
+/*projectpage*/
+/*projectpage*/
