@@ -773,11 +773,134 @@ code {
 }
 .project-img{
   background-color: var(--main-Blue);
-  border-top-left-radius: .8rem;
-  border-top-right-radius: .8rem;
-  height: 10rem;
-  width: 40rem;
+  border-bottom-right-radius: .6rem;
+  border-top-right-radius: .6rem;
+  height: 13rem;
+  width: 66%;
+  /* box-shadow: 6px 3px 12px black; */
+  position: absolute;
+  top: -3rem;
 }
+.project-img-bk{
+  width: 100%;
+  height: 80%;
+  background-image: url('/project.jpg');
+  background-size: cover;
+  background-position-y: center;
+}
+.master-list{
+  text-decoration: none;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+.master-list .info-list{
+  display: flex;
+    font-weight: bolder;
+    color: var(--main-Bk);
+    font-size: small;
+}
+.master-list .info-list .info-list-text{
+  margin: 0 0 0 .5rem;
+  color: white;
+  font-weight: 300;
+}
+.list-box{
+  height: 20%;
+    display: flex;
+    align-items: center;
+}
+.backofinfo{
+  background-color: var(--main-Blue);
+  border-radius: .7rem;
+  width: fit-content;
+}
+.backofinfo .backofinfo-item{
+  display: flex;
+  align-items: center;
+  
+  margin: 1.5rem;
+}
+.backofinfo .backofinfo-item > img{
+  width: 4rem;
+}
+.backofinfo .backofinfo-item > div{
+  color: white;
+  font-weight: bold;
+  font-size: small;
+  margin: 0 0 0 1rem;
+}
+ #requirements{
+  position: absolute;
+  top: 15rem;
+  left: 2rem;
+ }
+ .backofinfo .backofinfo-tagname{
+  position: absolute;
+  color: var(--main-Blue);
+  font-size: large;
+  font-weight: bold;
+  top: -2.2rem;
+  left: 1.05rem;
+ }
+ #backofinfo-info{
+  position: absolute;
+  top: 15rem;
+  max-width: 35rem;
+  left: 15rem;
+ }
+ #backofinfo-info > p{
+  color: white;
+    font-weight: 500;
+    font-size: initial;
+    margin: 1rem;
+ }
+ #backofinfo-info > div{
+  position: absolute;
+  color: var(--main-Blue);
+  font-size: large;
+  font-weight: bold;
+  top: -2.2rem;
+  left: 1.05rem;
+ }
+ .owner-card{
+  position: absolute;
+  top: 13.5rem;
+  left: 52rem;
+ }
+ .owner-card .owner-card-tagname{
+  position: absolute;
+  color: var(--main-Blue);
+  font-size: large;
+  font-weight: bold;
+  top: -.8rem;
+  left: 2.2rem;
+ }
+ #imgofproject{
+   width: 25rem;
+   height: 15rem;
+   margin: 3rem 5rem 0 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: white;
+   font-size: large;
+  font-weight: bold;
+ }
+ #imgofproject-box{
+  position: absolute;
+    right: 2rem;
+    top: 5rem;
+ }
+ #imgofproject-tagname{
+  position: absolute;
+  color: var(--main-Blue);
+  font-size: large;
+  font-weight: bold;
+  top: -.4rem;
+  left: 2.2rem;
+ }
 /*projectpage*/
 /*projectpage*/
 /*projectpage*/
