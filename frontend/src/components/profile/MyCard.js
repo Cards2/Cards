@@ -22,12 +22,6 @@ class MyCard extends Component {
         actions.sendMyCard(this.state)
     }
 // Delete Request
-
-
-
-
-
-
     cardDeleteRequest= async (e)=>{
       let pendingcardarr = this.props.generalstate.pendingCards;
       let userIndex = pendingcardarr.indexOf(e.target.value);
@@ -40,17 +34,7 @@ class MyCard extends Component {
       console.log(this.props.generalstate, "generalstate")
     }
 
-
-
-
-
-
-
-
-
-
-
-    // Accept Request
+ // Accept Request
     cardAcceptRequest= async (e)=>{
       await this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
       console.log(this.state, "Positivo")
@@ -85,20 +69,21 @@ class MyCard extends Component {
          );      
       };
 
-    cardStack = () => {
-      if (this.props.generalstate.users) {
-        return this.props.generalstate.users.data.allUsers.map(eachuser => {
-          return ( 
-            <>
-                <h1> Cucu User</h1>
-                <button onClick={this.removeCard} > Remove Card </button>
 
-              </>
-            )
-          }
-        )
-      }
-    };
+    // cardStack = () => {
+    //   if (this.props.generalstate.users) {
+    //     return this.props.generalstate.users.data.allUsers.map(eachuser => {
+    //       return ( 
+    //         <>
+    //             <h1> Cucu User</h1>
+    //             <button onClick={this.removeCard} > Remove Card </button>
+
+    //           </>
+    //         )
+    //       }
+    //     )
+    //   }
+    // };
 
 
 // {this.props.generalstate.username}

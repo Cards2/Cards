@@ -75,9 +75,9 @@ export default class Card extends Component {
                   </div>
                   <div className="title-organizer">
                     <h1>
-                      <span className="heading-card--main">Isaac</span>
+          <span className="heading-card--main">{this.props.username}</span>
                       <span className="heading-card--sub">
-                        Graphic Designer
+                        {this.props.title}
                       </span>
                     </h1>
                   </div>
@@ -104,22 +104,19 @@ export default class Card extends Component {
                   <div className="middle-left">
                     <p className='header'id='about'>About</p>
                     <p>
-                      Sit et voluptua erat sit lorem dolor invidunt magna.
-                      Voluptua et sadipscing sadipscing erat dolor et sed, est
-                      voluptua et sed dolore. Sadipscing lorem sed et eos
-                      consetetur amet. Amet ipsum sed labore dolore dolores eos.
+                      {this.props.about}
                     </p>
                   </div>
                   <div className="middle-center">
                   <p className='header'id='aval'>Avalbility</p>
                    <div className='box'>
-                    <div id={this.abiability('never')}>Mon</div>
-                    <div id={this.abiability('always')}>Tue</div>
-                    <div id={this.abiability('never')}>Wed</div>
-                    <div id={this.abiability('sometimes')}>Thu</div>
-                    <div id={this.abiability('never')}>Fri</div>
-                    <div id={this.abiability('always')}>Sat</div>
-                    <div id={this.abiability('always')}>Sun</div>
+                    <div id={this.abiability({this.props.abiability})}>Mon</div>
+                    <div id={this.abiability({this.props.abiability})}>Tue</div>
+                    <div id={this.abiability({this.props.abiability})}>Wed</div>
+                  <div id={this.abiability({this.props.abiability})}>Thu</div>
+                    <div id={this.abiability({this.props.abiability})}>Fri</div>
+                    <div id={this.abiability({this.props.abiability})}>Sat</div>
+                    <div id={this.abiability({this.props.abiability})}>Sun</div>
                     </div>
                   </div>
                   <div className="middle-rigth">

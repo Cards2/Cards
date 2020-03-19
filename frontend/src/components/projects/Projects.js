@@ -9,7 +9,6 @@ today = mm + "/" + dd + "/" + yyyy;
 
 class Projects extends Component {
   state = {
-    userID: this.props.user._id,
     projectTitle: "",
     description: "",
     startDate: "",
@@ -24,6 +23,7 @@ class Projects extends Component {
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+    console.log(this.state);
   };
 
   handleSubmit = e => {
@@ -41,7 +41,6 @@ class Projects extends Component {
     if (!this.props.user.email) {
       this.props.history.push("/log-in");
     }
-    // console.log(this.props.user._id);
     return (
       <div>
         <h3>Welcome {this.props.user.email}!!!</h3>
@@ -50,7 +49,7 @@ class Projects extends Component {
 
           <form onSubmit={this.handleSubmit}>
             <div>
-              <label htmlFor='title'>
+              <label htmlFor='projectTitle'>
                 <h4>Project Title</h4>
               </label>
               <input
@@ -100,7 +99,12 @@ class Projects extends Component {
             <label htmlFor='status'>
               <h4>Project Status</h4>
             </label>
-            <select onChange={this.handleChange} defaultValue='none' name='status' required>
+            <select
+              onChange={this.handleChange}
+              defaultValue='none'
+              name='status'
+              required
+            >
               <option value='none' disabled hidden>
                 Select an Option
               </option>

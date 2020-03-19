@@ -24,10 +24,6 @@ import Projects from "./components/projects/Projects";
 import MyTeams from "./components/projects/MyTeams";
 import ProjectUpdate from "./components/projects/ProjectUpdate";
 // eslint-disable-next-line
-import Card from "./components/partials/Card";
-import CardTest from "./components/partials/CardTest";
-import MyCard from "./components/profile/MyCard";
-// import Footer from "./components/partials/Footer";
 
 import UsercreationTest from "./components/partials/usercreationTest"
 
@@ -160,7 +156,7 @@ class App extends Component {
             <Route
               exact
               path='/my-stack'
-              render={props => <MyStack {...props} user={this.state} />}
+              render={props => <MyStack {...props} generalstate={this.state} />}
             />
             <Route
               exact
