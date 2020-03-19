@@ -10,13 +10,13 @@ class MyCard extends Component {
         
     }
 
-    adduser= (e) =>{
-        e.preventDefault()
-        this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
-        console.log(this.state, "cucu")
+    // adduser= (e) =>{
+    //     e.preventDefault()
+    //     this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
+    //     console.log(this.state, "cucu")
 
-        actions.sendMyCard(this.state)
-    }
+    //     actions.sendMyCard(this.state)
+    // }
 
     cardCall = () => {
         return (
@@ -46,20 +46,20 @@ class MyCard extends Component {
       };
 
 
-    cardStack = () => {
-      if (this.props.generalstate.users) {
-        return this.props.generalstate.users.data.allUsers.map(eachuser => {
-          return ( 
-            <>
-                <h1> Cucu User</h1>
-                <button onClick={this.removeCard} > Remove Card </button>
+    // cardStack = () => {
+    //   if (this.props.generalstate.users) {
+    //     return this.props.generalstate.users.data.allUsers.map(eachuser => {
+    //       return ( 
+    //         <>
+    //             <h1> Cucu User</h1>
+    //             <button onClick={this.removeCard} > Remove Card </button>
 
-              </>
-            )
-          }
-        )
-      }
-    };
+    //           </>
+    //         )
+    //       }
+    //     )
+    //   }
+    // };
 
 
 // {this.props.generalstate.username}
