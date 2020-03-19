@@ -9,15 +9,50 @@ class MyCard extends Component {
     state = {
         
     }
-
+// Send Request
     adduser= (e) =>{
         e.preventDefault()
         this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
         console.log(this.state, "cucu")
-
         actions.sendMyCard(this.state)
     }
+// Delete Request
 
+
+
+
+
+
+    cardDeleteRequest= async (e)=>{
+      let pendingcardarr = this.props.generalstate.pendingCards;
+      let userIndex = pendingcardarr.indexOf(e.target.value);
+      await this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
+      console.log(this.state, "request")
+      actions.deleteRequest(this.state)
+      if (userIndex>-1){
+        pendingcardarr.splice(userIndex,1)
+      }
+      console.log(this.props.generalstate, "generalstate")
+    }
+
+
+
+
+
+
+
+
+
+
+
+    // Accept Request
+    cardAcceptRequest= async (e)=>{
+      await this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
+      console.log(this.state, "Positivo")
+      actions.acceptRequest(this.state)
+    }
+
+    // My Card
     cardCall = () => {
         return (
               <Tilt
@@ -44,7 +79,6 @@ class MyCard extends Component {
               </Tilt>
          );      
       };
-
 
     cardStack = () => {
       if (this.props.generalstate.users) {
@@ -82,21 +116,6 @@ class MyCard extends Component {
   //  }
   //};
 
-  cardDeleteRequest= async (e)=>{
-    await this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
-    console.log(this.state, "muku")
-    actions.deleteRequest(this.state)
-  }
-
-  cardAcceptRequest= async (e)=>{
-    await this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
-    console.log(this.state, "Positivo")
-    actions.acceptRequest(this.state)
-  }
-
-
-  // acceptRequest
-
     incomingCards = () =>{
       if (this.props.generalstate) {
         return this.props.generalstate.pendingCards.map(eachrequest => {
@@ -116,17 +135,6 @@ class MyCard extends Component {
    }
   };
 
-
-
-
-
-// {this.props.generalstate.username}
-// {this.props.generalstate.title}
-
-
-
-
-
   render() {
         console.log(this.props.generalstate)
     return (
@@ -135,6 +143,8 @@ class MyCard extends Component {
             {this.cardCall()}
           <h1 style={{color: "white"}} > Incoming cards </h1>
             {this.incomingCards()}
+
+
           <h1 style={{color: "white"}} > My Card stack </h1>
             {/* {this.cardStack()} */}
             </div>

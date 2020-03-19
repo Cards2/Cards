@@ -172,6 +172,7 @@ class SearchUsers extends Component {
   }
 
   render() {
+    console.log(this.props.generalstate)
     return (
       <div className='searchPage'>
         <div className='searchBar'> </div>
