@@ -9,41 +9,14 @@ class MyCard extends Component {
     state = {
         
     }
-// Send Request
-    adduser= (e) =>{
-        e.preventDefault()
-        this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
-        console.log(this.state, "cucu")
-        actions.sendMyCard(this.state)
-    }
-// Delete Request
 
+    // adduser= (e) =>{
+    //     e.preventDefault()
+    //     this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
+    //     console.log(this.state, "cucu")
 
-
-
-
-
-    cardDeleteRequest= async (e)=>{
-      let pendingcardarr = this.props.generalstate.pendingCards;
-      let userIndex = pendingcardarr.indexOf(e.target.value);
-      await this.setState({[e.target.name]: e.target.value, _id: this.props.generalstate._id});
-      console.log(this.state, "request")
-      actions.deleteRequest(this.state)
-      if (userIndex>-1){
-        pendingcardarr.splice(userIndex,1)
-      }
-      console.log(this.props.generalstate, "generalstate")
-    }
-
-
-
-
-
-
-
-
-
-
+    //     actions.sendMyCard(this.state)
+    // }
 
     // Accept Request
     cardAcceptRequest= async (e)=>{
@@ -80,20 +53,21 @@ class MyCard extends Component {
          );      
       };
 
-    cardStack = () => {
-      if (this.props.generalstate.users) {
-        return this.props.generalstate.users.data.allUsers.map(eachuser => {
-          return ( 
-            <>
-                <h1> Cucu User</h1>
-                <button onClick={this.removeCard} > Remove Card </button>
 
-              </>
-            )
-          }
-        )
-      }
-    };
+    // cardStack = () => {
+    //   if (this.props.generalstate.users) {
+    //     return this.props.generalstate.users.data.allUsers.map(eachuser => {
+    //       return ( 
+    //         <>
+    //             <h1> Cucu User</h1>
+    //             <button onClick={this.removeCard} > Remove Card </button>
+
+    //           </>
+    //         )
+    //       }
+    //     )
+    //   }
+    // };
 
 
 // {this.props.generalstate.username}

@@ -131,7 +131,7 @@ class App extends Component {
             <Route
               exact
               path='/my-stack'
-              render={props => <MyStack {...props} user={this.state} />}
+              render={props => <MyStack {...props} generalstate={this.state} />}
             />
             <Route
               exact
