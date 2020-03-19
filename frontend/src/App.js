@@ -40,10 +40,10 @@ class App extends Component {
     let res4 = await actions.oneProjectQuery(this.state);
     let res5 = await actions.oneUserInteraction(this.state._id);
     // console.log(res5)
-    this.setState({ ...user.data, loading: false, users: res2 });
+    this.setState({ ...user.data, users: res2 });
     this.setState(res3.data.currentUser);
     this.setState(res4.data.currentProject);
-    this.setState(res5.data.currUserInt);
+    this.setState({...res5.data.currUserInt, loading: false});
   }
 
   setUser = user => this.setState(user);
