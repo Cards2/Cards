@@ -3,7 +3,7 @@ import React from "react";
 export const Screen1 = props => {
   console.log(props);
   return (
-    <> 
+    <>
       <div>
         <h2 style={{ color: "white", padding: 5 }}> Hi There! </h2>
         <h1 style={{ color: "white", padding: 5 }}>

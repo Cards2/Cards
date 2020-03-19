@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import actions from "../../services";
-import FlashMessage from "react-flash-message";
+//import FlashMessage from "react-flash-message";
 import { Screen1 } from "./createProfileForms/Screen1";
 import { Screen2 } from "./createProfileForms/Screen2";
 import { Screen3 } from "./createProfileForms/Screen3";

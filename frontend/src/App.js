@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import actions from "./services/index";
-import NotFound from "./components/404/NotFound.js";
+// import NotFound from "./components/404/NotFound.js";
 //partials
 import NavBar from "./components/partials/NavBar";
 // import Footer from "./components/partials/Footer";
@@ -17,6 +17,7 @@ import LogIn from "./components/auth/LogIn";
 //user data creation
 import CreateProfile from "./components/profile/CreateProfile";
 //cards tab
+// eslint-disable-next-line
 import ProfileUpdate from "./components/profile/ProfileUpdate";
 import MyStack from "./components/profile/MyStack";
 //search tab
@@ -32,7 +33,7 @@ import Notifications from "./components/notifications/Notifications";
 
 //notifications tab
 
-import ProjectPage from "./components/partials/ProjectPage";
+// import ProjectPage from "./components/partials/ProjectPage";
 class App extends Component {
   state = {
     loading: true,
