@@ -6,6 +6,9 @@ import NotFound from "./components/404/NotFound.js";
 import NavBar from "./components/partials/NavBar";
 // import Footer from "./components/partials/Footer";
 // eslint-disable-next-line
+import Card from "./components/partials/Card";
+import CardTest from "./components/partials/CardTest";
+import MyCard from "./components/profile/MyCard";
 //home page
 import Home from "./components/home/Home";
 //authentication
@@ -23,12 +26,10 @@ import SearchProjects from "./components/search/SearchProjects";
 import Projects from "./components/projects/Projects";
 import MyTeams from "./components/projects/MyTeams";
 import ProjectUpdate from "./components/projects/ProjectUpdate";
-// eslint-disable-next-line
-
-import UsercreationTest from "./components/partials/usercreationTest"
-
-//notifications tab
+import UsercreationTest from "./components/partials/usercreationTest";
 import Notifications from "./components/notifications/Notifications";
+
+
 class App extends Component {
   state = {
     loading: true
