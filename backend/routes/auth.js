@@ -322,7 +322,7 @@ router.post("/accept-card-send", isAuth, (req,res,next) => {
       .catch(err => {
         res.status(500).json({ err });
       });
-})
+}) 
 
 // OP
 //  requests all users to search component
@@ -334,6 +334,25 @@ router.get("/userquery", (req, res, next) => {
     })
     .catch(err => res.status(500).json({ err }));
 });
+
+
+
+
+
+// router.get("/user-inter-query", (req, res, next) => {
+//   // console.log(req.user)
+//   UserData.find( { _id: { $in: req.user._id } } ) //$ne excludes a specific field from the search. here we are passing the current user ID to avoid search
+//     .then(allUsers => {
+//       res.status(200).json({ allUsers });
+//     })
+//     .catch(err => res.status(500).json({ err }));
+// });
+
+
+
+
+
+
 
 // OP
 // need to use isAuth for getting the data of the current user 

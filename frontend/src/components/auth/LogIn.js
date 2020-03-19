@@ -22,6 +22,27 @@ class LogIn extends Component {
     });
   };
 
+//  actionCalls = async () =>{
+ 
+//   let res2 = await actions.userQuery();
+//   console.log(res2, "res 2")
+//   let res3 = await actions.oneUserQuery(user);
+//   console.log(res3, 'res3')
+//   let res4 = await actions.oneProjectQuery(user);
+//   console.log(res4, 'res4')
+//   let res5 = await actions.oneUserInteraction(user);
+//   console.log(res5, 'res 5')
+
+//   this.setState({ ...user.data, 
+//     users: res2, 
+//     ...res3.data.currentUser, 
+//     ...res4.data.currentProject, 
+//     ...res4.data.currentProject, 
+//     ...res5.data.currUserInt, 
+//     loading: false });
+//   }
+
+
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit = e => {
@@ -30,12 +51,22 @@ class LogIn extends Component {
     actions
       .logIn(this.state)
       .then(user => {
+        console.log(user)
+        .oneUserQuery(user)
+          .then(res1 => this.props.setUser({ ...res1.data }))
+        .oneUserInteraction(user)
+          .then(res2 => this.props.setUser({ ...res2.data }))
+        .userQuery(user)
+          .then(res3 => this.props.setUser({ ...res3.data }))
+        .oneProjectQuery(user)
+          .then(res4 => this.props.setUser({ ...res4.data }))
         this.props.setUser({ ...user.data });
-        this.props.history.push("/profile-update");
+        this.props.history.push("/profile-update")
       })
       .catch(({ response }) => console.error(response.data));
   };
 
+  
   redirect = () => {};
 
   render() {

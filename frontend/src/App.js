@@ -1,14 +1,11 @@
 import React, { Component } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import actions from "./services/index";
 import NotFound from "./components/404/NotFound.js";
 //partials
 import NavBar from "./components/partials/NavBar";
 // import Footer from "./components/partials/Footer";
 // eslint-disable-next-line
-import Card from "./components/partials/Card";
-import CardTest from "./components/partials/CardTest";
-import MyCard from "./components/profile/MyCard";
 //home page
 import Home from "./components/home/Home";
 //authentication
@@ -43,16 +40,32 @@ class App extends Component {
 
   async componentDidMount() {
     let user = await actions.isLoggedIn();
-    let res2 = await actions.userQuery();
-    let res3 = await actions.oneUserQuery(this.state);
-    let res4 = await actions.oneProjectQuery(this.state);
-    let res5 = await actions.oneUserInteraction(this.state._id);
-    // console.log(res5)
-    this.setState({ ...user.data, users: res2 });
-    this.setState(res3.data.currentUser);
-    this.setState(res4.data.currentProject);
-    this.setState({...res5.data.currUserInt, loading: false});
+    let res2 = await actions.userQuery(user);
+    // console.log(res2, "res 2")
+    let res3 = await actions.oneUserQuery(user);
+    // console.log(res3, 'res3')
+    let res4 = await actions.oneProjectQuery(user);
+    // console.log(res4, 'res4')
+    let res5 = await actions.oneUserInteraction(user);
+    // console.log(res5, 'res 5')
+
+    this.setState({ ...user.data, 
+      users: res2, 
+      ...res3.data.currentUser, 
+      ...res4.data.currentProject, 
+      ...res4.data.currentProject, 
+      ...res5.data.currUserInt, 
+      loading: false });
+
   }
+
+
+    // this.setState(res3.data.currentUser);
+    // this.setState(res4.data.currentProject);
+    // this.setState({...res5.data.currUserInt, loading: false});
+  
+
+
 
   setUser = user => this.setState(user);
 
@@ -65,15 +78,42 @@ class App extends Component {
       email: null,
       createdAt: null,
       updatedAt: null,
-      _id: null
+      _id: null,
+      loading: false,
+      users: null,
+      title: null,
+      art: null,
+      programming: null,
+      design: null,
+      audio: null,
+      writing: null,
+      monday: null,
+      tuesday: null,
+      wednesday: null,
+      thursday: null,
+      friday: null,
+      saturday: null,
+      sunday: null,
+      timezone: null,
+      aboutMe: null,
+      portfolio: null,
+      contact: null,
+      __v: 0,
+      requestedCards: null,
+      pendingCards: null,
+      acceptedCards: null,
+      salt: null,
+      hash: null,
     });
   };
+
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
+    console.log(this.state)
     return (
       <>
         <BrowserRouter>
@@ -92,11 +132,7 @@ class App extends Component {
           </Switch>
 
           <Switch>
-            <Route
-              exact
-              path='/'
-              render={props => <Home {...props} setUser={this.setUser} />}
-            />
+          
             <Route
               exact
               path='/sign-up'
@@ -120,18 +156,7 @@ class App extends Component {
                 />
               )}
             />
-            <Route
-              exact
-              path='/profile-update'
-              render={props => (
-                <ProfileUpdate
-                  {...props}
-                  handleChange={this.handleChange}
-                  setUserProperty={this.setUserProperty}
-                  user={this.state}
-                />
-              )}
-            />
+            
             <Route
               exact
               path='/my-stack'
@@ -194,8 +219,26 @@ class App extends Component {
               path='/userCreationTests'
               render={props => <UsercreationTest {...props} generalstate={this.state}  />}
             />
-            
-            <Route component={NotFound} />
+             <Route
+             exact
+              path='/profile-update'
+              render={props => (
+                <ProfileUpdate
+                  {...props}
+                  handleChange={this.handleChange}
+                  setUserProperty={this.setUserProperty}
+                  user={this.state}
+                />
+              )}
+            />
+            {this.state.username &&
+            <Redirect to="/profile-update"/>
+           }
+            <Route        
+              path='/'
+              render={props => <Home {...props} setUser={this.setUser} />}
+            />
+            {/* <Route component={NotFound} /> */}
           </Switch>
           {/* <Footer/> */}
         </BrowserRouter>

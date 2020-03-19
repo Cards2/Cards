@@ -9,6 +9,11 @@ class MyCard extends Component {
     state = {
         
     }
+
+    // async componentDidMount(){
+    //   let res = await actions.
+    // }
+
 // Send Request
     adduser= (e) =>{
         e.preventDefault()
@@ -145,8 +150,7 @@ class MyCard extends Component {
             {this.incomingCards()}
 
 
-          <h1 style={{color: "white"}} > My Card stack </h1>
-            {/* {this.cardStack()} */}
+
             </div>
         );
     }

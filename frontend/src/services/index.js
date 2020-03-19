@@ -71,6 +71,26 @@ const actions = {
   },
 
 
+
+
+
+
+
+
+  userinterquery: async userinterquery => {
+    return await service.post("/user-inter-query", userinterquery);
+  },
+
+
+
+
+  
+
+
+
+
+
+
 // PROJECT ACTIONS
 // ------------------------------------------------------------------------------
 // initial project creation
