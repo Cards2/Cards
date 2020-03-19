@@ -332,19 +332,6 @@ router.get("/userquery", (req, res, next) => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 router.get("/user-inter-query", (req, res, next) => {
   console.log(req.user)
   UserData.find( { _id: { $in: req.user._id } } ) //$ne excludes a specific field from the search. here we are passing the current user ID to avoid search
@@ -353,19 +340,6 @@ router.get("/user-inter-query", (req, res, next) => {
     })
     .catch(err => res.status(500).json({ err }));
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // OP

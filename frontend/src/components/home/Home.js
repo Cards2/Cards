@@ -39,7 +39,7 @@ this.setState({
               </p>
             </div>
             <div className='register-box'>
-              <LogIn setUser={this.props.setUser} caller={this.caller} {...this.props}/>
+              <LogIn setUser={this.props.setUser} caller={this.caller} callUsers={this.callUsers} {...this.props}/>
             </div>
 
             {/* card playground */}

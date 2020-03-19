@@ -21,7 +21,9 @@ class CreateProfile extends Component {
       actions
         .userInteraction(this.props.user)
         .then(userdata => {})
-        .catch(({ response }) => console.error(response.data));
+        .catch(({ response }) => console.error(response.data))
+      actions.userQuery(this.props.user)
+      .then(res3 => this.props.setUser({ ...res3.data }))  ;
     }
   };
 

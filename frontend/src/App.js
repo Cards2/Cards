@@ -35,8 +35,13 @@ import Notifications from "./components/notifications/Notifications";
 import ProjectPage from "./components/partials/ProjectPage";
 class App extends Component {
   state = {
-    loading: true
+    loading: true,
+    ready1: false,
+    ready2: false,
+    ready3: false,
   };
+
+
 
   async componentDidMount() {
     let user = await actions.isLoggedIn();
@@ -51,7 +56,6 @@ class App extends Component {
     this.setState({ ...user.data, 
       users: res2, 
       ...res3.data.currentUser, 
-      ...res4.data.currentProject, 
       ...res4.data.currentProject, 
       ...res5.data.currUserInt, 
       loading: false });
@@ -69,7 +73,7 @@ class App extends Component {
   
 
 
-
+  callUsers = calledUsers => this.setState({ users: calledUsers});
 
   
   setUser = user => this.setState(user);
@@ -143,12 +147,12 @@ class App extends Component {
             <Route
               exact
               path='/sign-up'
-              render={props => <SignUp {...props} setUser={this.setUser} />}
+              render={props => <SignUp {...props} setUser={this.setUser}  callUsers={this.callUsers}  />}
             />
             <Route
               exact
               path='/log-in'
-              render={props => <LogIn {...props} setUser={this.setUser} />}
+              render={props => <LogIn {...props} setUser={this.setUser}  callUsers={this.callUsers} />}
             />
             <Route
               exact
@@ -230,7 +234,7 @@ class App extends Component {
              exact
               path='/profile-update'
               render={props => (
-                <ProjectPage
+                <ProfileUpdate
                   {...props}
                   handleChange={this.handleChange}
                   setUserProperty={this.setUserProperty}
@@ -243,7 +247,7 @@ class App extends Component {
            }
             <Route        
               path='/'
-              render={props => <Home {...props} setUser={this.setUser} />}
+              render={props => <Home {...props} setUser={this.setUser} callUsers={this.callUsers} />}
             />
             {/* <Route component={NotFound} /> */}
           </Switch>

@@ -77,7 +77,6 @@ class NavBar extends Component {
           </Fragment>
         ) : (
           <Fragment>
-            {this.props.history.push("/")}
             {/* <NavLink to='/sign-up'>Sign Up</NavLink>
             <NavLink to='/log-in'>Log In</NavLink> */}
           </Fragment>

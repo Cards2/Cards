@@ -29,6 +29,11 @@ class SignUp extends Component {
       actions
         .signUp(this.state)
         .then(username => {
+          console.log(username.data._id)
+          actions.userQuery(username.data._id)
+          .then(allusers => {
+            this.props.callUsers(allusers)
+          })
           this.props.setUser({ ...username.data });
           this.props.history.push("/profile");
         })
@@ -36,6 +41,7 @@ class SignUp extends Component {
     }
   };
 
+  
   userNameLengthError = () => {
     const styles = { color: "red", fontSize: "10px" };
     if (this.state.usernameLength === false) {
