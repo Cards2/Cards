@@ -51,8 +51,6 @@ class App extends Component {
     // // console.log(res5, 'res 5')
     this.setState({ loading: false });
   }
-
-
   
   affectRequests=(requestID)=>{
     let pendingArr = this.state.pendingCards;
@@ -113,8 +111,6 @@ class App extends Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
-
 
   render() {
     console.log(this.state)

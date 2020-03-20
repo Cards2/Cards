@@ -10,10 +10,14 @@ export default class Card extends Component {
   };
 
   // This makes the card component be conditionally denredered by passing in props in anywhere we want
-  async componentDidMount(){
-    this.setState({...this.props.CurrentCard})
+  async componentDidMount() {
+    this.setState({ ...this.props.CurrentCard });
   }
 
+  update = () => {
+    
+    this.setState({ ...this.props.CurrentCard });
+  };
 
   // index = () => {
   //   if (this.props.id === "/") {
@@ -93,9 +97,12 @@ export default class Card extends Component {
                         </div>
                         <div className='title-organizer'>
                           <h1>
-                            <span className='heading-card--main'> {this.state.username} </span>
+                            <span className='heading-card--main'>
+                              {" "}
+                              {this.state.username}{" "}
+                            </span>
                             <span className='heading-card--sub'>
-                            {this.state.title}
+                              {this.state.title}
                             </span>
                           </h1>
                         </div>
@@ -111,94 +118,108 @@ export default class Card extends Component {
                       </div>
                     </div>
                     <div class='general'>
-                          <div id='under' className='switch-container'>
-                            <div className='at'>
-                              <img src='./Icons/user-contact-btn.svg' alt='' />
+                      <div id='under' className='switch-container'>
+                        <div className='at'>
+                          <img src='./Icons/user-contact-btn.svg' alt='' />
+                        </div>
+                        <div
+                          className='switcher'
+                          onClick={a => this.toggler(2)}
+                        >
+                          <img src='./Icons/card-toggle-active.svg' alt='' />
+                        </div>
+                        <div>
+                          <img
+                            alt='user interaction button'
+                            src='./Icons/user-interaction-btn.svg'
+                          ></img>
+                        </div>
+                      </div>
+                      <div className='middle-container'>
+                        <div className='middle-left'>
+                          <p className='header' id='about'>
+                            About
+                          </p>
+                          <p>{this.state.aboutMe}</p>
+                        </div>
+                        <div className='middle-center'>
+                          <p className='header' id='aval'>
+                            Avalbility
+                          </p>
+                          <div className='box'>
+                            <div id={this.availability(`${this.state.monday}`)}>
+                              Mon
                             </div>
                             <div
-                              className='switcher'
-                              onClick={a => this.toggler(2)}
+                              id={this.availability(`${this.state.tuesday}`)}
                             >
-                              <img
-                                src='./Icons/card-toggle-active.svg'
-                                alt=''
-                              />
-                            </div>
-                            <div>
-                              <img
-                                alt='user interaction button'
-                                src='./Icons/user-interaction-btn.svg'
-                              ></img>
-                            </div>
-                          </div>
-                          <div className='middle-container'>
-                            <div className='middle-left'>
-                              <p className='header' id='about'>
-                                About
-                              </p>
-                              <p>{this.state.aboutMe}</p>
-                            </div>
-                            <div className='middle-center'>
-                              <p className='header' id='aval'>
-                                Avalbility
-                              </p>
-                              <div className='box'>
-                              <div id={this.availability( `${this.state.monday}` )}>Mon</div>
-                              <div id={this.availability( `${this.state.tuesday}` )}>Tue</div>
-                              <div id={this.availability( `${this.state.wednesday}` )}>Wed</div>
-                              <div id={this.availability( `${this.state.thrusday}` )}>Thu</div>
-                              <div id={this.availability( `${this.state.friday}` )}>Fri</div>
-                              <div id={this.availability( `${this.state.saturday}` )}>Sat</div>
-                              <div id={this.availability( `${this.state.sunday}` )}>Sun</div>
-                              </div>
-                            </div>
-                            <div className='middle-rigth'>
-                              <p className='header'>Skills</p>
-                              <div className='rating'>
-                                <img src='./Icons/Design.svg' alt='' />
-                                <p className='level'>{this.state.design}</p>
-                              </div>
-                              <div className='rating'>
-                                <img src='./Icons/Other-Misc.svg' alt='' />
-                                <p className='level'>{this.state.design}</p>
-                              </div>
-                              <div className='rating'>
-                                <img src='./Icons/Programming.svg' alt='' />
-                                <p className='level'>{this.state.programming}</p>
-                              </div>
-                              <div className='rating'>
-                                <img src='./Icons/Art.svg' alt='' />
-                                <p className='level'>{this.state.art}</p>
-                              </div>
-                              <div className='rating'>
-                                <img src='./Icons/Audio.svg' alt='' />
-                                <p className='level'>{this.state.audio}</p>
-                              </div>
-                              <div className='rating'>
-                                <img src='./Icons/Writing.svg' alt='' />
-                                <p className='level'>{this.state.writing}</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div className='bottom-container'>
-                            <div className='user-craft'>
-                              Portfolio:
-                              <a href='www.google.com'>
-                              {this.state.portfolio}
-                              </a>
+                              Tue
                             </div>
                             <div
-                              className='user-conections'
-                              id='conection-under'
+                              id={this.availability(`${this.state.wednesday}`)}
                             >
-                              <img
-                                alt='copy user link button'
-                                src='./Icons/copy-user-link-btn.svg'
-                              />{" "}
-                              1564
+                              Wed
+                            </div>
+                            <div
+                              id={this.availability(`${this.state.thrusday}`)}
+                            >
+                              Thu
+                            </div>
+                            <div id={this.availability(`${this.state.friday}`)}>
+                              Fri
+                            </div>
+                            <div
+                              id={this.availability(`${this.state.saturday}`)}
+                            >
+                              Sat
+                            </div>
+                            <div id={this.availability(`${this.state.sunday}`)}>
+                              Sun
                             </div>
                           </div>
                         </div>
+                        <div className='middle-rigth'>
+                          <p className='header'>Skills</p>
+                          <div className='rating'>
+                            <img src='./Icons/Design.svg' alt='' />
+                            <p className='level'>{this.state.design}</p>
+                          </div>
+                          <div className='rating'>
+                            <img src='./Icons/Other-Misc.svg' alt='' />
+                            <p className='level'>{this.state.design}</p>
+                          </div>
+                          <div className='rating'>
+                            <img src='./Icons/Programming.svg' alt='' />
+                            <p className='level'>{this.state.programming}</p>
+                          </div>
+                          <div className='rating'>
+                            <img src='./Icons/Art.svg' alt='' />
+                            <p className='level'>{this.state.art}</p>
+                          </div>
+                          <div className='rating'>
+                            <img src='./Icons/Audio.svg' alt='' />
+                            <p className='level'>{this.state.audio}</p>
+                          </div>
+                          <div className='rating'>
+                            <img src='./Icons/Writing.svg' alt='' />
+                            <p className='level'>{this.state.writing}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className='bottom-container'>
+                        <div className='user-craft'>
+                          Portfolio:
+                          <a href='www.google.com'>{this.state.portfolio}</a>
+                        </div>
+                        <div className='user-conections' id='conection-under'>
+                          <img
+                            alt='copy user link button'
+                            src='./Icons/copy-user-link-btn.svg'
+                          />{" "}
+                          1564
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
