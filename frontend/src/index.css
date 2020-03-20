@@ -1143,6 +1143,9 @@ width: 89%;
 .add-project{
   margin: 0 0 0 5rem;
 }
+#project-bk-card{
+  background-image: url("/project.jpg");
+}
 
 /*project update*/
 /*project update*/
@@ -1157,7 +1160,8 @@ width: 89%;
   justify-content: space-around;
 }
 #cross{
-  background-color: none;
+  background-color: transparent;
+    height: 1.1rem;
 }
 /*search*/
 /*search*/

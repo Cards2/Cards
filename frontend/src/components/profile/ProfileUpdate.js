@@ -6,6 +6,8 @@ import Card from "../partials/Card";
 class ProfileUpdate extends Component {
   state = {};
 
+  
+  
   handleSubmit = e => {
     e.preventDefault();
     actions
