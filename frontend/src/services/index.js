@@ -74,6 +74,22 @@ const actions = {
     return await service.post("/user-inter-query", userinterquery);
   },
 
+  //getsalltheprojects
+  allProjectQuery: async allProjectQuery => {
+    return await service.get("/all-project-query", allProjectQuery);
+  },
+
+
+
+
+
+
+  
+
+
+
+
+
 // PROJECT ACTIONS
 // ------------------------------------------------------------------------------
 // initial project creation
