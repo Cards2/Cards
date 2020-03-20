@@ -5,7 +5,6 @@ class CardTest extends Component {
     hide: "hide",
     onLoad: "static",
     choice: 1
-
   };
 
   showOrHide = () => {
@@ -22,64 +21,76 @@ class CardTest extends Component {
       choice: num
     });
   };
-  abiability=(choice)=>{
-    if(choice === 'always'){
-      return 'Green'
-    } else if(choice === 'sometimes'){
-      return 'Orange'
-    } else if(choice === 'never'){
-      return 'Red'
-    }else{
-      return 'Green'
+  abiability = choice => {
+    if (choice === "always") {
+      return "Green";
+    } else if (choice === "sometimes") {
+      return "Orange";
+    } else if (choice === "never") {
+      return "Red";
+    } else {
+      return "Green";
     }
-  }
+  };
 
   render() {
     return (
       <div>
         <div>
-          <div className="center">
-            <div className="card">
+          <div className='center'>
+            <div className='card'>
               <div className={this.showOrHide()}>
-                <div className="more-info">
-                  <div className="switch-container">
-                    <div className="switcher" onClick={a => this.toggler(3)}>
-                      <img src="./Icons/card-toggle-inactive.svg" alt="" />
+                <div className='more-info'>
+                  <div className='switch-container'>
+                    <div className='switcher' onClick={a => this.toggler(3)}>
+                      <img src='./Icons/card-toggle-inactive.svg' alt='' />
                     </div>
                     <div>
-                      <img src="./Icons/user-interaction-btn.svg"></img>
+                      <img
+                        alt='user interaction'
+                        src='./Icons/user-interaction-btn.svg'
+                      ></img>
                     </div>
                   </div>
-                  <div className="title-organizer">
+                  <div className='title-organizer'>
                     <h1>
-                      <span className="heading-card--main">Isaac</span>
-                      <span className="heading-card--sub">
+                      <span className='heading-card--main'>Isaac</span>
+                      <span className='heading-card--sub'>
                         Graphic Designer
                       </span>
                     </h1>
                   </div>
-                  <div className="user-link">
-                    <span className="user-conections">
-                      <img src="./Icons/copy-user-link-btn.svg" /> 1564
+                  <div className='user-link'>
+                    <span className='user-conections'>
+                      <img
+                        alt='copy user link button'
+                        src='./Icons/copy-user-link-btn.svg'
+                      />{" "}
+                      1564
                     </span>
                   </div>
                 </div>
               </div>
-              <div class="general">
-                <div id="under" className="switch-container">
-                  <div className="at">
-                    <img src="./Icons/user-contact-btn.svg" alt="" />
+              <div class='general'>
+                <div id='under' className='switch-container'>
+                  <div className='at'>
+                    <img src='./Icons/user-contact-btn.svg' alt='' />
                   </div>
-                  <div className="switcher" onClick={a => this.toggler(2)}>
-                    <img src="./Icons/card-toggle-active.svg" alt="" />
+                  <div className='switcher' onClick={a => this.toggler(2)}>
+                    <img src='./Icons/card-toggle-active.svg' alt='' />
                   </div>
                   <div>
-                    <img src="./Icons/user-interaction-btn.svg"></img>
+                    <img
+                      alt='user interaction button'
+                      src='./Icons/user-interaction-btn.svg'
+                    ></img>
                   </div>
                 </div>
-                <div className="middle-container">
-                  <div className="middle-left">
-                    <p className='header'id='about'>About</p>
+                <div className='middle-container'>
+                  <div className='middle-left'>
+                    <p className='header' id='about'>
+                      About
+                    </p>
                     <p>
                       Sit et voluptua erat sit lorem dolor invidunt magna.
                       Voluptua et sadipscing sadipscing erat dolor et sed, est
@@ -87,52 +98,58 @@ class CardTest extends Component {
                       consetetur amet. Amet ipsum sed labore dolore dolores eos.
                     </p>
                   </div>
-                  <div className="middle-center">
-                  <p className='header'id='aval'>Avalbility</p>
-                   <div className='box'>
-                    <div id={this.abiability('never')}>Mon</div>
-                    <div id={this.abiability('always')}>Tue</div>
-                    <div id={this.abiability('never')}>Wed</div>
-                    <div id={this.abiability('sometimes')}>Thu</div>
-                    <div id={this.abiability('never')}>Fri</div>
-                    <div id={this.abiability('always')}>Sat</div>
-                    <div id={this.abiability('always')}>Sun</div>
+                  <div className='middle-center'>
+                    <p className='header' id='aval'>
+                      Avalbility
+                    </p>
+                    <div className='box'>
+                      <div id={this.abiability("never")}>Mon</div>
+                      <div id={this.abiability("always")}>Tue</div>
+                      <div id={this.abiability("never")}>Wed</div>
+                      <div id={this.abiability("sometimes")}>Thu</div>
+                      <div id={this.abiability("never")}>Fri</div>
+                      <div id={this.abiability("always")}>Sat</div>
+                      <div id={this.abiability("always")}>Sun</div>
                     </div>
                   </div>
-                  <div className="middle-rigth">
+                  <div className='middle-rigth'>
                     <p className='header'>Skills</p>
                     <div className='rating'>
-                      <img src="./Icons/Design.svg" alt="design" />
+                      <img src='./Icons/Design.svg' alt='design' />
                       <p className='level'>8</p>
                     </div>
                     <div className='rating'>
-                      <img src="./Icons/Other-Misc.svg" alt="other skill" />
+                      <img src='./Icons/Other-Misc.svg' alt='other skill' />
                       <p className='level'>8</p>
                     </div>
                     <div className='rating'>
-                      <img src="./Icons/Programming.svg" alt="programming" />
+                      <img src='./Icons/Programming.svg' alt='programming' />
                       <p className='level'>8</p>
                     </div>
                     <div className='rating'>
-                      <img src="./Icons/Art.svg" alt="art" />
+                      <img src='./Icons/Art.svg' alt='art' />
                       <p className='level'>8</p>
                     </div>
                     <div className='rating'>
-                      <img src="./Icons/Audio.svg" alt="audio" />
+                      <img src='./Icons/Audio.svg' alt='audio' />
                       <p className='level'>8</p>
                     </div>
                     <div className='rating'>
-                      <img src="./Icons/Writing.svg" alt="writing" />
+                      <img src='./Icons/Writing.svg' alt='writing' />
                       <p className='level'>8</p>
                     </div>
                   </div>
                 </div>
-                <div className="bottom-container">
-                  <div className="user-craft">
-                    Portfolio:<a href="">youaremy@favorite.link</a>
+                <div className='bottom-container'>
+                  <div className='user-craft'>
+                    Portfolio:<a href='www.google.com'>www.google.com</a>
                   </div>
-                  <div className="user-conections" id="conection-under">
-                    <img src="./Icons/copy-user-link-btn.svg" /> 1564
+                  <div className='user-conections' id='conection-under'>
+                    <img
+                      alt='copy user link button'
+                      src='./Icons/copy-user-link-btn.svg'
+                    />{" "}
+                    1564
                   </div>
                 </div>
               </div>

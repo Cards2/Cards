@@ -17,7 +17,7 @@ class NavBar extends Component {
             <NavLink to='/project-update'>Project Update</NavLink>
             <NavLink to='/search'>Search</NavLink> */}
             <div className='dropdown'>
-              <NavLink className='dropbtn' to='mycard'>
+              <NavLink className='dropbtn' to='/profile-update'>
                 Cards
               </NavLink>
               <div className='dropdown-content'>
@@ -31,7 +31,7 @@ class NavBar extends Component {
               </div>
             </div>
             <div className='dropdown'>
-              <NavLink className='dropbtn' to='mycard'>
+              <NavLink className='dropbtn' to='/projects'>
                 Projects
               </NavLink>
               <div className='dropdown-content'>
@@ -45,7 +45,7 @@ class NavBar extends Component {
               </div>
             </div>
             <div className='dropdown'>
-              <NavLink className='dropbtn' to='mycard'>
+              <NavLink className='dropbtn' to='/search'>
                 Find
               </NavLink>
               <div className='dropdown-content'>
@@ -59,7 +59,7 @@ class NavBar extends Component {
               </div>
             </div>
             <div className='navbar-icons-box'>
-              <NavLink to='/projectpage'>
+              <NavLink to='/notifications'>
                 <img
                   className='navbar-icons'
                   src='./Icons/notificationBell.svg'
