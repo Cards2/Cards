@@ -42,21 +42,14 @@ class App extends Component {
 
 
   async componentDidMount() {
-    let user = await actions.isLoggedIn();
-    let res2 = await actions.userQuery(user);
-    // console.log(res2, "res 2")
-    let res3 = await actions.oneUserQuery(user);
-    // console.log(res3, 'res3')
-    let res4 = await actions.oneProjectQuery(user);
-    // console.log(res4, 'res4')
-    let res5 = await actions.oneUserInteraction(user);
-    // console.log(res5, 'res 5')
-    this.setState({ ...user.data, 
-      users: res2, 
-      ...res3.data.currentUser, 
-      ...res4.data.currentProject, 
-      ...res5.data.currUserInt, 
-      loading: false });
+
+    // let res3 = await actions.oneUserQuery();
+    // // console.log(res3, 'res3')
+    // let res4 = await actions.oneProjectQuery();
+    // // console.log(res4, 'res4')
+    // let res5 = await actions.oneUserInteraction();
+    // // console.log(res5, 'res 5')
+    this.setState({ loading: false });
   }
 
 
@@ -112,6 +105,7 @@ class App extends Component {
       acceptedCards: null,
       salt: null,
       hash: null,
+      allUsers: null,
     });
   };
 
@@ -123,7 +117,7 @@ class App extends Component {
 
 
   render() {
-    // console.log(this.state)
+    console.log(this.state)
     return (
       <>
         <BrowserRouter>

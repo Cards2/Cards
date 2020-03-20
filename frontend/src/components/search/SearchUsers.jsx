@@ -47,9 +47,10 @@ class SearchUsers extends Component {
   }
 
   allCardsTilt = () => {
-    if (this.props.generalstate.users) {
-      return this.props.generalstate.users.data.allUsers.map(eachuser => {
+    if (this.props.generalstate.allUsers) {
+      return this.props.generalstate.allUsers.map(eachuser => {
         return (
+          <div>
           <Tilt
           className='card Tilt'
           options={{ max: 15 }}
@@ -166,7 +167,8 @@ class SearchUsers extends Component {
           </div>
           </div>
         </Tilt>
-       );
+        </div>
+        );
       });
     }
   }

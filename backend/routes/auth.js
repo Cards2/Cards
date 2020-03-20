@@ -45,6 +45,14 @@ router.get("/one-project-query", isAuth, (req, res, next) => {
 });
 
 
+
+
+
+
+
+
+
+
 router.post("/login2", passport.authenticate("local"), (req, res, next) => {
   var  user  = {...req.user._doc};
   UserData.findOne({ _id: req.user._id })
@@ -52,13 +60,38 @@ router.post("/login2", passport.authenticate("local"), (req, res, next) => {
     user = Object.assign(user, currentuser._doc)
     UserInteractions.findOne({ _id: req.user._id })
     .then(userinter => {
-      console.log(userinter, "sometext")
       user = Object.assign(user, userinter._doc)
-        console.log(user, "finaltext")
+        UserData.find({ _id: { $ne: req.user._id } }) 
+        .then(userquery => {
+        user["allUsers"] = userquery
+        console.log(userquery, "finaltext")
         res.status(200).json(user);
+        })
       })
     })
 });
+
+
+// router.get("/userquery", (req, res, next) => {
+//   // console.log(req.user)
+//   UserData.find({ _id: { $ne: req.user._id } }) 
+//     .then(allUsers => {
+//       res.status(200).json({ allUsers });
+//     })
+//     .catch(err => res.status(500).json({ err }));
+// });
+//$ne excludes a specific field from the search. here we are passing the current user ID to avoid search
+
+
+
+
+
+
+
+
+
+
+
 
 // MUST TEST
 router.post("/project-update", (req, res, next) => {
