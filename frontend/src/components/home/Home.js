@@ -9,7 +9,8 @@ class Home extends Component {
     login: false,
     xPos: 0,
     yPos: 0,
-    id: 'card'
+    id: 'card',
+    
   };
   caller=()=>{
 this.setState({
@@ -48,9 +49,9 @@ this.setState({
         <div className='cardPreviewBox'>
           {/* three cards go here */}
           
-          <CardTest name='Isaac' title='Web-Developer' />
-          <CardTest name='David' title='Web-Developer' />
-          <CardTest name='Melvin' title='Web-Developer' />
+          <CardTest name='Isaac' title='Web-Developer' bkpic={"https://images.unsplash.com/photo-1503289408281-f8314bf417c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80"}  />
+          <CardTest name='David' title='Web-Developer' bkpic={"https://images.unsplash.com/photo-1495524495561-e6f34fe3f445?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"}   />
+          <CardTest name='Melvin' title='Web-Developer' bkpic={"https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"} />
         </div>
       </div>
     );

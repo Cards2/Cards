@@ -1166,3 +1166,6 @@ width: 89%;
 /*search*/
 /*search*/
 /*search*/
+.searchPage{
+  background-color: var(--main-Bk);
+}

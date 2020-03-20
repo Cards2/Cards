@@ -53,7 +53,7 @@ class CardTest extends Component {
         <div>
           <div className='center'>
             <div className='card'>
-              <div className={this.showOrHide()}>
+              <div className={this.showOrHide()} style={{backgroundImage: `url(${this.props.bkpic})`}}>
                 <div className='more-info'>
                   <div className='switch-container'>
                     <div className='switcher' onClick={a => this.toggler(3)}>
