@@ -8,13 +8,14 @@ export default class Card extends Component {
     onLoad: "static",
     choice: 1
   };
-  index = () => {
-    if (this.props.id === "/") {
-      return "cards";
-    } else {
-      return "card";
-    }
-  };
+
+  // index = () => {
+  //   if (this.props.id === "/") {
+  //     return "cards";
+  //   } else {
+  //     return "card";
+  //   }
+  // };
 
   showOrHide = () => {
     if (this.state.choice === 1) {
@@ -25,12 +26,14 @@ export default class Card extends Component {
       return this.state.hide;
     }
   };
+
   toggler = num => {
     this.setState({
       choice: num
     });
   };
-  abiability = choice => {
+
+  avalibility = choice => {
     if (choice === "always") {
       return "Green";
     } else if (choice === "sometimes") {
@@ -42,7 +45,7 @@ export default class Card extends Component {
     }
   };
   render() {
-    console.log(window.location.pathname);
+    console.log(this.props);
     return (
       <Tilt
         className='card Tilt'
@@ -61,7 +64,7 @@ export default class Card extends Component {
             <div>
               <div>
                 <div className='center'>
-                  <div className={this.index()}>
+                  <div className='card'>
                     <div className={this.showOrHide()}>
                       <div className='more-info'>
                         <div className='switch-container'>
@@ -75,7 +78,10 @@ export default class Card extends Component {
                             />
                           </div>
                           <div>
-                            <img alt="user interaction button" src='./Icons/user-interaction-btn.svg'></img>
+                            <img
+                              alt='user interaction button'
+                              src='./Icons/user-interaction-btn.svg'
+                            ></img>
                           </div>
                         </div>
                         <div className='title-organizer'>
@@ -88,54 +94,16 @@ export default class Card extends Component {
                         </div>
                         <div className='user-link'>
                           <span className='user-conections'>
-                            <img alt="user interaction button" src='./Icons/copy-user-link-btn.svg' /> 1564
+                            <img
+                              alt='user interaction button'
+                              src='./Icons/copy-user-link-btn.svg'
+                            />{" "}
+                            1564
                           </span>
                         </div>
                       </div>
                     </div>
                     <div class='general'>
-                      <div id='under' className='switch-container'>
-                        <div className='at'>
-                          <img src='./Icons/user-contact-btn.svg' alt='' />
-                        </div>
-                        <div
-                          className='switcher'
-                          onClick={a => this.toggler(2)}
-                        >
-                          <img src='./Icons/card-toggle-active.svg' alt='' />
-                        </div>
-                        <div>
-                          <img alt="user interaction button" src='./Icons/user-interaction-btn.svg'></img>
-                        </div>
-                      </div>
-                      <div className='middle-container'>
-                        <div className='middle-left'>
-                          <p className='header' id='about'>
-                            About
-                          </p>
-                          <p>
-                            Sit et voluptua erat sit lorem dolor invidunt magna.
-                            Voluptua et sadipscing sadipscing erat dolor et sed,
-                            est voluptua et sed dolore. Sadipscing lorem sed et
-                            eos consetetur amet. Amet ipsum sed labore dolore
-                            dolores eos.
-                          </p>
-                        </div>
-                        <div className='middle-center'>
-                          <p className='header' id='aval'>
-                            Avalbility
-                          </p>
-                          <div className='box'>
-                            <div id={this.abiability("never")}>Mon</div>
-                            <div id={this.abiability("always")}>Tue</div>
-                            <div id={this.abiability("never")}>Wed</div>
-                            <div id={this.abiability("sometimes")}>Thu</div>
-                            <div id={this.abiability("never")}>Fri</div>
-                            <div id={this.abiability("always")}>Sat</div>
-                            <div id={this.abiability("always")}>Sun</div>
-                          </div>
-                        </div>
-                        <div class='general'>
                           <div id='under' className='switch-container'>
                             <div className='at'>
                               <img src='./Icons/user-contact-btn.svg' alt='' />
@@ -161,20 +129,20 @@ export default class Card extends Component {
                               <p className='header' id='about'>
                                 About
                               </p>
-                              <p>{this.props.about}</p>
+                              <p>a little about me</p>
                             </div>
                             <div className='middle-center'>
                               <p className='header' id='aval'>
                                 Avalbility
                               </p>
                               <div className='box'>
-                                <div id={this.abiability("always")}>Mon</div>
-                                <div id={this.abiability("always")}>Tue</div>
-                                <div id={this.abiability("always")}>Wed</div>
-                                <div id={this.abiability("always")}>Thu</div>
-                                <div id={this.abiability("always")}>Fri</div>
-                                <div id={this.abiability("always")}>Sat</div>
-                                <div id={this.abiability("always")}>Sun</div>
+                                <div id={this.avalibility("always")}>Mon</div>
+                                <div id={this.avalibility("always")}>Tue</div>
+                                <div id={this.avalibility("always")}>Wed</div>
+                                <div id={this.avalibility("always")}>Thu</div>
+                                <div id={this.avalibility("always")}>Fri</div>
+                                <div id={this.avalibility("always")}>Sat</div>
+                                <div id={this.avalibility("always")}>Sun</div>
                               </div>
                             </div>
                             <div className='middle-rigth'>
@@ -224,8 +192,6 @@ export default class Card extends Component {
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>

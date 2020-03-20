@@ -39,7 +39,7 @@ class Projects extends Component {
 
   render() {
     if (!this.props.user.email) {
-      this.props.history.push("/log-in");
+      this.props.history.push("/");
     }
     return (
       <div>
