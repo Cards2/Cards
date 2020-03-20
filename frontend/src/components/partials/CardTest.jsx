@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Tilt from "react-tilt";
 class CardTest extends Component {
   state = {
     show: "additional",
@@ -35,6 +36,19 @@ class CardTest extends Component {
 
   render() {
     return (
+
+      <Tilt
+        className='card Tilt'
+        options={{ max: 15 }}
+        style={{
+          height: 220,
+          width: 350,
+          transformStyle: "preserve-3d",
+
+          backgroundSize: "cover",
+          borderRadius: "6px"
+        }}
+      >
       <div>
         <div>
           <div className='center'>
@@ -54,9 +68,9 @@ class CardTest extends Component {
                   </div>
                   <div className='title-organizer'>
                     <h1>
-                      <span className='heading-card--main'>Isaac</span>
+                      <span className='heading-card--main'>{this.props.name}</span>
                       <span className='heading-card--sub'>
-                        Graphic Designer
+                        {this.props.title}
                       </span>
                     </h1>
                   </div>
@@ -116,27 +130,27 @@ class CardTest extends Component {
                     <p className='header'>Skills</p>
                     <div className='rating'>
                       <img src='./Icons/Design.svg' alt='design' />
-                      <p className='level'>8</p>
+                      <p className='level'>10</p>
                     </div>
                     <div className='rating'>
                       <img src='./Icons/Other-Misc.svg' alt='other skill' />
-                      <p className='level'>8</p>
+                      <p className='level'>10</p>
                     </div>
                     <div className='rating'>
                       <img src='./Icons/Programming.svg' alt='programming' />
-                      <p className='level'>8</p>
+                      <p className='level'>10</p>
                     </div>
                     <div className='rating'>
                       <img src='./Icons/Art.svg' alt='art' />
-                      <p className='level'>8</p>
+                      <p className='level'>10</p>
                     </div>
                     <div className='rating'>
                       <img src='./Icons/Audio.svg' alt='audio' />
-                      <p className='level'>8</p>
+                      <p className='level'>10</p>
                     </div>
                     <div className='rating'>
                       <img src='./Icons/Writing.svg' alt='writing' />
-                      <p className='level'>8</p>
+                      <p className='level'>10</p>
                     </div>
                   </div>
                 </div>
@@ -157,6 +171,7 @@ class CardTest extends Component {
           </div>
         </div>
       </div>
+      </Tilt>
     );
   }
 }

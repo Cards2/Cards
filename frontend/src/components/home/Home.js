@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import actions from "../../services/index";
 import LogIn from "../auth/LogIn";
-import Card from "../partials/Card";
+import CardTest from "../partials/CardTest";
 
 // LANDING PAGE
 class Home extends Component {
@@ -47,7 +47,10 @@ this.setState({
         </div>
         <div className='cardPreviewBox'>
           {/* three cards go here */}
-          <Card  id={this.state.id}/>
+          
+          <CardTest name='Isaac' title='Web-Developer' />
+          <CardTest name='David' title='Web-Developer' />
+          <CardTest name='Melvin' title='Web-Developer' />
         </div>
       </div>
     );
