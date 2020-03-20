@@ -26,7 +26,7 @@ class ProfileUpdate extends Component {
           <div className='profile-update-container'>
             <div className='profile-update-left'>
               <div className='card-container'>
-                <Card user={this.props} />
+                <Card CurrentCard={this.props.user} />
               </div>
             </div>
             <div className='profile-update-right'>

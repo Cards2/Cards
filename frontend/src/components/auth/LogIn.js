@@ -33,7 +33,7 @@ class LogIn extends Component {
     actions
       .logIn(this.state)
       .then(user => {
-        console.log(user.data)
+        // console.log(user.data)
         this.props.setUser({ ...user.data });
         this.props.history.push("/profile-update")
       })
@@ -60,16 +60,12 @@ class LogIn extends Component {
 //     this.props.setUser({ ...res4.data.currentProject })})
 
 
-
-
-
-
   redirect = () => {
     window.location.pathname="/profile-update"
   };
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     return (
       <div className='login-box'>
         {this.popUpSignUp()}

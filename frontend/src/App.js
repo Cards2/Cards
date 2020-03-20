@@ -215,7 +215,7 @@ class App extends Component {
               exact
               path='/notifications'
               render={props => (
-                <Notifications {...props} generalstate={this.state} />
+                <Notifications {...props} generalstate={this.state} affectRequests={this.affectRequests} />
               )}
             />
             <Route

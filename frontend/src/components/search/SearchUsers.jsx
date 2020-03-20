@@ -73,7 +73,8 @@ class SearchUsers extends Component {
                           <img src="./Icons/card-toggle-inactive.svg" alt="" />
                         </div>
                         <div>
-                        <input type="image" alt='add user' src="./Icons/user-interaction-btn.svg" onClick={this.adduser} name="requestedCards" value={eachuser._id}></input>                                                
+                        <input type="image" alt='add user' src="./Icons/user-interaction-btn.svg" 
+                        onClick={this.adduser} name="requestedCards" value={eachuser._id}></input>                                                
                         </div>
                       </div>
                       <div className="title-organizer">
@@ -109,7 +110,7 @@ class SearchUsers extends Component {
                       <div className="middle-left">
                         <p className='header'id='about'>About</p>
                         <p>
-                        {eachuser.title} 
+                        {eachuser.aboutMe} 
                         </p>
                       </div>
                       <div className="middle-center">

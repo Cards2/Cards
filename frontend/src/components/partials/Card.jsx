@@ -9,6 +9,12 @@ export default class Card extends Component {
     choice: 1
   };
 
+  // This makes the card component be conditionally denredered by passing in props in anywhere we want
+  async componentDidMount(){
+    this.setState({...this.props.CurrentCard})
+  }
+
+
   // index = () => {
   //   if (this.props.id === "/") {
   //     return "cards";
@@ -33,7 +39,7 @@ export default class Card extends Component {
     });
   };
 
-  avalibility = choice => {
+  availability = choice => {
     if (choice === "always") {
       return "Green";
     } else if (choice === "sometimes") {
@@ -44,8 +50,9 @@ export default class Card extends Component {
       return "Green";
     }
   };
+
   render() {
-    console.log(this.props);
+    // console.log(this.state);
     return (
       <Tilt
         className='card Tilt'
@@ -86,9 +93,9 @@ export default class Card extends Component {
                         </div>
                         <div className='title-organizer'>
                           <h1>
-                            <span className='heading-card--main'>Isaac</span>
+                            <span className='heading-card--main'> {this.state.username} </span>
                             <span className='heading-card--sub'>
-                              Graphic Designer
+                            {this.state.title}
                             </span>
                           </h1>
                         </div>
@@ -129,47 +136,47 @@ export default class Card extends Component {
                               <p className='header' id='about'>
                                 About
                               </p>
-                              <p>a little about me</p>
+                              <p>{this.state.aboutMe}</p>
                             </div>
                             <div className='middle-center'>
                               <p className='header' id='aval'>
                                 Avalbility
                               </p>
                               <div className='box'>
-                                <div id={this.avalibility("always")}>Mon</div>
-                                <div id={this.avalibility("always")}>Tue</div>
-                                <div id={this.avalibility("always")}>Wed</div>
-                                <div id={this.avalibility("always")}>Thu</div>
-                                <div id={this.avalibility("always")}>Fri</div>
-                                <div id={this.avalibility("always")}>Sat</div>
-                                <div id={this.avalibility("always")}>Sun</div>
+                              <div id={this.availability( `${this.state.monday}` )}>Mon</div>
+                              <div id={this.availability( `${this.state.tuesday}` )}>Tue</div>
+                              <div id={this.availability( `${this.state.wednesday}` )}>Wed</div>
+                              <div id={this.availability( `${this.state.thrusday}` )}>Thu</div>
+                              <div id={this.availability( `${this.state.friday}` )}>Fri</div>
+                              <div id={this.availability( `${this.state.saturday}` )}>Sat</div>
+                              <div id={this.availability( `${this.state.sunday}` )}>Sun</div>
                               </div>
                             </div>
                             <div className='middle-rigth'>
                               <p className='header'>Skills</p>
                               <div className='rating'>
                                 <img src='./Icons/Design.svg' alt='' />
-                                <p className='level'>8</p>
+                                <p className='level'>{this.state.design}</p>
                               </div>
                               <div className='rating'>
                                 <img src='./Icons/Other-Misc.svg' alt='' />
-                                <p className='level'>8</p>
+                                <p className='level'>{this.state.design}</p>
                               </div>
                               <div className='rating'>
                                 <img src='./Icons/Programming.svg' alt='' />
-                                <p className='level'>8</p>
+                                <p className='level'>{this.state.programming}</p>
                               </div>
                               <div className='rating'>
                                 <img src='./Icons/Art.svg' alt='' />
-                                <p className='level'>8</p>
+                                <p className='level'>{this.state.art}</p>
                               </div>
                               <div className='rating'>
                                 <img src='./Icons/Audio.svg' alt='' />
-                                <p className='level'>8</p>
+                                <p className='level'>{this.state.audio}</p>
                               </div>
                               <div className='rating'>
                                 <img src='./Icons/Writing.svg' alt='' />
-                                <p className='level'>8</p>
+                                <p className='level'>{this.state.writing}</p>
                               </div>
                             </div>
                           </div>
@@ -177,7 +184,7 @@ export default class Card extends Component {
                             <div className='user-craft'>
                               Portfolio:
                               <a href='www.google.com'>
-                                youaremy@favorite.link
+                              {this.state.portfolio}
                               </a>
                             </div>
                             <div
