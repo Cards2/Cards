@@ -16,14 +16,14 @@ class ProfileUpdate extends Component {
   };
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     if (!this.props.user.loading && !this.props.user.email) {
       this.props.history.push("/log-in");
     }
     return (
       <div>
 
-      { this.props.ready1 && this.props.ready2 && this.props.ready3? 
+      { this.props.user.email?
       
         <div>
         <div>
@@ -237,6 +237,8 @@ class ProfileUpdate extends Component {
       <div>
         <h1> loading </h1>
       </div>
+
+      
       }  
         
       {/* <div className='profile-update-container'>

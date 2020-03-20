@@ -16,7 +16,7 @@ const actions = {
     return await service.post("/signup", user);
   },
   logIn: async user => {
-    return await service.post("/login", user);
+    return await service.post("/login2", user);
   },
   logOut: async () => {
     return await service.get("/logout");
@@ -69,17 +69,6 @@ const actions = {
   profileUpdate: async profileUpdate => {
     return await service.post("/profile-update", profileUpdate);
   },
-
-
-
-
-
-
-
-
-
-
-
 
   userinterquery: async userinterquery => {
     return await service.post("/user-inter-query", userinterquery);

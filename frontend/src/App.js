@@ -37,9 +37,6 @@ import Notifications from "./components/notifications/Notifications";
 class App extends Component {
   state = {
     loading: true,
-    ready1: false,
-    ready2: false,
-    ready3: false,
   };
 
 
@@ -62,7 +59,8 @@ class App extends Component {
       loading: false });
   }
 
- 
+
+  
   affectRequests=(requestID)=>{
     let pendingArr = this.state.pendingCards;
     for(let request in pendingArr){
@@ -125,7 +123,7 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     return (
       <>
         <BrowserRouter>

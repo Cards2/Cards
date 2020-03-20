@@ -30,36 +30,40 @@ class LogIn extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state)
     actions
       .logIn(this.state)
       .then(user => {
-        console.log(user)
-        actions.oneUserQuery(user)
-          .then(res1 => {
-            console.log(1)
-            this.props.setUser({ ...res1.data.currentUser, ready1: true, })})
-            .catch(err => console.log(err) )
-        actions.oneUserInteraction(user)
-          .then(res2 => {
-            console.log(2)
-            this.props.setUser({ ...res2.data.currUserInt, ready2: true, })})
-        actions.userQuery(user)
-          .then(res3 => {
-            console.log(3)
-            this.props.setUser({ ...res3.data.users, ready3: true, })})
-        actions.oneProjectQuery(user)
-          .then(res4 => {
-            console.log(4)
-            this.props.setUser({ ...res4.data.currentProject })})
+        console.log(user.data)
         this.props.setUser({ ...user.data });
-        console.log(this.props, " sometext")
         this.props.history.push("/profile-update")
       })
       .catch(( response ) => console.error(response.data));
   };
 
   
+//   actions.oneUserQuery(user)
+//   .then(res1 => {
+//     console.log(1)
+//     this.props.setUser({ ...res1.data.currentUser, ready1: true, })})
+//     .catch(err => console.log(err) )
+// actions.oneUserInteraction(user)
+//   .then(res2 => {
+//     console.log(2)
+//     this.props.setUser({ ...res2.data.currUserInt, ready2: true, })})
+// actions.userQuery(user)
+//   .then(res3 => {
+//     console.log(3)
+//     this.props.setUser({ ...res3.data.users, ready3: true, })})
+// actions.oneProjectQuery(user)
+//   .then(res4 => {
+//     console.log(4)
+//     this.props.setUser({ ...res4.data.currentProject })})
+
+
+
+
+
+
   redirect = () => {
     window.location.pathname="/profile-update"
   };

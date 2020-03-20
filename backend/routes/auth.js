@@ -44,6 +44,22 @@ router.get("/one-project-query", isAuth, (req, res, next) => {
     .catch(err => res.status(500).json({ err }));
 });
 
+
+router.post("/login2", passport.authenticate("local"), (req, res, next) => {
+  var  user  = {...req.user._doc};
+  UserData.findOne({ _id: req.user._id })
+  .then(currentuser => {
+    user = Object.assign(user, currentuser._doc)
+    UserInteractions.findOne({ _id: req.user._id })
+    .then(userinter => {
+      console.log(userinter, "sometext")
+      user = Object.assign(user, userinter._doc)
+        console.log(user, "finaltext")
+        res.status(200).json(user);
+      })
+    })
+});
+
 // MUST TEST
 router.post("/project-update", (req, res, next) => {
   ProjectData.update(req.body)
