@@ -1082,3 +1082,83 @@ select {
 /*projectpage*/
 /*projectpage*/
 /*projectpage*/
+
+/*project update*/
+/*project update*/
+/*project update*/
+.project-form{
+display: flex;
+flex-direction: column;
+/* justify-content: space-around; */
+align-items: flex-start;
+height: 100%;
+width: 89%;
+}
+
+.project-form .project-form-item{
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 1rem 0;
+}
+.needed-role{
+  display: flex;
+  flex-direction: column;
+}
+.needed-role .needed-role-amount{
+  flex-wrap: wrap;
+    align-items: space-around;
+    /* flex-direction: column; */
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+}
+.needed-role .needed-role-amount .needed-role-amount-item{
+  margin: 0 2rem 1rem 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.needed-role .needed-role-amount .needed-role-amount-item > input{
+  width: 5rem;
+}
+#project-submit > button{
+  width: fit-content;
+  margin: 0 0 0 .5rem;
+}
+.project-form > div > label > h4,
+.project-form > label > h4,
+.project-form > div > div > h4
+{
+  font-size: 1.5rem;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    color: rgba(225, 225, 225, 0.5);
+}
+#project-description{
+  width: 25rem;
+    height: 10rem;
+}
+.add-project{
+  margin: 0 0 0 5rem;
+}
+
+/*project update*/
+/*project update*/
+/*project update*/
+
+/*search*/
+/*search*/
+/*search*/
+.searchPage{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+#cross{
+  background-color: none;
+}
+/*search*/
+/*search*/
+/*search*/

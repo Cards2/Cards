@@ -33,7 +33,7 @@ class ProfileUpdate extends Component {
               <div className='profile-update-title'>
                 <h2>Update your profile here!</h2>
               </div>
-              <div className='form-container'>
+              <div  className='form-container'>
                 <form onSubmit={this.handleSubmit}>
                   <h3>Username </h3>
                   <div>
