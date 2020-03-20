@@ -73,7 +73,7 @@ class SearchUsers extends Component {
                           <img src="./Icons/card-toggle-inactive.svg" alt="" />
                         </div>
                         <div>
-                        <input type="image" alt='add user' src="./Icons/user-interaction-btn.svg" 
+                        <input id='cross' type="image" alt='add user' src="./Icons/user-interaction-btn.svg" 
                         onClick={this.adduser} name="requestedCards" value={eachuser._id}></input>                                                
                         </div>
                       </div>
@@ -101,7 +101,7 @@ class SearchUsers extends Component {
                         <img src="./Icons/card-toggle-active.svg" alt="" />
                       </div>
                       <div>
-                      <input type="image" alt='user interaction button' src="./Icons/user-interaction-btn.svg" 
+                      <input id='cross' type="image" alt='user interaction button' src="./Icons/user-interaction-btn.svg" 
                         onClick={this.adduser} name="requestedCards" value={eachuser._id}>
                         </input>
                       </div>
@@ -178,7 +178,7 @@ class SearchUsers extends Component {
     console.log(this.props.generalstate)
     return (
       <div className='searchPage'>
-        <div className='searchBar'> </div>
+        {/* <div className='searchBar'> </div> */}
         {this.allCardsTilt()}
 
       </div>

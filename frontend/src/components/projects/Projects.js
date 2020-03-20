@@ -54,7 +54,7 @@ class Projects extends Component {
           </div>
           <div className="profile-update-right">
           <div className='profile-update-title'>
-          <h1>Add Project</h1>
+          <h1 className='add-project'>Add Project</h1>
               </div>
               <div id='project-form-container' className='form-container'>
             <form className='project-form' onSubmit={this.handleSubmit}>
@@ -74,7 +74,7 @@ class Projects extends Component {
                 <label htmlFor="description">
                   <h4>Project Description</h4>
                 </label>
-                <input
+                <input id='project-description'
                   onChange={this.handleChange}
                   type="text"
                   name="description"
@@ -185,7 +185,7 @@ class Projects extends Component {
                 </div>
                 </div>
               </div>
-              <div  className='profile-update-submit'>
+              <div id='project-submit' className='profile-update-submit'>
               <button  type="submit">Submit</button>
               </div>
             </form>

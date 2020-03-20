@@ -1122,6 +1122,43 @@ width: 89%;
 .needed-role .needed-role-amount .needed-role-amount-item > input{
   width: 5rem;
 }
+#project-submit > button{
+  width: fit-content;
+  margin: 0 0 0 .5rem;
+}
+.project-form > div > label > h4,
+.project-form > label > h4,
+.project-form > div > div > h4
+{
+  font-size: 1.5rem;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    color: rgba(225, 225, 225, 0.5);
+}
+#project-description{
+  width: 25rem;
+    height: 10rem;
+}
+.add-project{
+  margin: 0 0 0 5rem;
+}
+
 /*project update*/
 /*project update*/
 /*project update*/
+
+/*search*/
+/*search*/
+/*search*/
+.searchPage{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+#cross{
+  background-color: none;
+}
+/*search*/
+/*search*/
+/*search*/
