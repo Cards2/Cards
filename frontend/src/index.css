@@ -1082,3 +1082,46 @@ select {
 /*projectpage*/
 /*projectpage*/
 /*projectpage*/
+
+/*project update*/
+/*project update*/
+/*project update*/
+.project-form{
+display: flex;
+flex-direction: column;
+/* justify-content: space-around; */
+align-items: flex-start;
+height: 100%;
+width: 89%;
+}
+
+.project-form .project-form-item{
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 1rem 0;
+}
+.needed-role{
+  display: flex;
+  flex-direction: column;
+}
+.needed-role .needed-role-amount{
+  flex-wrap: wrap;
+    align-items: space-around;
+    /* flex-direction: column; */
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+}
+.needed-role .needed-role-amount .needed-role-amount-item{
+  margin: 0 2rem 1rem 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.needed-role .needed-role-amount .needed-role-amount-item > input{
+  width: 5rem;
+}
+/*project update*/
+/*project update*/
+/*project update*/
