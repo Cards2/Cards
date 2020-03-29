@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import actions from "../../services";
 import Card from "../partials/Card";
+import ProjectCard from "../partials/ProjectCard";
 
 let today = new Date();
 const dd = String(today.getDate()).padStart(2, "0");
@@ -44,12 +45,12 @@ class Projects extends Component {
     }
     return (
       <div>
-        <h3>Welcome {this.props.user.email}!!!</h3>
+        {/* <h3>Welcome {this.props.user.email}!!!</h3> */}
         
         <div className="profile-update-container">
           <div className="profile-update-left">
             <div className="card-container">
-              <Card CurrentCard={this.props.user} />
+              <ProjectCard CurrentCard={this.props.user}/>
             </div>
           </div>
           <div className="profile-update-right">

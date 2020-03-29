@@ -13,6 +13,12 @@ export default class Card extends Component {
   async componentDidMount() {
     this.setState({ ...this.props.CurrentCard });
   }
+  
+  rerender=()=>{
+    if(this.state.username !== this.props.CurrentCard.username || this.state.title !== this.props.CurrentCard.title ||this.state.aboutMe !== this.props.CurrentCard.aboutMe || this.state.art !== this.props.CurrentCard.art || this.state.programming !== this.props.CurrentCard.programming || this.state.audio !== this.props.CurrentCard.audio || this.state.writing !== this.props.CurrentCard.writing || this.state.portfolio !== this.props.CurrentCard.portfolio || this.state.monday !== this.props.CurrentCard.monday || this.state.tuesday !== this.props.CurrentCard.tuesday || this.state.thrusday !== this.props.CurrentCard.thrusday || this.state.wednesday !== this.props.CurrentCard.wednesday || this.state.friday !== this.props.CurrentCard.friday || this.state.saturday !== this.props.CurrentCard.saturday || this.state.sunday !== this.props.CurrentCard.sunday || this.state.username !== this.props.CurrentCard.username){
+    this.setState({...this.props.CurrentCard})
+    }
+  }
 
   update = () => {
     
@@ -54,21 +60,22 @@ export default class Card extends Component {
       return "Green";
     }
   };
-
+  
   render() {
-    // console.log(this.state);
+    {this.rerender()}
+    console.log(this.props.CurrentCard);
     return (
       <Tilt
-        className='card Tilt'
-        options={{ max: 15 }}
-        style={{
-          height: 220,
-          width: 350,
-          transformStyle: "preserve-3d",
-
-          backgroundSize: "cover",
-          borderRadius: "6px"
-        }}
+      className='card Tilt'
+      options={{ max: 15 }}
+      style={{
+        height: 220,
+        width: 350,
+        transformStyle: "preserve-3d",
+        
+        backgroundSize: "cover",
+        borderRadius: "6px"
+      }}
       >
         <div className='Tilt-inner innerCard'>
           <div>

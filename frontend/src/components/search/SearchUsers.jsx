@@ -50,7 +50,7 @@ class SearchUsers extends Component {
     if (this.props.generalstate.allUsers) {
       return this.props.generalstate.allUsers.map(eachuser => {
         return (
-          <div>
+          <div className='green-page'>
           <Tilt
           className='card Tilt'
           options={{ max: 15 }}
